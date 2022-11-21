@@ -6,16 +6,23 @@ import leafmap.foliumap as leafmap
 from datetime import date, datetime
 from dateutil.relativedelta import relativedelta
 from unidecode import unidecode
+import numpy as np
+from PIL import Image
+from os import path
+import os
+import random
+from wordcloud import WordCloud, STOPWORDS
 
 
-bbc_df = pd.read_csv('bbc_df.csv', encoding = "utf-8")
+
+bbc_df = pd.read_csv('./data/bbc_df.csv', encoding = "utf-8")
 bbc_df = bbc_df.dropna()
 
 def decode_description(line):
     return unidecode(line)
 bbc_df['description'] = bbc_df['description'].apply(decode_description)
 
-image = Image.open('Nuclear_Decommissioning_Authority_logo.png')
+image = Image.open('./data/Nuclear_Decommissioning_Authority_logo.png')
 st.set_page_config(layout="wide")
 
 st.sidebar.image(image, use_column_width=True)
@@ -87,22 +94,7 @@ m.add_points_from_xy(
     x="longitude",
     y="latitude")
 
-with st.expander("See world map representation"):
-    m.to_streamlit(height=700)
-
-
-
-
-
-import numpy as np
-from PIL import Image
-from os import path
-import matplotlib.pyplot as plt
-import os
-import random
-
-from wordcloud import WordCloud, STOPWORDS
-
+m.to_streamlit(height=700)
 
 def grey_color_func(word, font_size, position, orientation, random_state=None,
                     **kwargs):
@@ -114,7 +106,7 @@ d = path.dirname(__file__) if "__file__" in locals() else os.getcwd()
 
 # read the mask image taken from
 # http://www.stencilry.org/stencils/movies/star%20wars/storm-trooper.gif
-mask = np.array(Image.open('stormtrooper_mask.png'))
+mask = np.array(Image.open('./data/word_cloud_mask.png'))
 
 # movie script of "a new hope"
 # http://www.imsdb.com/scripts/Star-Wars-A-New-Hope.html
@@ -136,9 +128,6 @@ wc = WordCloud(max_words=1000, mask=mask, stopwords=stopwords, margin=10,
                random_state=1).generate(text)
 # store default colored image
 default_colors = wc.to_array()
-wc.to_file("a_new_hope.png")
-
-image = Image.open('a_new_hope.png')
 
 with st.expander("See word cloud"):
-    st.image(image, caption=f'WordCloud representation of data for {gsr} GSR')
+    st.image(wc.to_array(), caption=f'WordCloud representation of data for {gsr} GSR')
