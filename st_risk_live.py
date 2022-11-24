@@ -82,6 +82,9 @@ bbc_df = bbc_df[bbc_df.retrieved_gsr ==chosen_gsr]
 bbc_df.date = pd.to_datetime(bbc_df.date, format='%Y-%m-%d')
 bbc_df = bbc_df[(bbc_df.date >=start_date) & (bbc_df.date <=end_date)]
 
+dis = st.slider('Similarity Distance: (Lower the better match)', 0.0, 1.5, 1.3)
+bbc_df = bbc_df[bbc_df.distance <= dis]
+
 m = leafmap.Map(center=[51.5072, 0.1276], zoom=6)
 cities = 'https://raw.githubusercontent.com/giswqs/leafmap/master/examples/data/us_cities.csv'
 url = "https://raw.githubusercontent.com/giswqs/leafmap/master/examples/data/countries.geojson"
