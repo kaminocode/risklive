@@ -31,6 +31,11 @@ def get_embedding(model, text):
     embedding = model.encode(text, convert_to_tensor=False)
     return embedding
 
+@st.cache(allow_output_mutation=True)
+def load_cross_encoder():
+    cross_encoder = CrossEncoder('cross-encoder/ms-marco-MiniLM-L-6-v2')
+    return cross_encoder
+
 input_text = st.text_input('Input Text', 'What the health!')
 model_name = st.selectbox('Which model would you like to use?',('Annoy', 'Annoy+Rerank'))
 knn = st.slider('Number of Nearest Neighbours:', 1, 10, 1)
@@ -45,7 +50,7 @@ distance_list =  index[1]
 
 if model_name=='Annoy+Rerank':
     df = pd.DataFrame(columns=['Retrieved Theme','GSR','Distance','Cross Distance'])
-    cross_encoder = CrossEncoder('cross-encoder/ms-marco-MiniLM-L-6-v2')
+    cross_encoder = load_cross_encoder()
     cross_inp = [[input_text, corpus_sentence] for corpus_sentence in retrieved_theme_list]
     cross_scores = cross_encoder.predict(cross_inp)
     cross_distance_list = [float(item) for item in list(cross_scores)]
