@@ -5,9 +5,7 @@ import streamlit as st
 from annoy import AnnoyIndex
 from sentence_transformers import SentenceTransformer, CrossEncoder
 
-st.set_page_config(
-    page_title="Semantic Search App", page_icon="🕵️‍♂️", initial_sidebar_state="expanded"
-)
+st.set_page_config(layout="wide")
 
 st.write(
     """

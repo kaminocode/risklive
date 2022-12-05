@@ -13,8 +13,6 @@ import os
 import random
 from wordcloud import WordCloud, STOPWORDS
 
-
-
 bbc_df = pd.read_csv('./data/bbc_df.csv', encoding = "utf-8")
 bbc_df = bbc_df.dropna()
 
