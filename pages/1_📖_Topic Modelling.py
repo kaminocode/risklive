@@ -20,7 +20,7 @@ import streamlit as st
 
 
 def gsr_input_layout():
-    gsr_dict = {'Insufficient Skill Supply': 'skills', 'Supply Chain': 'supplychain', 'Cyber Threat': 'cyberthreat', ' Health, Safety and Wellbeing':'hsw'}
+    gsr_dict = {'Insufficient Skill Supply': 'skills', 'Supply Chain': 'supplychain', 'Cyber Threat': 'cyberthreat', 'Health, Safety and Wellbeing':'hsw'}
     gsr_description_dict = {
         'skills': 'The NDA Group or one of its Businesses has insufficient capability and capacity deliver the mission through not having the right people with the skills at the right time and place.',
         'supplychain': 'Risk that the existing supply chain may not have the capacity or capability to support NDA’s current targets, programmes & ultimately the mission, resulting in failure to deliver HMG policy/ targets, increased government interest & reduced value for money for the UK taxpayer.',
@@ -60,6 +60,9 @@ def preprocess_df(df):
 
 @st.cache()
 def topic_modeling(df):
+    if len(df)<15:
+        # replicate rows of the df
+        df = pd.concat([df]*5, ignore_index=True)
     # Initiate UMAP
     umap_model = UMAP(n_neighbors=15, n_components=5, min_dist=0.0, metric='cosine', random_state=100)
 
@@ -69,9 +72,12 @@ def topic_modeling(df):
     # Run BERTopic model
     topics, probabilities = topic_model.fit_transform(df['text_body_lemmatized'])
 
+    # if number of topics is 0, then return None
+    if len(topic_model.topic_labels_)==1:
+        return None
+    
     # Visualize the Topic
     fig = topic_model.visualize_barchart(top_n_topics=12)
-
     return fig
 
 # Heading
@@ -95,7 +101,10 @@ df = preprocess_df(df)
 fig = topic_modeling(df)
 
 # st.write(type(fig))
-st.plotly_chart(fig, use_container_width=True)
+if not fig:
+    st.write("No topics found!")
+else:
+    st.plotly_chart(fig, use_container_width=True)
 # st.pyplot(fig)
 
 
