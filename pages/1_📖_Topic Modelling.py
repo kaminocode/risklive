@@ -72,13 +72,20 @@ def topic_modeling(df):
     # Run BERTopic model
     topics, probabilities = topic_model.fit_transform(df['text_body_lemmatized'])
 
+    # Add topics over time
+    timestamps = df['date'].apply(lambda x: x.timestamp())
+    topics_over_time = topic_model.topics_over_time(df['text_body_lemmatized'], timestamps, nr_bins=20)
+
     # if number of topics is 0, then return None
     if len(topic_model.topic_labels_)==1:
         return None
     
     # Visualize the Topic
     fig = topic_model.visualize_barchart(top_n_topics=12)
-    return fig
+    fig_over_time = topic_model.visualize_topics_over_time(topics_over_time)
+
+    return fig, fig_over_time
+
 
 # Heading
 st.markdown("<h1 style='text-align: center; color: DARK RED;'><b></b>📖 Topic Modelling</h1>", unsafe_allow_html=True)
@@ -98,13 +105,15 @@ df = df[:1000]
 df = preprocess_df(df)
 
 # Visualize the Topic
-fig = topic_modeling(df)
+fig, fig_over_time = topic_modeling(df)
 
 # st.write(type(fig))
 if not fig:
     st.write("No topics found!")
 else:
     st.plotly_chart(fig, use_container_width=True)
+    st.plotly_chart(fig_over_time, use_container_width=True)
+
 # st.pyplot(fig)
 
 
