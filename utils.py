@@ -71,7 +71,7 @@ def decode_description(line):
     return unidecode(line)
 
 def plot_leafmap(df):
-    df = df[['latitude', 'longitude', 'summary', 'best_theme', 'date', 'retrieved_gsr']]
+    df = df[['latitude', 'longitude', 'summary', 'date', 'retrieved_gsr']]
     df['summary'] = df['summary'].apply(decode_description)
     m = leafmap.Map(center=[51.5072, 0.1276], zoom=2)
     cities = 'https://raw.githubusercontent.com/giswqs/leafmap/master/examples/data/us_cities.csv'
