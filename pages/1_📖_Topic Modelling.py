@@ -36,8 +36,6 @@ def gsr_input_layout():
 
 def load_dataset():
     df = pd.read_csv('./data/eiu_df.csv', encoding = "utf-8")
-    df = df.dropna()
-    df = df[df.best_theme!='No theme found']  
     return df
 
 def filter_df(df, chosen_gsr):
