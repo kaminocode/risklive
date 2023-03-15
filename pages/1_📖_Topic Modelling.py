@@ -5,6 +5,7 @@ import numpy as np
 import nltk
 nltk.download('stopwords')
 nltk.download('omw-1.4')
+nltk.download('wordnet')
 wn = nltk.WordNetLemmatizer()
 
 # Topic model

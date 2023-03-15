@@ -22,7 +22,7 @@ model = load_model()
 
 @st.cache_data()
 def load_dataset():
-    df = pd.read_csv('./data/eiu_df.csv', encoding = "utf-8")
+    df = pd.read_csv('../data/eiu_df.csv', encoding = "utf-8")
     df.dropna(subset=['text_body'], inplace=True)
     df.drop_duplicates(subset=['heading'], inplace=True)
     return df
@@ -84,10 +84,11 @@ def subset_text(heading, text, highlight):
         if highlight in line:
             index = lines.index(line)
             break
+    
     line_1 = lines[index - 1]
     line_2 = lines[index]
     line_3 = lines[index + 1]
-    return_text = line_1 + line_2 + line_3
+    return_text = '... '+line_1 + line_2 + line_3+' ...'
     text2highlight = line_2
     return highlight_text(heading, return_text, text2highlight)
     
