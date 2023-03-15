@@ -1,63 +1,108 @@
-import pickle
 import numpy as np
 import pandas as pd
+from sentence_transformers import SentenceTransformer, util
+from sklearn.metrics.pairwise import cosine_similarity
 import streamlit as st
-from annoy import AnnoyIndex
-from sentence_transformers import SentenceTransformer, CrossEncoder
+from nltk import sent_tokenize
 
 st.set_page_config(layout="wide")
 
 # Heading
 st.markdown("<h1 style='text-align: center; color: DARK RED;'><b></b>🕵️‍♂️ Semantic Search</h1>", unsafe_allow_html=True)
 
-@st.cache(allow_output_mutation=True)
-def load_all_models():
-    with open("./models/file_value_list.pkl","rb") as f:
-        file_value_list = pickle.load(f)
-    with open("./models/reverse_file_dict.pkl","rb") as f:
-        reverse_file_dict = pickle.load(f)
-    model = SentenceTransformer('all-MiniLM-L6-v2')
-    f = 384
-    u = AnnoyIndex(f, 'angular')
-    u.load('./models/query_embeddings.ann')
-    return model, u, file_value_list, reverse_file_dict
+# Load the pre-trained SentenceTransformer model
+@st.cache_data()
+def load_model():
+    model = SentenceTransformer('paraphrase-MiniLM-L6-v2')
+    return model
+model = load_model()
 
-@st.cache(allow_output_mutation=True)
-def get_embedding(model, text):
-    embedding = model.encode(text, convert_to_tensor=False)
-    return embedding
 
-@st.cache(allow_output_mutation=True)
-def load_cross_encoder():
-    cross_encoder = CrossEncoder('cross-encoder/ms-marco-MiniLM-L-6-v2')
-    return cross_encoder
+@st.cache_data()
+def load_dataset():
+    df = pd.read_csv('../data/eiu_df.csv', encoding = "utf-8")
+    df.dropna(subset=['text_body'], inplace=True)
+    df.drop_duplicates(subset=['heading'], inplace=True)
+    return df
+df = load_dataset()
 
-input_text = st.text_input('Input Text', 'What the health!')
-model_name = st.selectbox('Which model would you like to use?',('Annoy', 'Annoy+Rerank'))
-knn = st.slider('Number of Nearest Neighbours:', 1, 10, 1)
-model, u, file_value_list, reverse_file_dict = load_all_models()
-gsr_dict = {'Insufficient Skill Supply': 'skills', 'Supply Chain': 'supplychain', 'Cyber Threat': 'cyberthreat', ' Health, Safety and Wellbeing':'hsw'}
-reverse_gsr_dict =  {v: k for k, v in gsr_dict.items()}
-embedding = get_embedding(model, input_text)
-index = u.get_nns_by_vector(embedding, knn, search_k=-1, include_distances=True)
-retrieved_theme_list = [file_value_list[item] for item in index[0]]
-retrieved_gsr_list = [reverse_file_dict[retrieved_theme] for retrieved_theme in retrieved_theme_list]
-distance_list =  index[1]
+# Sample corpus
+corpus = df['text_body'].tolist()
+heading = df['heading'].tolist()
 
-if model_name=='Annoy+Rerank':
-    df = pd.DataFrame(columns=['Retrieved Theme','GSR','Distance','Cross Distance'])
-    cross_encoder = load_cross_encoder()
-    cross_inp = [[input_text, corpus_sentence] for corpus_sentence in retrieved_theme_list]
-    cross_scores = cross_encoder.predict(cross_inp)
-    cross_distance_list = [float(item) for item in list(cross_scores)]
-    df['Retrieved Theme'] = retrieved_theme_list
-    df['GSR'] = retrieved_gsr_list
-    df['Distance'] = distance_list
-    df['Cross Distance'] = cross_distance_list
-    df = df.sort_values(by=['Cross Distance'], ascending=False)
-else:
-    df = pd.DataFrame(columns=['Retrieved Theme','GSR','Distance'])
-    df['Retrieved Theme'] = retrieved_theme_list
-    df['GSR'] = retrieved_gsr_list
-    df['Distance'] = distance_list
-st.table(df)
+
+# Preprocess the news corpus
+@st.cache_data()
+def preprocess_corpus(corpus):
+    news_data = []
+    news_line_info = []
+    for idx, news in enumerate(corpus):
+        lines = sent_tokenize(news)
+        for line in lines:
+            if line.strip():
+                news_data.append(line.strip())
+                news_line_info.append((idx, line.strip()))
+    return news_data, news_line_info
+news_data, news_line_info = preprocess_corpus(corpus)
+
+# Create embeddings for the news data
+@st.cache_data()
+def create_embeddings(news_data):
+    embeddings = model.encode(news_data, convert_to_tensor=True)
+    return embeddings
+
+embeddings = create_embeddings(news_data)
+
+@st.cache_data()
+def search_query(query, top_num=10):
+    # Create an embedding for the query
+    query_embedding = model.encode(query, convert_to_tensor=True)
+
+    # Compute similarity between query and all news data
+    cos_scores = util.pytorch_cos_sim(query_embedding, embeddings)[0]
+
+    # Get the index of the 10 most similar news data
+    top_index_list = np.argpartition(-cos_scores, range(top_num))[0:top_num]
+    top_index = np.argmax(cos_scores)
+
+    # get the list of most similar news data and the similarity score
+    score_list = [cos_scores[idx] for idx in top_index_list]
+    news_list = [news_line_info[idx] for idx in top_index_list]
+    return news_list, score_list
+
+# Example search
+query = st.text_input('Input Query', 'Covid19')
+result, similarity_score = search_query(query)
+
+
+# get the line prior and next to the matching line in the text
+def subset_text(heading, text, highlight):
+    lines = sent_tokenize(text)
+    for line in lines:
+        if highlight in line:
+            index = lines.index(line)
+            break
+    line_1 = lines[index - 1]
+    line_2 = lines[index]
+    line_3 = lines[index + 1]
+    return_text = line_1 + line_2 + line_3
+    text2highlight = line_2
+    return highlight_text(heading, return_text, text2highlight)
+    
+
+def highlight_text(heading, text, text2highlight):
+    start_tag = "<mark>"
+    end_tag = "</mark>"
+    highlighted_text = text.replace(text2highlight, f"{start_tag}{text2highlight}{end_tag}")
+    return f"<h3>{heading}</h3>{highlighted_text}"
+
+
+highlight_text_list = []
+for result_tuple in result:
+    heading_text = heading[result_tuple[0]]
+    heading_text = heading_text.replace('Download the numbers in Excel', '')
+    highlighted_text = subset_text(heading_text, corpus[result_tuple[0]], result_tuple[1])
+    if highlighted_text not in highlight_text_list:
+        st.markdown(f"<style>mark {{ background-color: yellow; }}</style>{highlighted_text}<br><br><br>", unsafe_allow_html=True)
+    highlight_text_list.append(highlighted_text)
+    

@@ -5,7 +5,6 @@ import numpy as np
 import nltk
 nltk.download('stopwords')
 nltk.download('omw-1.4')
-nltk.download('wordnet')
 wn = nltk.WordNetLemmatizer()
 
 # Topic model
@@ -35,7 +34,9 @@ def gsr_input_layout():
     return chosen_gsr
 
 def load_dataset():
-    df = pd.read_csv('./data/eiu_df.csv', encoding = "utf-8")
+    df = pd.read_csv('../data/eiu_df.csv', encoding = "utf-8")
+    df.dropna(subset=['text_body'], inplace=True)
+    df.drop_duplicates(subset=['heading'], inplace=True)
     return df
 
 def filter_df(df, chosen_gsr):
@@ -117,5 +118,6 @@ else:
 # st.pyplot(fig)
 
 
-
+# plot histogram of distance column of the df to see the distribution of the distance seperaly for each GSR
+# st.write(df.groupby('retrieved_gsr')['distance'].hist())
 
