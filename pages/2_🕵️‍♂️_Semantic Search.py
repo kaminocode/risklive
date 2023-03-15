@@ -102,7 +102,6 @@ def highlight_text(heading, text, text2highlight):
 highlight_text_list = []
 for result_tuple in result:
     heading_text = heading[result_tuple[0]]
-    heading_text = heading_text.replace('Download the numbers in Excel', '')
     highlighted_text = subset_text(heading_text, corpus[result_tuple[0]], result_tuple[1])
     if highlighted_text not in highlight_text_list:
         st.markdown(f"<style>mark {{ background-color: yellow; }}</style>{highlighted_text}<br><br><br>", unsafe_allow_html=True)
