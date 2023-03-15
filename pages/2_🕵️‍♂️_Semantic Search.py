@@ -4,6 +4,8 @@ from sentence_transformers import SentenceTransformer, util
 from sklearn.metrics.pairwise import cosine_similarity
 import streamlit as st
 from nltk import sent_tokenize
+import nltk
+nltk.download('punkt')
 
 st.set_page_config(layout="wide")
 
