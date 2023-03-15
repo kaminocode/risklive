@@ -7,6 +7,7 @@ nltk.download('stopwords')
 nltk.download('omw-1.4')
 nltk.download('wordnet')
 wn = nltk.WordNetLemmatizer()
+from nltk import sent_tokenize
 
 # Topic model
 from bertopic import BERTopic
@@ -17,6 +18,9 @@ from umap import UMAP
 from datetime import date, datetime
 from dateutil.relativedelta import relativedelta
 import streamlit as st
+from sklearn.feature_extraction.text import CountVectorizer
+from bertopic.representation import MaximalMarginalRelevance
+from sentence_transformers import SentenceTransformer
 
 
 def gsr_input_layout():
@@ -42,13 +46,13 @@ def load_dataset():
 
 def filter_df(df, chosen_gsr):
     df = df[df.retrieved_gsr==chosen_gsr]
-    my_time = datetime.min.time()
-    start_date = datetime.now() - relativedelta(months=+6)
-    start_date = datetime.combine(start_date, my_time)
-    end_date = datetime.now()
-    end_date = datetime.combine(end_date, my_time)
+    # my_time = datetime.min.time()
+    # start_date = datetime.now() - relativedelta(months=+6)
+    # start_date = datetime.combine(start_date, my_time)
+    # end_date = datetime.now()
+    # end_date = datetime.combine(end_date, my_time)
     df.date = pd.to_datetime(df.date, format='%Y-%m-%d')
-    df = df[(df.date >= start_date) & (df.date <= end_date)]
+    # df = df[(df.date >= start_date) & (df.date <= end_date)]
     df = df.reset_index(drop=True)
     return df
 
@@ -60,32 +64,41 @@ def preprocess_df(df):
     df['text_body_lemmatized'] = df['text_body_without_stopwords'].apply(lambda x: ' '.join([wn.lemmatize(w) for w in x.split() if w not in stopwords]))
     return df
 
-@st.cache()
-def topic_modeling(df):
-    if len(df)<15:
-        # replicate rows of the df
-        df = pd.concat([df]*5, ignore_index=True)
-    # Initiate UMAP
-    umap_model = UMAP(n_neighbors=15, n_components=5, min_dist=0.0, metric='cosine', random_state=100)
+@st.cache_data()
+def get_sentences(df):
+    docs = []
+    titles = []
+    timestamps = []
+    for text, title, date in zip(df['text_body'], df['heading'], df['date']):
+        sentences = sent_tokenize(text)
+        docs.extend(sentences)
+        titles.extend([title] * len(sentences))
+        timestamps.extend([date.timestamp()] * len(sentences))
+    return docs, titles, timestamps
+
+@st.cache_data()
+def topic_modeling(df):    
+    # Vectorizer model
+    vectorizer_model = CountVectorizer(stop_words="english")
 
     # Initiate BERTopic
-    topic_model = BERTopic(umap_model=umap_model, language="english", calculate_probabilities=True)
-
+    docs, titles, timestamps = get_sentences(df) 
+    representation_model = MaximalMarginalRelevance(diversity=0.2)
+    topic_model = BERTopic(language="english", representation_model=representation_model, vectorizer_model=vectorizer_model)
+    
     # Run BERTopic model
-    topics, probabilities = topic_model.fit_transform(df['text_body_lemmatized'])
-
+    topics, probabilities = topic_model.fit_transform(docs)
+    
     # Add topics over time
-    timestamps = df['date'].apply(lambda x: x.timestamp())
-    topics_over_time = topic_model.topics_over_time(df['text_body_lemmatized'], timestamps, nr_bins=20)
-
+    topics_over_time = topic_model.topics_over_time(docs, timestamps, nr_bins=20)
+    
     # if number of topics is 0, then return None
     if len(topic_model.topic_labels_)==1:
-        return None
+        return None, None
     
     # Visualize the Topic
     fig = topic_model.visualize_barchart(top_n_topics=12)
     fig_over_time = topic_model.visualize_topics_over_time(topics_over_time)
-
     return fig, fig_over_time
 
 
@@ -101,10 +114,10 @@ st.markdown("<h1 style='text-align: center; color: DARK RED;'><b></b>📖 Topic 
 
 chosen_gsr = gsr_input_layout()
 df = load_dataset()
+orig_df = df.copy()
 df = filter_df(df, chosen_gsr)
-df = df[:1000]
 
-df = preprocess_df(df)
+# df = preprocess_df(df)
 
 # Visualize the Topic
 fig, fig_over_time = topic_modeling(df)

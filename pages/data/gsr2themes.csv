@@ -1,0 +1,27 @@
+theme_id,theme,gsr
+1,Dependence on single source suppliers,supplychain
+2,Political instability or conflict in supplier countries,supplychain
+3,Natural disasters disrupting production or transportation,supplychain
+4,Cybersecurity threats affecting suppliers,supplychain
+5,Market volatility causing disruptions to supply and demand,supplychain
+6,Health crisis affecting workforce or supply chain,supplychain
+7,Regulatory changes affecting global trade,supplychain
+8,Data breaches and theft of sensitive information,cyberthreat
+9,Ransomware attacks,cyberthreat
+10,State-sponsored cyberattacks,cyberthreat
+11,Disruptive attacks on critical infrastructure,cyberthreat
+12,Supply chain risks,cyberthreat
+13,Social engineering attacks,cyberthreat
+14,The increasing sophistication of cyber criminals,cyberthreat
+15,Aging population and retirement of skilled workers,skills
+16,Lack of investment in education and training programs,skills
+17,Skills mismatch between available jobs and workers,skills
+18,Brain drain to other countries with better economic opportunities,skills
+19,Restrictive immigration policies,skills
+20,Technological advancements replacing certain skilled jobs,skills
+21,Natural disasters,hsw
+22,Pandemics,hsw
+23,"Chemical, biological, and nuclear accidents",hsw
+24,Cyberattacks,hsw
+25,Terrorism,hsw
+26,Human error,hsw
