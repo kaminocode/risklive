@@ -8,6 +8,7 @@ nltk.download('omw-1.4')
 nltk.download('wordnet')
 wn = nltk.WordNetLemmatizer()
 from nltk import sent_tokenize
+nltk.download('punkt')
 
 # Topic model
 from bertopic import BERTopic
