@@ -38,6 +38,25 @@ def gsr_input_layout():
     st.markdown(f"<h4 style='text-align: center; color: DARK RED;'>{gsr_description_dict[chosen_gsr]}</h4>", unsafe_allow_html=True)
     return chosen_gsr
 
+def date_input_layout():
+    col1, col2 = st.columns(2)
+    with col2:
+        end_date = st.date_input(
+            "Select end date",
+            datetime.now(),
+            min_value=datetime.strptime("2020-01-01", "%Y-%m-%d"),
+            max_value=datetime.now(),
+        )
+    with col1:
+        start_date = st.date_input(
+            "Select start date",
+            datetime.now() - relativedelta(months=+6),
+            min_value=datetime.strptime("2020-01-01", "%Y-%m-%d"),
+            max_value=end_date,
+        )
+    return start_date, end_date
+
+
 def load_dataset():
     df = pd.read_csv('./data/eiu_df.csv', encoding = "utf-8")
     df.dropna(subset=['text_body'], inplace=True)
@@ -119,6 +138,9 @@ chosen_gsr = gsr_input_layout()
 df = load_dataset()
 orig_df = df.copy()
 df = filter_df(df, chosen_gsr)
+
+# Get the date input from the user
+start_date, end_date = date_input_layout()
 
 # df = preprocess_df(df)
 
