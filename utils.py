@@ -73,7 +73,7 @@ def decode_description(line):
 def plot_leafmap(df):
     # df = df[['latitude', 'longitude', 'summary', 'date', 'retrieved_gsr']]
     # df['summary'] = df['summary'].apply(decode_description)
-    df = df[['latitude', 'longitude', 'date', 'retrieved_gsr']]
+    df = df[['latitude', 'longitude', 'date', 'retrieved_gsr', 'heading']]
     m = leafmap.Map(center=[51.5072, 0.1276], zoom=2)
     cities = 'https://raw.githubusercontent.com/giswqs/leafmap/master/examples/data/us_cities.csv'
     url = "https://raw.githubusercontent.com/giswqs/leafmap/master/examples/data/countries.geojson"
