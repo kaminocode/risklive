@@ -88,6 +88,7 @@ def topic_modeling(df):
     
     # Run BERTopic model
     topics, probabilities = topic_model.fit_transform(docs)
+    topic_model = topic_model.reduce_topics(docs, nr_topics=9)
     
     # Add topics over time
     topics_over_time = topic_model.topics_over_time(docs, timestamps, nr_bins=20)
@@ -99,7 +100,9 @@ def topic_modeling(df):
     # Visualize the Topic
     fig = topic_model.visualize_barchart(top_n_topics=12)
     fig_over_time = topic_model.visualize_topics_over_time(topics_over_time)
-    return fig, fig_over_time
+    fig_hierarchical = topic_model.visualize_hierarchy()
+
+    return fig, fig_over_time, fig_hierarchical
 
 
 # Heading
@@ -120,7 +123,7 @@ df = filter_df(df, chosen_gsr)
 # df = preprocess_df(df)
 
 # Visualize the Topic
-fig, fig_over_time = topic_modeling(df)
+fig, fig_over_time, fig_hierarchical = topic_modeling(df)
 
 # st.write(type(fig))
 if not fig:
@@ -128,6 +131,7 @@ if not fig:
 else:
     st.plotly_chart(fig, use_container_width=True)
     st.plotly_chart(fig_over_time, use_container_width=True)
+    st.plotly_chart(fig_hierarchical, use_container_width=True)
 
 # st.pyplot(fig)
 
