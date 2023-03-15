@@ -22,7 +22,7 @@ model = load_model()
 
 @st.cache_data()
 def load_dataset():
-    df = pd.read_csv('../data/eiu_df.csv', encoding = "utf-8")
+    df = pd.read_csv('./data/eiu_df.csv', encoding = "utf-8")
     df.dropna(subset=['text_body'], inplace=True)
     df.drop_duplicates(subset=['heading'], inplace=True)
     return df
