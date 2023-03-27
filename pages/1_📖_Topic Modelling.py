@@ -22,6 +22,7 @@ import streamlit as st
 from sklearn.feature_extraction.text import CountVectorizer
 from bertopic.representation import MaximalMarginalRelevance
 from sentence_transformers import SentenceTransformer
+import plotly.express as px
 
 
 def gsr_input_layout():
@@ -102,6 +103,7 @@ def topic_modeling(df):
     vectorizer_model = CountVectorizer(stop_words="english")
 
     # Initiate BERTopic
+    dates = df['date']
     docs, titles, timestamps = get_sentences(df) 
     representation_model = MaximalMarginalRelevance(diversity=0.2)
     topic_model = BERTopic(language="english", representation_model=representation_model, vectorizer_model=vectorizer_model)
@@ -122,7 +124,24 @@ def topic_modeling(df):
     fig_over_time = topic_model.visualize_topics_over_time(topics_over_time)
     fig_hierarchical = topic_model.visualize_hierarchy()
 
-    return fig, fig_over_time, fig_hierarchical
+
+    # Create a new DataFrame with topics and dates
+    df_topics = pd.DataFrame({'date': dates, 'topic': topics})
+    df_topics['date'] = pd.to_datetime(df_topics['date'])
+
+    # Group by date and topic, then count the frequency
+    df_count = df_topics.groupby(['date', 'topic']).size().reset_index(name='frequency')
+
+    # Create a bubble plot
+    bubble_fig = px.scatter(df_count, x='date', y='topic', size='frequency', text='topic', title='Topics over Time', 
+                    hover_name='topic', hover_data=['frequency'], color='frequency', size_max=50)
+
+    bubble_fig.update_traces(textposition='top center', textfont_size=12)
+    bubble_fig.update_layout(xaxis_title='Time', yaxis_title='Topics', showlegend=False)
+
+
+
+    return fig, fig_over_time, fig_hierarchical, bubble_fig
 
 
 # Heading
@@ -146,19 +165,23 @@ start_date, end_date = date_input_layout()
 # df = preprocess_df(df)
 
 # Visualize the Topic
-fig, fig_over_time, fig_hierarchical = topic_modeling(df)
+fig, fig_over_time, fig_hierarchical, bubble_fig = topic_modeling(df)
 
 # st.write(type(fig))
 if not fig:
     st.write("No topics found!")
 else:
     st.plotly_chart(fig, use_container_width=True)
+    st.plotly_chart(bubble_fig, use_container_width=True)
     st.plotly_chart(fig_over_time, use_container_width=True)
     st.plotly_chart(fig_hierarchical, use_container_width=True)
-
+    
 # st.pyplot(fig)
 
 
 # plot histogram of distance column of the df to see the distribution of the distance seperaly for each GSR
 # st.write(df.groupby('retrieved_gsr')['distance'].hist())
+
+
+
 
