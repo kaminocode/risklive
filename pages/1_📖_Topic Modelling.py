@@ -90,12 +90,14 @@ def get_sentences(df):
     docs = []
     titles = []
     timestamps = []
+    date_list = []
     for text, title, date in zip(df['text_body'], df['heading'], df['date']):
         sentences = sent_tokenize(text)
         docs.extend(sentences)
         titles.extend([title] * len(sentences))
         timestamps.extend([date.timestamp()] * len(sentences))
-    return docs, titles, timestamps
+        date_list.extend([date] * len(sentences))
+    return docs, titles, timestamps, date_list
 
 @st.cache_data()
 def topic_modeling(df):    
@@ -104,14 +106,15 @@ def topic_modeling(df):
 
     # Initiate BERTopic
     dates = df['date']
-    docs, titles, timestamps = get_sentences(df) 
+    docs, titles, timestamps, date_list = get_sentences(df) 
     representation_model = MaximalMarginalRelevance(diversity=0.2)
     topic_model = BERTopic(language="english", representation_model=representation_model, vectorizer_model=vectorizer_model)
     
     # Run BERTopic model
     topics, probabilities = topic_model.fit_transform(docs)
-    topic_model = topic_model.reduce_topics(docs, nr_topics=9)
-    
+    topic_model = topic_model.reduce_topics(docs, nr_topics=4)
+    new_topics = topic_model.topics_
+
     # Add topics over time
     topics_over_time = topic_model.topics_over_time(docs, timestamps, nr_bins=20)
     
@@ -126,7 +129,7 @@ def topic_modeling(df):
 
 
     # Create a new DataFrame with topics and dates
-    df_topics = pd.DataFrame({'date': dates, 'topic': topics})
+    df_topics = pd.DataFrame({'date': date_list, 'topic': new_topics})
     df_topics['date'] = pd.to_datetime(df_topics['date'])
 
     # Group by date and topic, then count the frequency
