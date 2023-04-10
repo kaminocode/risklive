@@ -3,7 +3,6 @@ import pandas as pd
 from glob import glob
 import plotly.express as px
 import pickle
-import matplotlib.pyplot as plt
 
 def get_last_part_name(file_name):
     return file_name.split('/')[-1].split('.')[0].split('_')[-1]
@@ -49,10 +48,14 @@ def main():
     # Center-align the selectbox
     empty_space1, center_column, empty_space2 = st.columns([1, 2, 1])
     with center_column:
-        gsr = st.selectbox('Select GSR', gsr_list)
+        gsr = st.selectbox('Select GSR', gsr_list, label_visibility='collapsed')
 
     # Load the text files in summary folder
     txt_files = glob('summary/*.txt')
+
+    # load images in images folder
+    img_files = glob('images/*.png')
+            
 
     data, data_name = load_files('results')
     # Display the graphs in a 3-column layout
@@ -60,19 +63,27 @@ def main():
     file_name_list = [get_first_name(file_name) for file_name in data_name[gsr]]
     file_name_order = ['topicfig', 'figovertime', 'bubblefig', 'wordcloud', 'map']
     # change the order of the file_name_list and data[gsr] to match the order of file_name_order
-    data[gsr] = [x for _, x in sorted(zip(file_name_list, data[gsr]))]
+    file_name_list = [file_name_list[file_name_order.index(file_name)] for file_name in file_name_order]
+    data[gsr] = [data[gsr][file_name_list.index(file_name)] for file_name in file_name_order]
 
     for fig, first_name in zip(data[gsr], file_name_order):
         if first_name == 'wordcloud':
             # Display the generated image:
-            plt.imshow(fig, interpolation='bilinear')
-            plt.axis("off")
-            plt.show()
-            st.pyplot()
+            # plt.imshow(fig, interpolation='bilinear')
+            # plt.axis("off")
+            # plt.show()
+            # st.pyplot()
             continue
         else:
             st.plotly_chart(fig, use_container_width=True)
 
+    # plot the image
+    # st.markdown("<h2 style='text-align: center; color: black;'>WordCloud </h2>", unsafe_allow_html=True)
+    # align the image to the center
+    for img in img_files:
+        if get_last_part_name(img) == gsr:
+            st.image(img, use_column_width=True)
+    
     #     st.write(get_first_name(file_name))
     # st.plotly_chart(create_sample_graph("Graph 1", gsr, data, file_num=0), use_container_width=True)
     # st.plotly_chart(create_sample_graph("Graph 2", gsr, data, file_num=1), use_container_width=True)
@@ -82,6 +93,7 @@ def main():
     # st.plotly_chart(create_sample_graph("Graph 6", gsr, data, file_num=5), use_container_width=True)
 
 
+    st.markdown("<h2 style='text-align: center; color: black;'>Summary </h2>", unsafe_allow_html=True)
     for file in txt_files:
         if get_last_part_name(file.split('\\')[-1]) == gsr:
             with open(file, 'r') as f:
