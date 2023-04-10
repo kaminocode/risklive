@@ -43,7 +43,7 @@ def main():
 
     # Set up the Streamlit app
     st.set_page_config(layout='wide', page_title='Risk Live', page_icon=None, initial_sidebar_state='auto')
-    st.markdown("<h1 style='text-align: center; color: black;'>🤖 Risk Live </h1>", unsafe_allow_html=True)
+    st.markdown("<h1 style='text-align: center;'>🤖 Risk Live </h1>", unsafe_allow_html=True)
     
     # Center-align the selectbox
     empty_space1, center_column, empty_space2 = st.columns([1, 2, 1])
@@ -93,7 +93,7 @@ def main():
     # st.plotly_chart(create_sample_graph("Graph 6", gsr, data, file_num=5), use_container_width=True)
 
 
-    st.markdown("<h2 style='text-align: center; color: black;'>Summary </h2>", unsafe_allow_html=True)
+    st.markdown("<h2 style='text-align: center;'>Summary </h2>", unsafe_allow_html=True)
     for file in txt_files:
         if get_last_part_name(file.split('\\')[-1]) == gsr:
             with open(file, 'r') as f:
