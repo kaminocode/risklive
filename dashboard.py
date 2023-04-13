@@ -9,6 +9,7 @@ def get_last_part_name(file_name):
 
 def get_first_name(file_name):
     # results\\bubblefig_cyberthreat.pickle should return bubblefig
+    # return file_name.split('\\')[-1].split('_')[0]
     return file_name.split('/')[-1].split('_')[0]
 
 def load_files(pickle_data_path):
@@ -38,6 +39,21 @@ def create_sample_graph(title, gsr, data, file_num):
     )
     return fig
 
+def write_summary(txt_files, gsr):
+    st.markdown("<h2 style='text-align: center;'>Summary </h2>", unsafe_allow_html=True)
+    for file in txt_files:
+        if get_last_part_name(file.split('\\')[-1]) == gsr:
+            with open(file, 'r') as f:
+                summary_text = f.read()
+
+                # if number of lines is less than 10, then display the text in a text area
+                if len(summary_text.splitlines()) < 5:
+                    height = 310
+                else:
+                    height = 500
+                st.text_area('examples', summary_text, height=height, disabled = False, label_visibility='collapsed')
+
+
 def main():
     gsr_list = ['skills', 'supplychain', 'cyberthreat', 'hsw']
 
@@ -61,7 +77,7 @@ def main():
     # Display the graphs in a 3-column layout
 
     file_name_list = [get_first_name(file_name) for file_name in data_name[gsr]]
-    file_name_order = ['topicfig', 'figovertime', 'bubblefig', 'wordcloud', 'map']
+    file_name_order = ['figovertime', 'bubblefig', 'topicfig', 'wordcloud', 'map']
     # change the order of the file_name_list and data[gsr] to match the order of file_name_order
     file_name_list = [file_name_list[file_name_order.index(file_name)] for file_name in file_name_order]
     data[gsr] = [data[gsr][file_name_list.index(file_name)] for file_name in file_name_order]
@@ -74,6 +90,9 @@ def main():
             # plt.show()
             # st.pyplot()
             continue
+        elif first_name == 'map':
+            write_summary(txt_files, gsr)
+            st.plotly_chart(fig, use_container_width=True)
         else:
             st.plotly_chart(fig, use_container_width=True)
 
@@ -91,21 +110,6 @@ def main():
     # st.plotly_chart(create_sample_graph("Graph 4", gsr, data, file_num=3), use_container_width=True)
     # st.plotly_chart(create_sample_graph("Graph 5", gsr, data, file_num=4), use_container_width=True)
     # st.plotly_chart(create_sample_graph("Graph 6", gsr, data, file_num=5), use_container_width=True)
-
-
-    st.markdown("<h2 style='text-align: center;'>Summary </h2>", unsafe_allow_html=True)
-    for file in txt_files:
-        if get_last_part_name(file.split('\\')[-1]) == gsr:
-            with open(file, 'r') as f:
-                summary_text = f.read()
-
-                # if number of lines is less than 10, then display the text in a text area
-                if len(summary_text.splitlines()) < 5:
-                    height = 310
-                else:
-                    height = 500
-                st.text_area('examples', summary_text, height=height, disabled = False, label_visibility='collapsed')
-
 
 if __name__ == '__main__':
     main()
