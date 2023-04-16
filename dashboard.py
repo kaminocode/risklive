@@ -9,8 +9,8 @@ def get_last_part_name(file_name):
 
 def get_first_name(file_name):
     # results\\bubblefig_cyberthreat.pickle should return bubblefig
-    # return file_name.split('\\')[-1].split('_')[0]
-    return file_name.split('/')[-1].split('_')[0]
+    return file_name.split('\\')[-1].split('_')[0]
+    # return file_name.split('/')[-1].split('_')[0]
 
 def load_files(pickle_data_path):
     files = glob(pickle_data_path + '/*.pickle')
@@ -74,15 +74,14 @@ def main():
             
 
     data, data_name = load_files('results')
+    data_duplicate = data.copy()
     # Display the graphs in a 3-column layout
 
     file_name_list = [get_first_name(file_name) for file_name in data_name[gsr]]
     file_name_order = ['figovertime', 'bubblefig', 'topicfig', 'wordcloud', 'map']
-    # change the order of the file_name_list and data[gsr] to match the order of file_name_order
-    file_name_list = [file_name_list[file_name_order.index(file_name)] for file_name in file_name_order]
-    data[gsr] = [data[gsr][file_name_list.index(file_name)] for file_name in file_name_order]
-
-    for fig, first_name in zip(data[gsr], file_name_order):
+    
+    for first_name in file_name_order:
+        fig = data[gsr][file_name_list.index(first_name)]
         if first_name == 'wordcloud':
             # Display the generated image:
             # plt.imshow(fig, interpolation='bilinear')
