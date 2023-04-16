@@ -55,7 +55,7 @@ def write_summary(txt_files, gsr):
 
 
 def main():
-    gsr_list = ['skills', 'supplychain', 'cyberthreat', 'hsw']
+    gsr_list = ['supplychain', 'skills', 'hsw', 'cyberthreat']
 
     # Set up the Streamlit app
     st.set_page_config(layout='wide', page_title='Risk Live', page_icon=None, initial_sidebar_state='auto')
