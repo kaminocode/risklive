@@ -9,8 +9,8 @@ def get_last_part_name(file_name):
 
 def get_first_name(file_name):
     # results\\bubblefig_cyberthreat.pickle should return bubblefig
-    return file_name.split('\\')[-1].split('_')[0]
-    # return file_name.split('/')[-1].split('_')[0]
+    # return file_name.split('\\')[-1].split('_')[0]
+    return file_name.split('/')[-1].split('_')[0]
 
 def load_files(pickle_data_path):
     files = glob(pickle_data_path + '/*.pickle')
