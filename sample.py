@@ -99,42 +99,52 @@ def main():
     file_name_order = ['figovertime', 'bubblefig', 'topicfig', 'wordcloud', 'map']
     col1_1, col2_1 = st.columns([1, 1])
     col2_1, col2_2 = st.columns([1, 1])
-        
-
 
     while True:
         file_name_list = [get_first_name(file_name) for file_name in data_name[str(year)][gsr]]
 
-        with col1_1:
-            fig = data[str(year)][gsr][file_name_list.index('figovertime')]
-            fig.update_layout(title_text="")
-            fig.update_layout(
-                width=800,
-                height=800,
-                margin=dict(
-                    l=0,   # left margin
-                    r=0,   # right margin
-                    t=0,   # top margin
-                    b=0    # bottom margin
-                    )
-                )
-            
-            placeholder1.plotly_chart(fig, use_container_width=True)
-            
-        with col2_1:
-            fig = data[str(year)][gsr][file_name_list.index('bubblefig')]
-            fig.update_layout(
-                width=800,
-                height=800,
-                margin=dict(
-                    l=0,   # left margin
-                    r=0,   # right margin
-                    t=0,   # top margin
-                    b=0    # bottom margin
-                    )
-                )
-            placeholder2.plotly_chart(fig, use_container_width=True)
         
+        fig = data[str(year)][gsr][file_name_list.index('figovertime')]
+        fig.update_layout(title_text="")
+        fig.update_layout(
+            width=800,
+            height=800,
+            margin=dict(
+                l=0,   # left margin
+                r=0,   # right margin
+                t=0,   # top margin
+                b=0    # bottom margin
+                )
+            )
+        
+        placeholder1.plotly_chart(fig, use_container_width=True)
+        
+        fig = data[str(year)][gsr][file_name_list.index('bubblefig')]
+        fig.update_layout(
+            width=800,
+            height=800,
+            margin=dict(
+                l=0,   # left margin
+                r=0,   # right margin
+                t=0,   # top margin
+                b=0    # bottom margin
+                )
+            )
+        placeholder2.plotly_chart(fig, use_container_width=True)
+    
+        fig = data[str(year)][gsr][file_name_list.index('topicfig')]
+        fig.update_layout(title_text="")
+        fig.update_layout(
+            width=800,
+            height=800,
+            margin=dict(
+                l=0,   # left margin
+                r=0,   # right margin
+                t=0,   # top margin
+                b=0    # bottom margin
+                )
+            )
+        placeholder3.plotly_chart(fig, use_container_width=True)
 
         fig = data[str(year)][gsr][file_name_list.index('map')]
         fig.update_layout(
@@ -148,35 +158,15 @@ def main():
                     )
                 )
         placeholder5.plotly_chart(fig, use_container_width=True)
-
-
-        with col2_1:
-            fig = data[str(year)][gsr][file_name_list.index('topicfig')]
-            fig.update_layout(title_text="")
-            fig.update_layout(
-                width=800,
-                height=800,
-                margin=dict(
-                    l=0,   # left margin
-                    r=0,   # right margin
-                    t=0,   # top margin
-                    b=0    # bottom margin
-                    )
-                )
-            placeholder3.plotly_chart(fig, use_container_width=True)
-
-        with col2_2:
-            for img in img_files:
-                img_gsr, img_year = get_last_part_name(img)
-                if img_gsr == gsr and img_year==str(year):
-                    placeholder6.image(img, use_column_width=True)
-            
-        
         
         summary_text, height = write_summary(txt_files, gsr, year)
         placeholder4.text_area('examples', summary_text, height=height, disabled = False, label_visibility='collapsed', key=f'{gsr}_{year}_{i}')
 
-
+        for img in img_files:
+            img_gsr, img_year = get_last_part_name(img)
+            if img_gsr == gsr and img_year==str(year):
+                placeholder6.image(img, use_column_width=True)
+        
         year = year + 1
         if year == 2023:
             year = 2019
