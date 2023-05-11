@@ -70,10 +70,10 @@ def main():
     txt_files = glob('summary/*.txt')
 
     # load images in images folder
-    img_files = glob('images/*.png')
+    img_files = glob('images_old/*.png')
             
 
-    data, data_name = load_files('results')
+    data, data_name = load_files('results_old')
     data_duplicate = data.copy()
     # Display the graphs in a 3-column layout
 
