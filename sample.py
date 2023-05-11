@@ -106,57 +106,57 @@ def main():
         
         fig = data[str(year)][gsr][file_name_list.index('figovertime')]
         fig.update_layout(title_text="")
-        fig.update_layout(
-            width=800,
-            height=800,
-            margin=dict(
-                l=0,   # left margin
-                r=0,   # right margin
-                t=0,   # top margin
-                b=0    # bottom margin
-                )
-            )
+        # fig.update_layout(
+        #     width=800,
+        #     height=800,
+        #     margin=dict(
+        #         l=0,   # left margin
+        #         r=0,   # right margin
+        #         t=0,   # top margin
+        #         b=0    # bottom margin
+        #         )
+        #     )
         
         placeholder1.plotly_chart(fig, use_container_width=True)
         
         fig = data[str(year)][gsr][file_name_list.index('bubblefig')]
-        fig.update_layout(
-            width=800,
-            height=800,
-            margin=dict(
-                l=0,   # left margin
-                r=0,   # right margin
-                t=0,   # top margin
-                b=0    # bottom margin
-                )
-            )
+        # fig.update_layout(
+        #     width=800,
+        #     height=800,
+        #     margin=dict(
+        #         l=0,   # left margin
+        #         r=0,   # right margin
+        #         t=0,   # top margin
+        #         b=0    # bottom margin
+        #         )
+        #     )
         placeholder2.plotly_chart(fig, use_container_width=True)
     
         fig = data[str(year)][gsr][file_name_list.index('topicfig')]
         fig.update_layout(title_text="")
-        fig.update_layout(
-            width=800,
-            height=800,
-            margin=dict(
-                l=0,   # left margin
-                r=0,   # right margin
-                t=0,   # top margin
-                b=0    # bottom margin
-                )
-            )
+        # fig.update_layout(
+        #     width=800,
+        #     height=800,
+        #     margin=dict(
+        #         l=0,   # left margin
+        #         r=0,   # right margin
+        #         t=0,   # top margin
+        #         b=0    # bottom margin
+        #         )
+        #     )
         placeholder3.plotly_chart(fig, use_container_width=True)
 
         fig = data[str(year)][gsr][file_name_list.index('map')]
-        fig.update_layout(
-                width=800,
-                height=800,
-                margin=dict(
-                    l=0,   # left margin
-                    r=0,   # right margin
-                    t=0,   # top margin
-                    b=0    # bottom margin
-                    )
-                )
+        # fig.update_layout(
+        #         width=800,
+        #         height=800,
+        #         margin=dict(
+        #             l=0,   # left margin
+        #             r=0,   # right margin
+        #             t=0,   # top margin
+        #             b=0    # bottom margin
+        #             )
+        #         )
         placeholder5.plotly_chart(fig, use_container_width=True)
         
         summary_text, height = write_summary(txt_files, gsr, year)
