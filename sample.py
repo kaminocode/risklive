@@ -6,13 +6,13 @@ import pickle
 import time
 
 def get_last_part_name(file_name):
-    return file_name.split('\\')[-1].split('.')[0].split('_')[-2], file_name.split('\\')[-1].split('.')[0].split('_')[-1]
-    # return file_name.split('/')[-1].split('.')[0].split('_')[-2], file_name.split('/')[-1].split('.')[0].split('_')[-1]
+    # return file_name.split('\\')[-1].split('.')[0].split('_')[-2], file_name.split('\\')[-1].split('.')[0].split('_')[-1]
+    return file_name.split('/')[-1].split('.')[0].split('_')[-2], file_name.split('/')[-1].split('.')[0].split('_')[-1]
     
 def get_first_name(file_name):
     # results\\bubblefig_cyberthreat_2018.pickle should return bubblefig
-    return file_name.split('\\')[-1].split('_')[0]
-    # return file_name.split('/')[-1].split('_')[0]
+    # return file_name.split('\\')[-1].split('_')[0]
+    return file_name.split('/')[-1].split('_')[0]
 
 
 def load_files(pickle_data_path):
@@ -48,7 +48,8 @@ def create_sample_graph(title, gsr, data, file_num):
 def write_summary(txt_files, gsr, year):
     for file in txt_files:
         # import pdb;pdb.set_trace()
-        extracted_gsr= file.split('\\')[-1].split('.')[0]
+        # extracted_gsr= file.split('\\')[-1].split('.')[0]
+        extracted_gsr= file.split('/')[-1].split('.')[0]
         if extracted_gsr == gsr:
             with open(file, 'r') as f:
                 summary_text = f.read()
