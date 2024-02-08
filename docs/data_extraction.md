@@ -1,4 +1,3 @@
-readme_content = """
 # Data Extraction Server README
 
 ## Overview
@@ -41,7 +40,7 @@ The server fetches news from the following sources:
 1. Clone the repository.
 2. Install dependencies: `pip install -r requirements.txt`
 3. Set your Newscatcher API key in a `.env` file as `NEWSCATCHER_API_KEY=your_api_key_here`.
-4. Run the server: `python path/to/server_script.py`
+4. Run the server: `python data_extraction_server.py`
 
 ## Usage
 The server automatically starts fetching data based on the configured schedule:
@@ -49,9 +48,6 @@ The server automatically starts fetching data based on the configured schedule:
 - **Daily Keyword Fetch**: Once every 24 hours, articles related to predefined keywords are fetched.
 
 Data is saved in CSV format in the `./data` directory.
-
-## License
-[Specify License]
 
 ## Contribution
 Contributions are welcome. Please submit a pull request or open an issue for any features or bug fixes.
