@@ -1,0 +1,9 @@
+.
+├─cybersecurity_ai_water_risks_supply
+│    ├─■──chain_supply_cybersecurity_goals_software ── Topic: 2
+│    └─■──ai_water_cybersecurity_drought_content ── Topic: 0
+└─health_safety_deaths_ireland_nhs
+     ├─■──health_safety_mental_mitochondrial_nhs ── Topic: 1
+     └─failings_homelessness_ireland_life_systemic
+          ├─■──ireland_agreement_trump_good_environment ── Topic: 3
+          └─■──life_balance_unpaid_gap_law ── Topic: 4

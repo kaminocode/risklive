@@ -1,0 +1,8 @@
+{
+  "RelevantKeywords": ["Keyword1", "Keyword2", ...],
+  "ShortSummary": "Brief summary of the news article in 1 or 2 line.",
+  "Relevance": "Yes/No",
+  "RelevanceReason": "Reason for the relevance",
+  "AlertFlag": "Red/Yellow/Green",
+  "AlertReason": "Reason for classifying the news as that particular Alert"
+}
