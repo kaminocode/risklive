@@ -20,6 +20,7 @@ RiskLive is a real-time risk analysis dashboard for the nuclear industry. It agg
 - APScheduler for task scheduling
 
 ## Project Structure
+```
 risklive/
 ├── src/
 │   └── risklive/
@@ -34,6 +35,7 @@ risklive/
 ├── setup.py
 ├── requirements.txt
 └── README.md
+```
 
 - `src/risklive/`: Main package source code
 - `tests/`: Unit and integration tests

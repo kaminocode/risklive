@@ -12,8 +12,7 @@ setup(
     long_description=long_description,
     long_description_content_type="text/markdown",
     url="https://github.com/yourusername/risklive",
-    packages=find_packages(where="src"),
-    package_dir={"": "src"},
+    packages=find_packages(exclude=["tests", "notebooks"]),
     classifiers=[
         "Development Status :: 3 - Alpha",
         "Intended Audience :: Developers",
@@ -63,6 +62,3 @@ setup(
         ],
     },
 )
-
-
-# export LD_LIBRARY_PATH=/home/azureuser/miniconda3/envs/nda/lib:$LD_LIBRARY_PATH
