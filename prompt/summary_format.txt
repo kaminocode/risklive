@@ -1,5 +1,0 @@
-{
-  "Summary": "A detailed and informative summary encapsulating the essence and critical details of all relevant news articles.",
-  "Insights": "A compilation of key insights, focusing on observed trends, their significance, and potential ramifications for the specified risk domains.",
-  "Recommendations": "A set of specific, actionable steps that can be taken to address the identified risks, enhance preparedness, and improve resilience."
-}

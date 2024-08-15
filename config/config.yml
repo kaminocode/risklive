@@ -1,0 +1,27 @@
+CATEGORIES:
+  - Business
+  - Politics
+  - World
+  - ScienceAndTechnology
+  - Health
+  - UK
+QUERIES:
+  - nuclear industry
+  - nuclear decommissioning
+  - nuclear decommissioning authority
+  - nuclear energy
+  - nuclear power
+  - nuclear plant
+  - nuclear waste
+  - nuclear
+  - sellafield
+  - decommissioning
+PROMPT_PATHS:
+  EXTRACTION_PROMPT: 'prompts/info_extraction.txt'
+INTERVAL: 15  
+SAVE_DIR:
+  CSV_DATA_DIR: 'results/data/'
+  CSV_DATA_BACKUP_DIR: 'results/backup_data/'
+  TOPIC_MODEL_DIR: 'results/models/'
+  TOPIC_MODEL_IMAGE_DIR: 'results/images/' 
+CLEANUP_DAYS_TO_KEEP: 3

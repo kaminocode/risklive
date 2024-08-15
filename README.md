@@ -1,35 +1,55 @@
-# README
+# RiskLive
 
-## Overview
-This system streamlines the extraction, tagging, and analysis of news articles. It operates through three interconnected stages: extracting news data, tagging articles with LLM-generated metadata, and performing topic modeling with summarization for analysis.
+RiskLive is a real-time risk analysis dashboard for the nuclear industry. It aggregates news and data from various sources, processes the information using advanced natural language processing techniques, and presents insights through an interactive web interface.
 
-## Process Flow
-1. **Data Extraction**: Automated fetching of latest news and articles based on specific keywords, updated hourly and daily.
-2. **News Processing**: Tagging of each article with summaries, relevance, alert flags, and other metadata for insight generation.
-3. **Topic Modeling and Summarization**: Identifying topics within relevant articles using BERTopic and summarizing them with GPT-4 for risk analysis.
+## Features
 
-## Components Overview
-- **Data Extraction Server**: Extracts news data using Newscatcher API, focusing on predefined keywords and sources.
-- **News Processing Server**: Enhances articles with GPT-4 generated summaries and relevance tagging.
-- **Topic Modeling and Summarization Server**: Applies BERTopic for modeling and GPT-4 for summarizing topics, aiding in intuitive risk analysis.
+- Real-time news aggregation from multiple sources
+- Automated information extraction using LLM (Large Language Models)
+- Topic modeling for trend analysis
+- Interactive web dashboard for data visualization
+- Scheduled tasks for regular data updates and maintenance
 
-## News Sources
-The server fetches news from the following sources:
-- The Guardian (`theguardian.com`)
-- Forbes (`forbes.com`)
-- The Wall Street Journal (`wsj.com`)
-- The Economist (`economist.com`)
-- BBC (`bbc.com` and `bbc.co.uk`)
-- Wired (`wired.com`)
-- The Verge (`theverge.com`)
-- Reuters (`reuters.com`)
-- Al Jazeera (`aljazeera.com`)
+## Technology Stack
 
-## Endpoints Used
-1. **Latest Headlines Endpoint**: Fetches the latest headlines within the last hour from specified news sources.
-   - URL: `https://api.newscatcherapi.com/v2/latest_headlines`
-2. **Search Endpoint**: Searches for articles based on keywords within the last 2 days from specified news sources.
-   - URL: `https://api.newscatcherapi.com/v2/search`
+- Python
+- Flask for web server
+- Pandas for data manipulation
+- OpenAI's API for LLM-based processing
+- Bing API for news aggregation
+- APScheduler for task scheduling
 
-## Usage
-Follow individual component READMEs in docs/ for setup and usage instructions. Ensure each server is correctly configured for integrated operation.
+## Project Structure
+risklive/
+├── src/
+│   └── risklive/
+│       ├── data_extraction/
+│       ├── data_processing/
+│       ├── topic_modeling/
+│       └── server/
+├── tests/
+├── notebooks/
+├── config/
+├── .env
+├── setup.py
+├── requirements.txt
+└── README.md
+
+- `src/risklive/`: Main package source code
+- `tests/`: Unit and integration tests
+- `notebooks/`: Jupyter notebooks for analysis and development
+- `config/`: Configuration files
+- `.env`: Environment variables (not version controlled)
+
+## Configuration
+
+- `config/config.yml`: Main configuration file
+- `.env`: Environment-specific secrets and API keys
+
+## Contributing
+
+Contributions are welcome! Please feel free to submit a Pull Request.
+
+## License
+
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.

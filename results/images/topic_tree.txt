@@ -1,0 +1,203 @@
+.
+├─nuclear_energy_trump_uk_musk
+│    ├─trump_harris_musk_kamala_donald
+│    │    ├─harris_kamala_trump_campaign_donald
+│    │    │    ├─■──vance_jd_supremacists_cnn_tim ── Topic: 88
+│    │    │    └─harris_kamala_trump_campaign_donald
+│    │    │         ├─■──harris_kamala_trump_donald_walz ── Topic: 3
+│    │    │         └─■──campaign_hacked_fbi_trump_2016 ── Topic: 48
+│    │    └─musk_elon_trump_warming_donald
+│    │         ├─■──warming_trump_musk_change_climate ── Topic: 43
+│    │         └─musk_elon_trump_donald_interview
+│    │              ├─■──elon_musk_donald_trump_bluesky ── Topic: 12
+│    │              └─■──musk_elon_twitter_noyb_spaces ── Topic: 32
+│    └─nuclear_energy_uk_power_results
+│         ├─australia_israel_aukus_nato_gaza
+│         │    ├─australia_aukus_nato_missiles_capable
+│         │    │    ├─nato_missiles_capable_russian_navy
+│         │    │    │    ├─■──bombers_vladimir_norwegian_britain_sea ── Topic: 80
+│         │    │    │    └─missiles_capable_navy_europe_nato
+│         │    │    │         ├─■──capable_missiles_navy_europe_tactical ── Topic: 19
+│         │    │    │         └─■──targets_ww3_nuke_fleet_committee ── Topic: 22
+│         │    │    └─australia_aukus_dutton_keating_visas
+│         │    │         ├─aukus_australia_keating_united_paul
+│         │    │         │    ├─■──keating_paul_militarisation_katy_australia ── Topic: 84
+│         │    │         │    └─■──aukus_australia_united_kingdom_submarines ── Topic: 14
+│         │    │         └─■──dutton_visas_australia_defamation_palestinian ── Topic: 24
+│         │    └─israel_iran_middle_gaza_east
+│         │         ├─israel_gaza_iran_ceasefire_hamas
+│         │         │    ├─israel_gaza_iran_ceasefire_hamas
+│         │         │    │    ├─■──gaza_ceasefire_hamas_israel_hostage ── Topic: 9
+│         │         │    │    └─■──iran_israel_middle_lebanon_east ── Topic: 23
+│         │         │    └─■──prices_oil_geopolitical_tensions_gas ── Topic: 83
+│         │         └─■──submarine_carrier_aircraft_uss_powered ── Topic: 26
+│         └─energy_power_nuclear_uk_results
+│              ├─energy_uk_results_nuclear_inflation
+│              │    ├─inflation_energy_korea_bank_rates
+│              │    │    ├─korea_south_north_drills_exercises
+│              │    │    │    ├─■──korea_south_drills_north_military ── Topic: 57
+│              │    │    │    └─■──china_korea_pivot_alliances_doctrine ── Topic: 98
+│              │    │    └─inflation_energy_bank_rates_growth
+│              │    │         ├─energy_renewable_electricity_clean_sustainable
+│              │    │         │    ├─energy_electricity_clean_renewable_sustainable
+│              │    │         │    │    ├─■──superhighway_electricity_grid_consumption_electric ── Topic: 41
+│              │    │         │    │    └─energy_sustainable_renewable_china_clean
+│              │    │         │    │         ├─■──clean_china_singapore_utilities_innovation ── Topic: 79
+│              │    │         │    │         └─■──energy_sustainable_renewable_carbon_fusion ── Topic: 0
+│              │    │         │    └─■──agl_talen_sheffield_redundancies_crypto ── Topic: 46
+│              │    │         └─inflation_bank_rates_england_growth
+│              │    │              ├─■──asian_shares_stocks_yen_data ── Topic: 40
+│              │    │              └─■──inflation_bank_rates_england_growth ── Topic: 1
+│              │    └─results_radioactive_ai_google_level
+│              │         ├─results_ai_google_level_uranium
+│              │         │    ├─disorder_riots_nigel_farage_tory
+│              │         │    │    ├─farage_nigel_riots_tugendhat_tom
+│              │         │    │    │    ├─■──tugendhat_tom_riots_farage_nigel ── Topic: 64
+│              │         │    │    │    └─■──starmer_right_keir_tory_recognition ── Topic: 20
+│              │         │    │    └─disorder_court_plymouth_police_belfast
+│              │         │    │         ├─plymouth_belfast_court_rioting_disorder
+│              │         │    │         │    ├─■──belfast_rioting_court_asylum_councillor ── Topic: 33
+│              │         │    │         │    └─■──plymouth_violent_disorder_rioters_brawl ── Topic: 77
+│              │         │    │         └─■──disorder_convicted_prosecutions_sentencing_sex ── Topic: 38
+│              │         │    └─results_ai_google_level_uranium
+│              │         │         ├─results_level_uranium_london_hospital
+│              │         │         │    ├─results_level_uranium_london_hospital
+│              │         │         │    │    ├─results_level_london_hospital_quantum
+│              │         │         │    │    │    ├─results_level_quantum_financial_kishida
+│              │         │         │    │    │    │    ├─results_level_2024_financial_education
+│              │         │         │    │    │    │    │    ├─results_level_financial_2024_education
+│              │         │         │    │    │    │    │    │    ├─■──level_results_education_phillipson_clearing ── Topic: 7
+│              │         │         │    │    │    │    │    │    └─■──results_financial_2024_operating_q2 ── Topic: 18
+│              │         │         │    │    │    │    │    └─olympics_paris_olympic_2028_fi
+│              │         │         │    │    │    │    │         ├─■──fi_ibc_wi_audio_video ── Topic: 93
+│              │         │         │    │    │    │    │         └─■──olympics_paris_olympic_2028_gold ── Topic: 66
+│              │         │         │    │    │    │    └─quantum_kishida_london_fumio_nano
+│              │         │         │    │    │    │         ├─quantum_kishida_fumio_nano_prime
+│              │         │         │    │    │    │         │    ├─kishida_fumio_prime_minister_bangladesh
+│              │         │         │    │    │    │         │    │    ├─kishida_fumio_prime_minister_bangladesh
+│              │         │         │    │    │    │         │    │    │    ├─bangladesh_hasina_trial_sheikh_shooting
+│              │         │         │    │    │    │         │    │    │    │    ├─■──bangladesh_hasina_sheikh_hindu_yunus ── Topic: 78
+│              │         │         │    │    │    │         │    │    │    │    └─trial_shooting_pregnant_vaccine_virus
+│              │         │         │    │    │    │         │    │    │    │         ├─■──shooting_trial_neighbor_murder_alaska ── Topic: 65
+│              │         │         │    │    │    │         │    │    │    │         └─■──vaccine_virus_mpox_pregnant_women ── Topic: 81
+│              │         │         │    │    │    │         │    │    │    └─kishida_fumio_prime_minister_japan
+│              │         │         │    │    │    │         │    │    │         ├─■──kishida_fumio_prime_minister_japan ── Topic: 37
+│              │         │         │    │    │    │         │    │    │         └─■──venezuela_sudan_maduro_javad_vice ── Topic: 67
+│              │         │         │    │    │    │         │    │    └─london_holiday_racially_aggravated_competition
+│              │         │         │    │    │    │         │    │         ├─aggravated_racially_sellafield_social_jess
+│              │         │         │    │    │    │         │    │         │    ├─■──phillips_jess_media_social_home ── Topic: 95
+│              │         │         │    │    │    │         │    │         │    └─■──aggravated_racially_sellafield_facebook_jailed ── Topic: 75
+│              │         │         │    │    │    │         │    │         └─london_holiday_competition_beckenham_robot
+│              │         │         │    │    │    │         │    │              ├─london_holiday_beckenham_maxwell_roberts
+│              │         │         │    │    │    │         │    │              │    ├─■──bike_phone_snatcher_arrested_enforcement ── Topic: 90
+│              │         │         │    │    │    │         │    │              │    └─■──holiday_beckenham_london_maxwell_roberts ── Topic: 35
+│              │         │         │    │    │    │         │    │              └─■──robot_fightfest_competition_driving_weride ── Topic: 94
+│              │         │         │    │    │    │         │    └─quantum_nano_temperatures_weather_pakistan
+│              │         │         │    │    │    │         │         ├─quantum_nano_temperatures_weather_pakistan
+│              │         │         │    │    │    │         │         │    ├─nano_oklo_sweden_securities_stonehenge
+│              │         │         │    │    │    │         │         │    │    ├─sweden_stonehenge_altar_stone_guarantees
+│              │         │         │    │    │    │         │         │    │    │    ├─■──altar_stonehenge_stone_norway_scotland ── Topic: 36
+│              │         │         │    │    │    │         │         │    │    │    └─sweden_guarantees_loans_price_plan
+│              │         │         │    │    │    │         │         │    │    │         ├─■──sizewell_plan_collections_sternfield_rwe ── Topic: 59
+│              │         │         │    │    │    │         │         │    │    │         └─■──sweden_guarantees_loans_price_borrowing ── Topic: 54
+│              │         │         │    │    │    │         │         │    │    └─nano_oklo_securities_altman_sam
+│              │         │         │    │    │    │         │         │    │         ├─■──oklo_altman_sam_siemens_advanced ── Topic: 86
+│              │         │         │    │    │    │         │         │    │         └─■──nano_securities_lawsuit_fraud_action ── Topic: 30
+│              │         │         │    │    │    │         │         │    └─quantum_temperatures_weather_pakistan_heatwave
+│              │         │         │    │    │    │         │         │         ├─pakistan_india_drug_theft_resistant
+│              │         │         │    │    │    │         │         │         │    ├─■──resistant_gonorrhoea_drug_sti_sober ── Topic: 92
+│              │         │         │    │    │    │         │         │         │    └─pakistan_india_theft_rosatom_materials
+│              │         │         │    │    │    │         │         │         │         ├─■──pakistan_theft_materials_hameed_faiz ── Topic: 45
+│              │         │         │    │    │    │         │         │         │         └─■──rosatom_czech_india_kudankulam_kazakhstan ── Topic: 52
+│              │         │         │    │    │    │         │         │         └─quantum_temperatures_weather_heatwave_computing
+│              │         │         │    │    │    │         │         │              ├─temperatures_weather_heatwave_met_wildfires
+│              │         │         │    │    │    │         │         │              │    ├─■──wildfires_wildfire_change_athens_climate ── Topic: 17
+│              │         │         │    │    │    │         │         │              │    └─■──weather_heatwave_temperatures_met_hottest ── Topic: 11
+│              │         │         │    │    │    │         │         │              └─quantum_computing_technology_pay_unite
+│              │         │         │    │    │    │         │         │                   ├─quantum_computing_technology_pay_unite
+│              │         │         │    │    │    │         │         │                   │    ├─■──pay_unite_league_gmb_strike ── Topic: 28
+│              │         │         │    │    │    │         │         │                   │    └─quantum_computing_technology_starbucks_layoffs
+│              │         │         │    │    │    │         │         │                   │         ├─■──starbucks_layoffs_ceo_irs_cisco ── Topic: 55
+│              │         │         │    │    │    │         │         │                   │         └─■──quantum_computing_automation_magnetic_technology ── Topic: 8
+│              │         │         │    │    │    │         │         │                   └─■──youth_hub_fostering_blackpool_experience ── Topic: 87
+│              │         │         │    │    │    │         │         └─cancer_bt_anti_unit_racism
+│              │         │         │    │    │    │         │              ├─mile_racism_island_anti_tiktok
+│              │         │         │    │    │    │         │              │    ├─■──mile_island_tiktok_revival_generators ── Topic: 62
+│              │         │         │    │    │    │         │              │    └─■──racism_anti_rally_buckley_jonathan ── Topic: 69
+│              │         │         │    │    │    │         │              └─cancer_bt_unit_bharti_candu
+│              │         │         │    │    │    │         │                   ├─cancer_fines_astrazeneca_200bn_children
+│              │         │         │    │    │    │         │                   │    ├─■──fines_cameras_boots_paktech_ftc ── Topic: 91
+│              │         │         │    │    │    │         │                   │    └─cancer_astrazeneca_200bn_children_radiographers
+│              │         │         │    │    │    │         │                   │         ├─■──cancer_children_mammographers_shortage_radiographers ── Topic: 82
+│              │         │         │    │    │    │         │                   │         └─■──astrazeneca_200bn_evoke_acquisition_william ── Topic: 101
+│              │         │         │    │    │    │         │                   └─bt_unit_candu_bharti_mcr
+│              │         │         │    │    │    │         │                        ├─■──bt_bharti_telecoms_stake_zahawi ── Topic: 49
+│              │         │         │    │    │    │         │                        └─■──candu_mcr_unit_refurbishment_removal ── Topic: 85
+│              │         │         │    │    │    │         └─scottish_tax_labour_pensioners_heating
+│              │         │         │    │    │    │              ├─scottish_tax_pensioners_heating_winter
+│              │         │         │    │    │    │              │    ├─■──tax_rachel_reeves_pensioners_pensions ── Topic: 47
+│              │         │         │    │    │    │              │    └─■──scottish_heating_scotland_winter_deficit ── Topic: 5
+│              │         │         │    │    │    │              └─■──housing_planning_rayner_angela_dorset ── Topic: 61
+│              │         │         │    │    │    └─hospital_leicester_square_inquest_stabbing
+│              │         │         │    │    │         ├─leicester_square_stabbing_nottingham_nhs
+│              │         │         │    │    │         │    ├─■──leicester_square_stabbing_knife_metropolitan ── Topic: 60
+│              │         │         │    │    │         │    └─■──nottingham_nhs_trust_valdo_killer ── Topic: 29
+│              │         │         │    │    │         └─inquest_hospital_sepsis_allergy_costa
+│              │         │         │    │    │              ├─■──hospital_sepsis_inquest_royal_free ── Topic: 71
+│              │         │         │    │    │              └─■──allergy_costa_coffee_hannah_dairy ── Topic: 89
+│              │         │         │    │    └─uranium_victims_radiation_compensation_hiroshima
+│              │         │         │    │         ├─hiroshima_nagasaki_atomic_iran_bombing
+│              │         │         │    │         │    ├─■──hiroshima_nagasaki_atomic_bombing_world ── Topic: 53
+│              │         │         │    │         │    └─■──iran_enrichment_detonators_eslami_bombs ── Topic: 100
+│              │         │         │    │         └─uranium_victims_radiation_compensation_testing
+│              │         │         │    │              ├─■──uranium_production_wyoming_namibia_metals ── Topic: 76
+│              │         │         │    │              └─■──victims_radiation_compensation_testing_congress ── Topic: 42
+│              │         │         │    └─waste_radioactive_spent_decommissioned_fuel
+│              │         │         │         ├─spent_waste_decommissioned_fuel_radioactive
+│              │         │         │         │    ├─■──kiteezi_management_garbage_olympiad_fuel ── Topic: 34
+│              │         │         │         │    └─■──onofre_san_decommissioned_spent_corridor ── Topic: 56
+│              │         │         │         └─■──waste_bears_capping_repository_trenches ── Topic: 44
+│              │         │         └─google_ai_microsoft_android_security
+│              │         │              ├─ai_security_microsoft_intel_data
+│              │         │              │    ├─■──security_cyber_microsoft_windows_vulnerability ── Topic: 6
+│              │         │              │    └─ai_intel_chatgpt_nvidia_google
+│              │         │              │         ├─■──ai_chatgpt_google_artificial_video ── Topic: 10
+│              │         │              │         └─■──intel_nvidia_servers_pc_chip ── Topic: 68
+│              │         │              └─google_android_outage_search_app
+│              │         │                   ├─■──google_android_app_search_pixel ── Topic: 25
+│              │         │                   └─■──outage_youtube_alphabet_gmail_google ── Topic: 58
+│              │         └─nasa_fukushima_water_mars_space
+│              │              ├─fukushima_water_mars_leak_radioactive
+│              │              │    ├─■──fukushima_leak_radioactive_water_japan ── Topic: 13
+│              │              │    └─■──mars_water_scientists_life_insight ── Topic: 39
+│              │              └─nasa_space_moon_astronauts_earth
+│              │                   ├─space_nasa_astronauts_neowise_station
+│              │                   │    ├─■──neowise_telescope_webb_nasa_space ── Topic: 72
+│              │                   │    └─■──astronauts_space_nasa_station_international ── Topic: 99
+│              │                   └─moon_bp_auroras_geomagnetic_shower
+│              │                        ├─■──bp_moon_babylonian_tablets_nasa ── Topic: 97
+│              │                        └─■──shower_meteor_geomagnetic_auroras_aurora ── Topic: 31
+│              └─vogtle_alert_georgia_emergency_plant
+│                   ├─georgia_alert_vogtle_emergency_plant
+│                   │    ├─■──emergency_diablo_canyon_alert_plant ── Topic: 70
+│                   │    └─■──georgia_alert_vogtle_emergency_plant ── Topic: 16
+│                   └─■──cyanide_toxic_environment_agency_midlands ── Topic: 15
+└─ukraine_zaporizhzhia_kursk_russia_iaea
+     ├─zaporizhzhia_iaea_plant_ukraine_cooling
+     │    ├─■──nord_stream_europe_zaporizhzhia_diver ── Topic: 73
+     │    └─zaporizhzhia_iaea_plant_cooling_ukraine
+     │         ├─zaporizhzhia_iaea_plant_ukraine_power
+     │         │    ├─iaea_zaporizhzhia_plant_rafael_grossi
+     │         │    │    ├─■──iaea_safety_zaporizhzhia_levels_knowledge ── Topic: 96
+     │         │    │    └─■──iaea_zaporizhzhia_plant_rafael_grossi ── Topic: 21
+     │         │    └─■──zaporizhzhia_ukraine_plant_power_russia ── Topic: 4
+     │         └─■──cooling_tower_iaea_zaporizhzhia_swiss ── Topic: 50
+     └─kursk_ukraine_russia_putin_incursion
+          ├─kursk_ukraine_putin_russia_incursion
+          │    ├─■──kursk_region_cross_border_oleksandr ── Topic: 51
+          │    └─kursk_ukraine_putin_incursion_russia
+          │         ├─putin_kursk_ukraine_incursion_invasion
+          │         │    ├─■──putin_invasion_ukraine_russia_kursk ── Topic: 2
+          │         │    └─■──kursk_incursion_advancing_offensive_sabotage ── Topic: 27
+          │         └─■──zelensky_kursk_war_zelenskiy_ukraine ── Topic: 63
+          └─■──airfields_drones_airfield_drone_bases ── Topic: 74

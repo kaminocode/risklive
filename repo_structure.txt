@@ -1,0 +1,30 @@
+risk_analysis_dashboard/
+├── data_extraction/
+│   ├── __init__.py       # Initialize the data extraction module
+│   ├── bing_api.py       # Bing API interactions for news and topics extraction
+├── data_processing/
+│   ├── __init__.py       # Initialize the data processing module
+│   ├── llm.py            # LLM-related functions for data enrichment and filtering
+├── topic_modeling/
+│   ├── __init__.py       # Initialize the topic modeling module
+│   ├── initialize_models.py  # Functions for initializing topic modeling components
+│   ├── embeddings.py     # Functions for generating embeddings
+│   ├── train_model.py    # Functions for training the topic model
+│   ├── save_visualize.py # Functions for saving and visualizing the topic model
+├── notebooks/
+│   ├── data_extraction.ipynb  # Jupyter notebook for data extraction
+│   ├── topic_modeling.ipynb   # Jupyter notebook for topic modeling
+├── server/
+│   ├── __init__.py        # Initialize the server module
+│   ├── app.py             # Main Flask server application
+│   ├── scheduler.py       # Scheduler setup using APScheduler
+│   ├── tasks.py           # Task functions for scheduled data extraction and processing
+├── tests/
+│   ├── test_data_extraction.py # Unit tests for data extraction module
+│   ├── test_topic_modeling.py  # Unit tests for topic modeling module
+├── .env           # API Keys and other configs 
+├── config.py      # Config import for backward compatibility
+├── config.yml            # Configuration file with default values
+├── setup.py              # Project setup file for package installation
+├── requirements.txt      # Python dependencies for the project
+└── README.md             # Project documentation and overview

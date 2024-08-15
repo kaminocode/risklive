@@ -1,0 +1,1687 @@
+2024-07-25 14:11:07,536 - risklive.server.app - INFO - Starting the application
+2024-07-25 14:11:07,536 - risklive.server.app - INFO - Starting scheduler
+2024-07-25 14:11:07,540 - risklive.server.app - INFO - Scheduler started successfully
+2024-07-25 14:11:12,828 - risklive.server.app - INFO - Home route accessed
+2024-07-25 14:11:14,778 - risklive.server.app - INFO - Manual trigger for trending news initiated
+2024-07-25 14:11:21,482 - risklive.server.app - INFO - Starting news data processing
+2024-07-25 14:11:31,806 - risklive.server.app - INFO - Application stopped
+2024-07-25 14:12:59,417 - risklive.server.app - INFO - Starting the application
+2024-07-25 14:12:59,417 - risklive.server.app - INFO - Starting scheduler
+2024-07-25 14:12:59,421 - risklive.server.app - INFO - Scheduler started successfully
+2024-07-25 14:13:05,239 - risklive.server.app - INFO - Application stopped
+2024-07-25 14:13:18,750 - risklive.server.app - INFO - Starting the application
+2024-07-25 14:13:18,750 - risklive.server.app - INFO - Starting scheduler
+2024-07-25 14:13:18,754 - risklive.server.app - INFO - Scheduler started successfully
+2024-07-25 14:13:29,994 - risklive.server.app - INFO - Home route accessed
+2024-07-25 14:13:31,331 - risklive.server.app - INFO - Manual trigger for trending news initiated
+2024-07-25 14:13:43,543 - risklive.server.app - INFO - Starting news data processing
+2024-07-25 14:23:39,149 - risklive.server.app - INFO - News data processing completed successfully
+2024-07-25 14:23:39,150 - risklive.server.app - INFO - Manual trending news processing completed
+2024-07-25 14:25:45,293 - risklive.server.app - INFO - Application stopped
+2024-07-25 14:29:20,673 - risklive.server.app - INFO - Starting the application
+2024-07-25 14:29:20,673 - risklive.server.app - INFO - Starting scheduler
+2024-07-25 14:29:20,677 - risklive.server.app - INFO - Scheduler started successfully
+2024-07-25 14:29:26,190 - risklive.server.app - INFO - Manual trigger for trending news initiated
+2024-07-25 14:29:38,053 - risklive.server.app - INFO - Starting news data processing
+2024-07-25 14:32:34,983 - risklive.server.app - INFO - Application stopped
+2024-07-25 14:32:51,925 - risklive.server.app - INFO - Starting the application
+2024-07-25 14:32:51,925 - risklive.server.app - INFO - Starting scheduler
+2024-07-25 14:32:51,928 - risklive.server.app - INFO - Scheduler started successfully
+2024-07-25 14:33:10,887 - risklive.server.app - INFO - Manual trigger for trending news initiated
+2024-07-25 14:33:21,411 - risklive.server.app - INFO - Starting news data processing
+2024-07-25 14:44:51,940 - risklive.server.app - INFO - News data processing completed successfully
+2024-07-25 14:44:51,941 - risklive.server.app - INFO - Manual trending news processing completed
+2024-07-25 14:49:48,871 - risklive.server.app - INFO - Manual trigger for data cleanup initiated
+2024-07-25 14:49:48,876 - risklive.server.app - ERROR - Error during manual data cleanup: '>=' not supported between instances of 'str' and 'datetime.datetime'
+Traceback (most recent call last):
+  File "/home/azureuser/github/risklive/src/risklive/server/app.py", line 101, in trigger_cleanup
+    removed_count = clean_old_data(CLEANUP_DAYS_TO_KEEP)
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/azureuser/github/risklive/src/risklive/server/data_maintenance.py", line 23, in clean_old_data
+    df_new = df[df['Timestamp'] >= cutoff_date]
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/azureuser/miniconda3/envs/nda/lib/python3.12/site-packages/pandas/core/ops/common.py", line 76, in new_method
+    return method(self, other)
+           ^^^^^^^^^^^^^^^^^^^
+  File "/home/azureuser/miniconda3/envs/nda/lib/python3.12/site-packages/pandas/core/arraylike.py", line 60, in __ge__
+    return self._cmp_method(other, operator.ge)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/azureuser/miniconda3/envs/nda/lib/python3.12/site-packages/pandas/core/series.py", line 6119, in _cmp_method
+    res_values = ops.comparison_op(lvalues, rvalues, op)
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/azureuser/miniconda3/envs/nda/lib/python3.12/site-packages/pandas/core/ops/array_ops.py", line 344, in comparison_op
+    res_values = comp_method_OBJECT_ARRAY(op, lvalues, rvalues)
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/azureuser/miniconda3/envs/nda/lib/python3.12/site-packages/pandas/core/ops/array_ops.py", line 129, in comp_method_OBJECT_ARRAY
+    result = libops.scalar_compare(x.ravel(), y, op)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "ops.pyx", line 107, in pandas._libs.ops.scalar_compare
+TypeError: '>=' not supported between instances of 'str' and 'datetime.datetime'
+2024-07-25 14:50:49,784 - risklive.server.app - INFO - Application stopped
+2024-07-25 14:50:58,756 - risklive.server.app - INFO - Starting the application
+2024-07-25 14:50:58,756 - risklive.server.app - INFO - Starting scheduler
+2024-07-25 14:50:58,760 - risklive.server.app - INFO - Scheduler started successfully
+2024-07-25 14:51:02,232 - risklive.server.app - INFO - Manual trigger for data cleanup initiated
+2024-07-25 14:51:02,241 - risklive.server.app - ERROR - Error during manual data cleanup: Invalid comparison between dtype=datetime64[ns, UTC] and datetime
+Traceback (most recent call last):
+  File "/home/azureuser/miniconda3/envs/nda/lib/python3.12/site-packages/pandas/core/arrays/datetimelike.py", line 536, in _validate_comparison_value
+    self._check_compatible_with(other)
+  File "/home/azureuser/miniconda3/envs/nda/lib/python3.12/site-packages/pandas/core/arrays/datetimes.py", line 540, in _check_compatible_with
+    self._assert_tzawareness_compat(other)
+  File "/home/azureuser/miniconda3/envs/nda/lib/python3.12/site-packages/pandas/core/arrays/datetimes.py", line 786, in _assert_tzawareness_compat
+    raise TypeError(
+TypeError: Cannot compare tz-naive and tz-aware datetime-like objects
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/azureuser/miniconda3/envs/nda/lib/python3.12/site-packages/pandas/core/arrays/datetimelike.py", line 983, in _cmp_method
+    other = self._validate_comparison_value(other)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/azureuser/miniconda3/envs/nda/lib/python3.12/site-packages/pandas/core/arrays/datetimelike.py", line 539, in _validate_comparison_value
+    raise InvalidComparison(other) from err
+pandas.errors.InvalidComparison: 2024-07-22 14:51:02.232978
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/azureuser/github/risklive/src/risklive/server/app.py", line 101, in trigger_cleanup
+    removed_count = clean_old_data(CLEANUP_DAYS_TO_KEEP)
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/azureuser/github/risklive/src/risklive/server/data_maintenance.py", line 24, in clean_old_data
+    df_new = df[df['Timestamp'] >= cutoff_date]
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/azureuser/miniconda3/envs/nda/lib/python3.12/site-packages/pandas/core/ops/common.py", line 76, in new_method
+    return method(self, other)
+           ^^^^^^^^^^^^^^^^^^^
+  File "/home/azureuser/miniconda3/envs/nda/lib/python3.12/site-packages/pandas/core/arraylike.py", line 60, in __ge__
+    return self._cmp_method(other, operator.ge)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/azureuser/miniconda3/envs/nda/lib/python3.12/site-packages/pandas/core/series.py", line 6119, in _cmp_method
+    res_values = ops.comparison_op(lvalues, rvalues, op)
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/azureuser/miniconda3/envs/nda/lib/python3.12/site-packages/pandas/core/ops/array_ops.py", line 330, in comparison_op
+    res_values = op(lvalues, rvalues)
+                 ^^^^^^^^^^^^^^^^^^^^
+  File "/home/azureuser/miniconda3/envs/nda/lib/python3.12/site-packages/pandas/core/ops/common.py", line 76, in new_method
+    return method(self, other)
+           ^^^^^^^^^^^^^^^^^^^
+  File "/home/azureuser/miniconda3/envs/nda/lib/python3.12/site-packages/pandas/core/arraylike.py", line 60, in __ge__
+    return self._cmp_method(other, operator.ge)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/azureuser/miniconda3/envs/nda/lib/python3.12/site-packages/pandas/core/arrays/datetimelike.py", line 985, in _cmp_method
+    return invalid_comparison(self, other, op)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/azureuser/miniconda3/envs/nda/lib/python3.12/site-packages/pandas/core/ops/invalid.py", line 40, in invalid_comparison
+    raise TypeError(f"Invalid comparison between dtype={left.dtype} and {typ}")
+TypeError: Invalid comparison between dtype=datetime64[ns, UTC] and datetime
+2024-07-25 14:56:00,606 - risklive.server.app - INFO - Application stopped
+2024-07-25 14:56:09,891 - risklive.server.app - INFO - Starting the application
+2024-07-25 14:56:09,891 - risklive.server.app - INFO - Starting scheduler
+2024-07-25 14:56:09,894 - risklive.server.app - INFO - Scheduler started successfully
+2024-07-25 14:56:15,133 - risklive.server.app - INFO - Manual trigger for data cleanup initiated
+2024-07-25 14:56:15,152 - risklive.server.app - ERROR - Error during manual data cleanup: Cannot save file into a non-existent directory: '/home/azureuser/github/risklive/results/backup_data'
+Traceback (most recent call last):
+  File "/home/azureuser/github/risklive/src/risklive/server/app.py", line 101, in trigger_cleanup
+    removed_count = clean_old_data(CLEANUP_DAYS_TO_KEEP)
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/azureuser/github/risklive/src/risklive/server/data_maintenance.py", line 33, in clean_old_data
+    df_to_backup.to_csv(backup_file_path, index=False)
+  File "/home/azureuser/miniconda3/envs/nda/lib/python3.12/site-packages/pandas/util/_decorators.py", line 333, in wrapper
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/azureuser/miniconda3/envs/nda/lib/python3.12/site-packages/pandas/core/generic.py", line 3967, in to_csv
+    return DataFrameRenderer(formatter).to_csv(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/azureuser/miniconda3/envs/nda/lib/python3.12/site-packages/pandas/io/formats/format.py", line 1014, in to_csv
+    csv_formatter.save()
+  File "/home/azureuser/miniconda3/envs/nda/lib/python3.12/site-packages/pandas/io/formats/csvs.py", line 251, in save
+    with get_handle(
+         ^^^^^^^^^^^
+  File "/home/azureuser/miniconda3/envs/nda/lib/python3.12/site-packages/pandas/io/common.py", line 749, in get_handle
+    check_parent_directory(str(handle))
+  File "/home/azureuser/miniconda3/envs/nda/lib/python3.12/site-packages/pandas/io/common.py", line 616, in check_parent_directory
+    raise OSError(rf"Cannot save file into a non-existent directory: '{parent}'")
+OSError: Cannot save file into a non-existent directory: '/home/azureuser/github/risklive/results/backup_data'
+2024-07-25 14:56:48,175 - risklive.server.app - INFO - Application stopped
+2024-07-25 14:56:57,507 - risklive.server.app - INFO - Starting the application
+2024-07-25 14:56:57,507 - risklive.server.app - INFO - Starting scheduler
+2024-07-25 14:56:57,511 - risklive.server.app - INFO - Scheduler started successfully
+2024-07-25 14:56:59,005 - risklive.server.app - INFO - Manual trigger for data cleanup initiated
+2024-07-25 14:56:59,041 - risklive.server.app - INFO - Data cleanup completed. Removed 0 records.
+2024-07-25 14:58:10,704 - risklive.server.app - INFO - Application stopped
+2024-07-31 10:05:10,031 - risklive.server.app - INFO - Starting the application
+2024-07-31 10:05:10,032 - risklive.server.app - INFO - Starting scheduler
+2024-07-31 10:05:10,036 - risklive.server.app - INFO - Scheduler started successfully
+2024-07-31 11:00:00,000 - risklive.server.app - INFO - Starting hourly task
+2024-07-31 11:00:06,079 - risklive.server.app - INFO - Starting news data processing
+2024-07-31 11:09:26,274 - risklive.server.app - INFO - News data processing completed successfully
+2024-07-31 11:09:26,274 - risklive.server.app - INFO - Hourly task completed successfully
+2024-07-31 12:00:00,000 - risklive.server.app - INFO - Starting hourly task
+2024-07-31 12:00:06,762 - risklive.server.app - INFO - Starting news data processing
+2024-07-31 12:05:09,562 - risklive.server.app - INFO - News data processing completed successfully
+2024-07-31 12:05:09,562 - risklive.server.app - INFO - Hourly task completed successfully
+2024-07-31 13:00:00,000 - risklive.server.app - INFO - Starting hourly task
+2024-07-31 13:00:05,825 - risklive.server.app - INFO - Starting news data processing
+2024-07-31 13:03:41,065 - risklive.server.app - INFO - News data processing completed successfully
+2024-07-31 13:03:41,065 - risklive.server.app - INFO - Hourly task completed successfully
+2024-07-31 14:00:00,000 - risklive.server.app - INFO - Starting hourly task
+2024-07-31 14:00:06,148 - risklive.server.app - INFO - Starting news data processing
+2024-07-31 14:04:19,044 - risklive.server.app - INFO - News data processing completed successfully
+2024-07-31 14:04:19,044 - risklive.server.app - INFO - Hourly task completed successfully
+2024-07-31 15:00:00,000 - risklive.server.app - INFO - Starting hourly task
+2024-07-31 15:00:05,614 - risklive.server.app - INFO - Starting news data processing
+2024-07-31 15:04:11,203 - risklive.server.app - INFO - News data processing completed successfully
+2024-07-31 15:04:11,203 - risklive.server.app - INFO - Hourly task completed successfully
+2024-07-31 16:00:00,000 - risklive.server.app - INFO - Starting hourly task
+2024-07-31 16:00:05,557 - risklive.server.app - INFO - Starting news data processing
+2024-07-31 16:04:08,505 - risklive.server.app - INFO - News data processing completed successfully
+2024-07-31 16:04:08,505 - risklive.server.app - INFO - Hourly task completed successfully
+2024-07-31 17:00:00,000 - risklive.server.app - INFO - Starting hourly task
+2024-07-31 17:00:05,686 - risklive.server.app - INFO - Starting news data processing
+2024-07-31 17:03:56,913 - risklive.server.app - INFO - News data processing completed successfully
+2024-07-31 17:03:56,914 - risklive.server.app - INFO - Hourly task completed successfully
+2024-07-31 18:00:00,000 - risklive.server.app - INFO - Starting hourly task
+2024-07-31 18:00:06,145 - risklive.server.app - INFO - Starting news data processing
+2024-07-31 18:04:05,910 - risklive.server.app - INFO - News data processing completed successfully
+2024-07-31 18:04:05,910 - risklive.server.app - INFO - Hourly task completed successfully
+2024-07-31 19:00:00,000 - risklive.server.app - INFO - Starting hourly task
+2024-07-31 19:00:06,258 - risklive.server.app - INFO - Starting news data processing
+2024-07-31 19:04:01,134 - risklive.server.app - INFO - News data processing completed successfully
+2024-07-31 19:04:01,134 - risklive.server.app - INFO - Hourly task completed successfully
+2024-07-31 20:00:00,000 - risklive.server.app - INFO - Starting hourly task
+2024-07-31 20:00:05,673 - risklive.server.app - INFO - Starting news data processing
+2024-07-31 20:02:36,837 - risklive.server.app - INFO - News data processing completed successfully
+2024-07-31 20:02:36,837 - risklive.server.app - INFO - Hourly task completed successfully
+2024-07-31 21:00:00,000 - risklive.server.app - INFO - Starting hourly task
+2024-07-31 21:00:05,580 - risklive.server.app - INFO - Starting news data processing
+2024-07-31 21:04:39,878 - risklive.server.app - INFO - News data processing completed successfully
+2024-07-31 21:04:39,878 - risklive.server.app - INFO - Hourly task completed successfully
+2024-07-31 22:00:00,000 - risklive.server.app - INFO - Starting hourly task
+2024-07-31 22:00:05,768 - risklive.server.app - INFO - Starting news data processing
+2024-07-31 22:03:53,246 - risklive.server.app - INFO - News data processing completed successfully
+2024-07-31 22:03:53,246 - risklive.server.app - INFO - Hourly task completed successfully
+2024-07-31 23:00:00,000 - risklive.server.app - INFO - Starting hourly task
+2024-07-31 23:00:05,765 - risklive.server.app - INFO - Starting news data processing
+2024-07-31 23:03:02,617 - risklive.server.app - INFO - News data processing completed successfully
+2024-07-31 23:03:02,617 - risklive.server.app - INFO - Hourly task completed successfully
+2024-08-01 00:00:00,000 - risklive.server.app - INFO - Starting hourly task
+2024-08-01 00:00:05,790 - risklive.server.app - INFO - Starting news data processing
+2024-08-01 00:03:15,461 - risklive.server.app - INFO - News data processing completed successfully
+2024-08-01 00:03:15,462 - risklive.server.app - INFO - Hourly task completed successfully
+2024-08-01 01:00:00,000 - risklive.server.app - INFO - Starting hourly task
+2024-08-01 01:00:05,972 - risklive.server.app - INFO - Starting news data processing
+2024-08-01 01:02:22,282 - risklive.server.app - INFO - News data processing completed successfully
+2024-08-01 01:02:22,282 - risklive.server.app - INFO - Hourly task completed successfully
+2024-08-01 02:00:00,000 - risklive.server.app - INFO - Starting hourly task
+2024-08-01 02:00:05,976 - risklive.server.app - INFO - Starting news data processing
+2024-08-01 02:03:09,766 - risklive.server.app - INFO - News data processing completed successfully
+2024-08-01 02:03:09,766 - risklive.server.app - INFO - Hourly task completed successfully
+2024-08-01 03:00:00,000 - risklive.server.app - INFO - Starting hourly task
+2024-08-01 03:00:05,895 - risklive.server.app - INFO - Starting news data processing
+2024-08-01 03:03:20,084 - risklive.server.app - INFO - News data processing completed successfully
+2024-08-01 03:03:20,084 - risklive.server.app - INFO - Hourly task completed successfully
+2024-08-01 04:00:00,000 - risklive.server.app - INFO - Starting hourly task
+2024-08-01 04:00:06,296 - risklive.server.app - INFO - Starting news data processing
+2024-08-01 04:03:15,507 - risklive.server.app - INFO - News data processing completed successfully
+2024-08-01 04:03:15,508 - risklive.server.app - INFO - Hourly task completed successfully
+2024-08-01 05:00:00,000 - risklive.server.app - INFO - Starting hourly task
+2024-08-01 05:00:05,524 - risklive.server.app - INFO - Starting news data processing
+2024-08-01 05:03:24,486 - risklive.server.app - INFO - News data processing completed successfully
+2024-08-01 05:03:24,486 - risklive.server.app - INFO - Hourly task completed successfully
+2024-08-01 06:00:00,000 - risklive.server.app - INFO - Starting hourly task
+2024-08-01 06:00:05,747 - risklive.server.app - INFO - Starting news data processing
+2024-08-01 06:03:27,090 - risklive.server.app - INFO - News data processing completed successfully
+2024-08-01 06:03:27,090 - risklive.server.app - INFO - Hourly task completed successfully
+2024-08-01 07:00:00,000 - risklive.server.app - INFO - Starting hourly task
+2024-08-01 07:00:05,663 - risklive.server.app - INFO - Starting news data processing
+2024-08-01 07:05:04,563 - risklive.server.app - INFO - News data processing completed successfully
+2024-08-01 07:05:04,563 - risklive.server.app - INFO - Hourly task completed successfully
+2024-08-01 08:00:00,000 - risklive.server.app - INFO - Starting daily task
+2024-08-01 08:00:12,037 - risklive.server.app - INFO - Starting news data processing
+2024-08-01 08:05:17,649 - risklive.server.app - INFO - News data processing completed successfully
+2024-08-01 08:05:17,649 - risklive.server.app - INFO - Daily task completed successfully
+2024-08-01 09:00:00,000 - risklive.server.app - INFO - Starting hourly task
+2024-08-01 09:00:06,071 - risklive.server.app - INFO - Starting news data processing
+2024-08-01 09:05:14,235 - risklive.server.app - INFO - News data processing completed successfully
+2024-08-01 09:05:14,236 - risklive.server.app - INFO - Hourly task completed successfully
+2024-08-01 10:00:00,000 - risklive.server.app - INFO - Starting hourly task
+2024-08-01 10:00:05,572 - risklive.server.app - INFO - Starting news data processing
+2024-08-01 10:05:02,427 - risklive.server.app - INFO - News data processing completed successfully
+2024-08-01 10:05:02,428 - risklive.server.app - INFO - Hourly task completed successfully
+2024-08-01 11:00:00,000 - risklive.server.app - INFO - Starting hourly task
+2024-08-01 11:00:05,914 - risklive.server.app - INFO - Starting news data processing
+2024-08-01 11:04:55,732 - risklive.server.app - INFO - News data processing completed successfully
+2024-08-01 11:04:55,732 - risklive.server.app - INFO - Hourly task completed successfully
+2024-08-01 12:00:00,000 - risklive.server.app - INFO - Starting hourly task
+2024-08-01 12:00:06,049 - risklive.server.app - INFO - Starting news data processing
+2024-08-01 12:04:19,871 - risklive.server.app - INFO - News data processing completed successfully
+2024-08-01 12:04:19,872 - risklive.server.app - INFO - Hourly task completed successfully
+2024-08-01 13:00:00,000 - risklive.server.app - INFO - Starting hourly task
+2024-08-01 13:00:06,703 - risklive.server.app - INFO - Starting news data processing
+2024-08-01 13:06:05,523 - risklive.server.app - INFO - News data processing completed successfully
+2024-08-01 13:06:05,523 - risklive.server.app - INFO - Hourly task completed successfully
+2024-08-01 14:00:00,000 - risklive.server.app - INFO - Starting hourly task
+2024-08-01 14:00:06,216 - risklive.server.app - INFO - Starting news data processing
+2024-08-01 14:04:49,318 - risklive.server.app - INFO - News data processing completed successfully
+2024-08-01 14:04:49,318 - risklive.server.app - INFO - Hourly task completed successfully
+2024-08-01 14:11:46,522 - risklive.server.app - INFO - Application stopped
+2024-08-01 14:11:54,501 - risklive.server.app - INFO - Starting the application
+2024-08-01 14:11:54,501 - risklive.server.app - INFO - Starting scheduler
+2024-08-01 14:11:54,505 - risklive.server.app - INFO - Scheduler started successfully
+2024-08-01 14:13:29,371 - risklive.server.app - INFO - Manual trigger for data cleanup initiated
+2024-08-01 14:13:29,375 - risklive.server.app - ERROR - Error during manual data cleanup: Invalid comparison between dtype=datetime64[ns] and datetime
+Traceback (most recent call last):
+  File "/home/azureuser/miniconda3/envs/nda/lib/python3.11/site-packages/pandas/core/arrays/datetimelike.py", line 536, in _validate_comparison_value
+    self._check_compatible_with(other)
+  File "/home/azureuser/miniconda3/envs/nda/lib/python3.11/site-packages/pandas/core/arrays/datetimes.py", line 540, in _check_compatible_with
+    self._assert_tzawareness_compat(other)
+  File "/home/azureuser/miniconda3/envs/nda/lib/python3.11/site-packages/pandas/core/arrays/datetimes.py", line 782, in _assert_tzawareness_compat
+    raise TypeError(
+TypeError: Cannot compare tz-naive and tz-aware datetime-like objects.
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/azureuser/miniconda3/envs/nda/lib/python3.11/site-packages/pandas/core/arrays/datetimelike.py", line 983, in _cmp_method
+    other = self._validate_comparison_value(other)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/azureuser/miniconda3/envs/nda/lib/python3.11/site-packages/pandas/core/arrays/datetimelike.py", line 539, in _validate_comparison_value
+    raise InvalidComparison(other) from err
+pandas.errors.InvalidComparison: 2024-07-29 14:13:29.371258+00:00
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/azureuser/github/risklive/src/risklive/server/app.py", line 101, in trigger_cleanup
+    removed_count = clean_old_data(CLEANUP_DAYS_TO_KEEP)
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/azureuser/github/risklive/src/risklive/server/data_maintenance.py", line 27, in clean_old_data
+    df_new = df[df['Timestamp'] >= cutoff_date]
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/azureuser/miniconda3/envs/nda/lib/python3.11/site-packages/pandas/core/ops/common.py", line 76, in new_method
+    return method(self, other)
+           ^^^^^^^^^^^^^^^^^^^
+  File "/home/azureuser/miniconda3/envs/nda/lib/python3.11/site-packages/pandas/core/arraylike.py", line 60, in __ge__
+    return self._cmp_method(other, operator.ge)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/azureuser/miniconda3/envs/nda/lib/python3.11/site-packages/pandas/core/series.py", line 6119, in _cmp_method
+    res_values = ops.comparison_op(lvalues, rvalues, op)
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/azureuser/miniconda3/envs/nda/lib/python3.11/site-packages/pandas/core/ops/array_ops.py", line 330, in comparison_op
+    res_values = op(lvalues, rvalues)
+                 ^^^^^^^^^^^^^^^^^^^^
+  File "/home/azureuser/miniconda3/envs/nda/lib/python3.11/site-packages/pandas/core/ops/common.py", line 76, in new_method
+    return method(self, other)
+           ^^^^^^^^^^^^^^^^^^^
+  File "/home/azureuser/miniconda3/envs/nda/lib/python3.11/site-packages/pandas/core/arraylike.py", line 60, in __ge__
+    return self._cmp_method(other, operator.ge)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/azureuser/miniconda3/envs/nda/lib/python3.11/site-packages/pandas/core/arrays/datetimelike.py", line 985, in _cmp_method
+    return invalid_comparison(self, other, op)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/azureuser/miniconda3/envs/nda/lib/python3.11/site-packages/pandas/core/ops/invalid.py", line 40, in invalid_comparison
+    raise TypeError(f"Invalid comparison between dtype={left.dtype} and {typ}")
+TypeError: Invalid comparison between dtype=datetime64[ns] and datetime
+2024-08-01 14:13:46,370 - risklive.server.app - INFO - Manual trigger for regular news initiated
+2024-08-01 14:13:52,974 - risklive.server.app - INFO - Starting news data processing
+2024-08-01 14:17:05,008 - risklive.server.app - INFO - News data processing completed successfully
+2024-08-01 14:17:05,008 - risklive.server.app - INFO - Manual regular news processing completed
+2024-08-01 14:42:34,013 - risklive.server.app - INFO - Application stopped
+2024-08-01 14:42:43,040 - risklive.server.app - INFO - Starting the application
+2024-08-01 14:42:43,040 - risklive.server.app - INFO - Starting scheduler
+2024-08-01 14:42:43,043 - risklive.server.app - INFO - Scheduler started successfully
+2024-08-01 14:43:05,752 - risklive.server.app - INFO - Manual trigger for data cleanup initiated
+2024-08-01 14:43:05,779 - risklive.server.app - ERROR - Error during manual data cleanup: Already tz-aware, use tz_convert to convert.
+Traceback (most recent call last):
+  File "/home/azureuser/github/risklive/src/risklive/server/app.py", line 102, in trigger_cleanup
+    removed_count = clean_old_data(CLEANUP_DAYS_TO_KEEP)
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/azureuser/github/risklive/src/risklive/server/data_maintenance.py", line 28, in clean_old_data
+    df['Timestamp'] = pd.to_datetime(df['Timestamp'], format='ISO8601').dt.tz_localize('UTC')
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/azureuser/miniconda3/envs/nda/lib/python3.11/site-packages/pandas/core/accessor.py", line 112, in f
+    return self._delegate_method(name, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/azureuser/miniconda3/envs/nda/lib/python3.11/site-packages/pandas/core/indexes/accessors.py", line 132, in _delegate_method
+    result = method(*args, **kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/azureuser/miniconda3/envs/nda/lib/python3.11/site-packages/pandas/core/indexes/datetimes.py", line 293, in tz_localize
+    arr = self._data.tz_localize(tz, ambiguous, nonexistent)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/azureuser/miniconda3/envs/nda/lib/python3.11/site-packages/pandas/core/arrays/_mixins.py", line 81, in method
+    return meth(self, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/azureuser/miniconda3/envs/nda/lib/python3.11/site-packages/pandas/core/arrays/datetimes.py", line 1083, in tz_localize
+    raise TypeError("Already tz-aware, use tz_convert to convert.")
+TypeError: Already tz-aware, use tz_convert to convert.
+2024-08-01 14:44:07,361 - risklive.server.app - INFO - Application stopped
+2024-08-01 14:44:15,989 - risklive.server.app - INFO - Starting the application
+2024-08-01 14:44:15,989 - risklive.server.app - INFO - Starting scheduler
+2024-08-01 14:44:15,992 - risklive.server.app - INFO - Scheduler started successfully
+2024-08-01 14:44:19,189 - risklive.server.app - INFO - Manual trigger for data cleanup initiated
+2024-08-01 14:44:19,384 - risklive.server.app - INFO - Data cleanup completed. Removed 0 records.
+2024-08-01 15:00:00,000 - risklive.server.app - INFO - Starting hourly task
+2024-08-01 15:00:06,578 - risklive.server.app - INFO - Starting news data processing
+2024-08-01 15:04:20,261 - risklive.server.app - INFO - News data processing completed successfully
+2024-08-01 15:04:20,261 - risklive.server.app - INFO - Hourly task completed successfully
+2024-08-01 16:00:00,000 - risklive.server.app - INFO - Starting hourly task
+2024-08-01 16:00:05,680 - risklive.server.app - INFO - Starting news data processing
+2024-08-01 16:04:30,841 - risklive.server.app - INFO - News data processing completed successfully
+2024-08-01 16:04:30,841 - risklive.server.app - INFO - Hourly task completed successfully
+2024-08-01 17:00:00,000 - risklive.server.app - INFO - Starting hourly task
+2024-08-01 17:00:05,982 - risklive.server.app - INFO - Starting news data processing
+2024-08-01 17:04:58,212 - risklive.server.app - INFO - News data processing completed successfully
+2024-08-01 17:04:58,212 - risklive.server.app - INFO - Hourly task completed successfully
+2024-08-01 18:00:00,000 - risklive.server.app - INFO - Starting hourly task
+2024-08-01 18:00:05,393 - risklive.server.app - INFO - Starting news data processing
+2024-08-01 18:05:17,574 - risklive.server.app - INFO - News data processing completed successfully
+2024-08-01 18:05:17,574 - risklive.server.app - INFO - Hourly task completed successfully
+2024-08-01 19:00:00,000 - risklive.server.app - INFO - Starting hourly task
+2024-08-01 19:00:06,168 - risklive.server.app - INFO - Starting news data processing
+2024-08-01 19:05:13,693 - risklive.server.app - INFO - News data processing completed successfully
+2024-08-01 19:05:13,693 - risklive.server.app - INFO - Hourly task completed successfully
+2024-08-01 20:00:00,000 - risklive.server.app - INFO - Starting hourly task
+2024-08-01 20:00:05,732 - risklive.server.app - INFO - Starting news data processing
+2024-08-01 20:05:23,948 - risklive.server.app - INFO - News data processing completed successfully
+2024-08-01 20:05:23,948 - risklive.server.app - INFO - Hourly task completed successfully
+2024-08-01 21:00:00,000 - risklive.server.app - INFO - Starting hourly task
+2024-08-01 21:00:06,264 - risklive.server.app - INFO - Starting news data processing
+2024-08-01 21:05:02,313 - risklive.server.app - INFO - News data processing completed successfully
+2024-08-01 21:05:02,313 - risklive.server.app - INFO - Hourly task completed successfully
+2024-08-01 22:00:00,000 - risklive.server.app - INFO - Starting hourly task
+2024-08-01 22:00:05,807 - risklive.server.app - INFO - Starting news data processing
+2024-08-01 22:04:29,419 - risklive.server.app - INFO - News data processing completed successfully
+2024-08-01 22:04:29,419 - risklive.server.app - INFO - Hourly task completed successfully
+2024-08-01 23:00:00,000 - risklive.server.app - INFO - Starting hourly task
+2024-08-01 23:00:06,340 - risklive.server.app - INFO - Starting news data processing
+2024-08-01 23:04:06,372 - risklive.server.app - INFO - News data processing completed successfully
+2024-08-01 23:04:06,372 - risklive.server.app - INFO - Hourly task completed successfully
+2024-08-02 00:00:00,000 - risklive.server.app - INFO - Starting hourly task
+2024-08-02 00:00:06,759 - risklive.server.app - INFO - Starting news data processing
+2024-08-02 00:04:05,862 - risklive.server.app - INFO - News data processing completed successfully
+2024-08-02 00:04:05,862 - risklive.server.app - INFO - Hourly task completed successfully
+2024-08-02 01:00:00,000 - risklive.server.app - INFO - Starting hourly task
+2024-08-02 01:00:05,457 - risklive.server.app - INFO - Starting news data processing
+2024-08-02 01:03:14,770 - risklive.server.app - INFO - News data processing completed successfully
+2024-08-02 01:03:14,770 - risklive.server.app - INFO - Hourly task completed successfully
+2024-08-02 02:00:00,000 - risklive.server.app - INFO - Starting hourly task
+2024-08-02 02:00:05,763 - risklive.server.app - INFO - Starting news data processing
+2024-08-02 02:03:28,652 - risklive.server.app - INFO - News data processing completed successfully
+2024-08-02 02:03:28,653 - risklive.server.app - INFO - Hourly task completed successfully
+2024-08-02 03:00:00,000 - risklive.server.app - INFO - Starting hourly task
+2024-08-02 03:00:05,932 - risklive.server.app - INFO - Starting news data processing
+2024-08-02 03:03:46,939 - risklive.server.app - INFO - News data processing completed successfully
+2024-08-02 03:03:46,939 - risklive.server.app - INFO - Hourly task completed successfully
+2024-08-02 04:00:00,000 - risklive.server.app - INFO - Starting hourly task
+2024-08-02 04:00:05,531 - risklive.server.app - INFO - Starting news data processing
+2024-08-02 04:03:38,221 - risklive.server.app - INFO - News data processing completed successfully
+2024-08-02 04:03:38,221 - risklive.server.app - INFO - Hourly task completed successfully
+2024-08-02 05:00:00,000 - risklive.server.app - INFO - Starting hourly task
+2024-08-02 05:00:05,856 - risklive.server.app - INFO - Starting news data processing
+2024-08-02 05:04:14,641 - risklive.server.app - INFO - News data processing completed successfully
+2024-08-02 05:04:14,641 - risklive.server.app - INFO - Hourly task completed successfully
+2024-08-02 06:00:00,000 - risklive.server.app - INFO - Starting hourly task
+2024-08-02 06:00:05,937 - risklive.server.app - INFO - Starting news data processing
+2024-08-02 06:05:33,554 - risklive.server.app - INFO - News data processing completed successfully
+2024-08-02 06:05:33,554 - risklive.server.app - INFO - Hourly task completed successfully
+2024-08-02 07:00:00,000 - risklive.server.app - INFO - Starting hourly task
+2024-08-02 07:00:04,529 - risklive.server.app - INFO - Starting news data processing
+2024-08-02 07:06:13,740 - risklive.server.app - INFO - News data processing completed successfully
+2024-08-02 07:06:13,740 - risklive.server.app - INFO - Hourly task completed successfully
+2024-08-02 08:00:00,000 - risklive.server.app - INFO - Starting daily task
+2024-08-02 08:00:13,392 - risklive.server.app - INFO - Starting news data processing
+2024-08-02 08:07:24,151 - risklive.server.app - INFO - News data processing completed successfully
+2024-08-02 08:07:24,151 - risklive.server.app - INFO - Daily task completed successfully
+2024-08-02 09:00:00,000 - risklive.server.app - INFO - Starting hourly task
+2024-08-02 09:00:06,188 - risklive.server.app - INFO - Starting news data processing
+2024-08-02 09:06:47,550 - risklive.server.app - INFO - News data processing completed successfully
+2024-08-02 09:06:47,550 - risklive.server.app - INFO - Hourly task completed successfully
+2024-08-02 10:00:00,000 - risklive.server.app - INFO - Starting hourly task
+2024-08-02 10:00:05,679 - risklive.server.app - INFO - Starting news data processing
+2024-08-02 10:06:38,602 - risklive.server.app - INFO - News data processing completed successfully
+2024-08-02 10:06:38,602 - risklive.server.app - INFO - Hourly task completed successfully
+2024-08-02 11:00:00,000 - risklive.server.app - INFO - Starting hourly task
+2024-08-02 11:00:06,349 - risklive.server.app - INFO - Starting news data processing
+2024-08-02 11:05:12,238 - risklive.server.app - INFO - News data processing completed successfully
+2024-08-02 11:05:12,238 - risklive.server.app - INFO - Hourly task completed successfully
+2024-08-02 12:00:00,000 - risklive.server.app - INFO - Starting hourly task
+2024-08-02 12:00:05,684 - risklive.server.app - INFO - Starting news data processing
+2024-08-02 12:06:46,777 - risklive.server.app - INFO - News data processing completed successfully
+2024-08-02 12:06:46,777 - risklive.server.app - INFO - Hourly task completed successfully
+2024-08-02 13:00:00,000 - risklive.server.app - INFO - Starting hourly task
+2024-08-02 13:00:05,688 - risklive.server.app - INFO - Starting news data processing
+2024-08-02 13:06:47,945 - risklive.server.app - INFO - News data processing completed successfully
+2024-08-02 13:06:47,945 - risklive.server.app - INFO - Hourly task completed successfully
+2024-08-02 14:00:00,000 - risklive.server.app - INFO - Starting hourly task
+2024-08-02 14:00:06,112 - risklive.server.app - INFO - Starting news data processing
+2024-08-02 14:07:09,805 - risklive.server.app - INFO - News data processing completed successfully
+2024-08-02 14:07:09,805 - risklive.server.app - INFO - Hourly task completed successfully
+2024-08-02 15:00:00,000 - risklive.server.app - INFO - Starting hourly task
+2024-08-02 15:00:06,064 - risklive.server.app - INFO - Starting news data processing
+2024-08-02 15:06:30,261 - risklive.server.app - INFO - News data processing completed successfully
+2024-08-02 15:06:30,261 - risklive.server.app - INFO - Hourly task completed successfully
+2024-08-02 16:00:00,000 - risklive.server.app - INFO - Starting hourly task
+2024-08-02 16:00:05,830 - risklive.server.app - INFO - Starting news data processing
+2024-08-02 16:07:00,294 - risklive.server.app - INFO - News data processing completed successfully
+2024-08-02 16:07:00,294 - risklive.server.app - INFO - Hourly task completed successfully
+2024-08-02 17:00:00,000 - risklive.server.app - INFO - Starting hourly task
+2024-08-02 17:00:06,197 - risklive.server.app - INFO - Starting news data processing
+2024-08-02 17:06:32,230 - risklive.server.app - INFO - News data processing completed successfully
+2024-08-02 17:06:32,230 - risklive.server.app - INFO - Hourly task completed successfully
+2024-08-02 18:00:00,000 - risklive.server.app - INFO - Starting hourly task
+2024-08-02 18:00:05,924 - risklive.server.app - INFO - Starting news data processing
+2024-08-02 18:06:06,586 - risklive.server.app - INFO - News data processing completed successfully
+2024-08-02 18:06:06,586 - risklive.server.app - INFO - Hourly task completed successfully
+2024-08-02 19:00:00,000 - risklive.server.app - INFO - Starting hourly task
+2024-08-02 19:00:05,958 - risklive.server.app - INFO - Starting news data processing
+2024-08-02 19:06:42,521 - risklive.server.app - INFO - News data processing completed successfully
+2024-08-02 19:06:42,521 - risklive.server.app - INFO - Hourly task completed successfully
+2024-08-02 20:00:00,000 - risklive.server.app - INFO - Starting hourly task
+2024-08-02 20:00:06,264 - risklive.server.app - INFO - Starting news data processing
+2024-08-02 20:06:41,382 - risklive.server.app - INFO - News data processing completed successfully
+2024-08-02 20:06:41,383 - risklive.server.app - INFO - Hourly task completed successfully
+2024-08-02 21:00:00,000 - risklive.server.app - INFO - Starting hourly task
+2024-08-02 21:00:05,775 - risklive.server.app - INFO - Starting news data processing
+2024-08-02 21:06:17,448 - risklive.server.app - INFO - News data processing completed successfully
+2024-08-02 21:06:17,448 - risklive.server.app - INFO - Hourly task completed successfully
+2024-08-02 22:00:00,000 - risklive.server.app - INFO - Starting hourly task
+2024-08-02 22:00:05,702 - risklive.server.app - INFO - Starting news data processing
+2024-08-02 22:05:58,387 - risklive.server.app - INFO - News data processing completed successfully
+2024-08-02 22:05:58,387 - risklive.server.app - INFO - Hourly task completed successfully
+2024-08-02 23:00:00,000 - risklive.server.app - INFO - Starting hourly task
+2024-08-02 23:00:05,550 - risklive.server.app - INFO - Starting news data processing
+2024-08-02 23:05:32,206 - risklive.server.app - INFO - News data processing completed successfully
+2024-08-02 23:05:32,206 - risklive.server.app - INFO - Hourly task completed successfully
+2024-08-03 00:00:00,000 - risklive.server.app - INFO - Starting hourly task
+2024-08-03 00:00:06,366 - risklive.server.app - INFO - Starting news data processing
+2024-08-03 00:05:54,386 - risklive.server.app - INFO - News data processing completed successfully
+2024-08-03 00:05:54,386 - risklive.server.app - INFO - Hourly task completed successfully
+2024-08-03 01:00:00,000 - risklive.server.app - INFO - Starting hourly task
+2024-08-03 01:00:05,669 - risklive.server.app - INFO - Starting news data processing
+2024-08-03 01:05:14,819 - risklive.server.app - INFO - News data processing completed successfully
+2024-08-03 01:05:14,820 - risklive.server.app - INFO - Hourly task completed successfully
+2024-08-03 02:00:00,000 - risklive.server.app - INFO - Starting hourly task
+2024-08-03 02:00:05,710 - risklive.server.app - INFO - Starting news data processing
+2024-08-03 02:05:10,979 - risklive.server.app - INFO - News data processing completed successfully
+2024-08-03 02:05:10,980 - risklive.server.app - INFO - Hourly task completed successfully
+2024-08-03 03:00:00,000 - risklive.server.app - INFO - Starting hourly task
+2024-08-03 03:00:05,216 - risklive.server.app - INFO - Starting news data processing
+2024-08-03 03:05:04,997 - risklive.server.app - INFO - News data processing completed successfully
+2024-08-03 03:05:04,997 - risklive.server.app - INFO - Hourly task completed successfully
+2024-08-03 04:00:00,000 - risklive.server.app - INFO - Starting hourly task
+2024-08-03 04:00:05,869 - risklive.server.app - INFO - Starting news data processing
+2024-08-03 04:05:08,261 - risklive.server.app - INFO - News data processing completed successfully
+2024-08-03 04:05:08,261 - risklive.server.app - INFO - Hourly task completed successfully
+2024-08-03 05:00:00,000 - risklive.server.app - INFO - Starting hourly task
+2024-08-03 05:00:06,333 - risklive.server.app - INFO - Starting news data processing
+2024-08-03 05:05:12,794 - risklive.server.app - INFO - News data processing completed successfully
+2024-08-03 05:05:12,794 - risklive.server.app - INFO - Hourly task completed successfully
+2024-08-03 06:00:00,000 - risklive.server.app - INFO - Starting hourly task
+2024-08-03 06:00:06,323 - risklive.server.app - INFO - Starting news data processing
+2024-08-03 06:06:03,494 - risklive.server.app - INFO - News data processing completed successfully
+2024-08-03 06:06:03,495 - risklive.server.app - INFO - Hourly task completed successfully
+2024-08-03 07:00:00,000 - risklive.server.app - INFO - Starting hourly task
+2024-08-03 07:00:06,036 - risklive.server.app - INFO - Starting news data processing
+2024-08-03 07:06:08,498 - risklive.server.app - INFO - News data processing completed successfully
+2024-08-03 07:06:08,498 - risklive.server.app - INFO - Hourly task completed successfully
+2024-08-03 08:00:00,000 - risklive.server.app - INFO - Starting daily task
+2024-08-03 08:00:12,280 - risklive.server.app - INFO - Starting news data processing
+2024-08-03 08:07:32,212 - risklive.server.app - INFO - News data processing completed successfully
+2024-08-03 08:07:32,212 - risklive.server.app - INFO - Daily task completed successfully
+2024-08-03 09:00:00,000 - risklive.server.app - INFO - Starting hourly task
+2024-08-03 09:00:06,110 - risklive.server.app - INFO - Starting news data processing
+2024-08-03 09:06:01,311 - risklive.server.app - INFO - News data processing completed successfully
+2024-08-03 09:06:01,312 - risklive.server.app - INFO - Hourly task completed successfully
+2024-08-03 10:00:00,000 - risklive.server.app - INFO - Starting hourly task
+2024-08-03 10:00:05,844 - risklive.server.app - INFO - Starting news data processing
+2024-08-03 10:06:18,312 - risklive.server.app - INFO - News data processing completed successfully
+2024-08-03 10:06:18,313 - risklive.server.app - INFO - Hourly task completed successfully
+2024-08-03 11:00:00,000 - risklive.server.app - INFO - Starting hourly task
+2024-08-03 11:00:06,698 - risklive.server.app - INFO - Starting news data processing
+2024-08-03 11:07:05,803 - risklive.server.app - INFO - News data processing completed successfully
+2024-08-03 11:07:05,803 - risklive.server.app - INFO - Hourly task completed successfully
+2024-08-03 12:00:00,000 - risklive.server.app - INFO - Starting hourly task
+2024-08-03 12:00:05,901 - risklive.server.app - INFO - Starting news data processing
+2024-08-03 12:06:13,747 - risklive.server.app - INFO - News data processing completed successfully
+2024-08-03 12:06:13,747 - risklive.server.app - INFO - Hourly task completed successfully
+2024-08-03 13:00:00,000 - risklive.server.app - INFO - Starting hourly task
+2024-08-03 13:00:06,074 - risklive.server.app - INFO - Starting news data processing
+2024-08-03 13:06:18,322 - risklive.server.app - INFO - News data processing completed successfully
+2024-08-03 13:06:18,322 - risklive.server.app - INFO - Hourly task completed successfully
+2024-08-03 14:00:00,000 - risklive.server.app - INFO - Starting hourly task
+2024-08-03 14:00:05,744 - risklive.server.app - INFO - Starting news data processing
+2024-08-03 14:06:35,144 - risklive.server.app - INFO - News data processing completed successfully
+2024-08-03 14:06:35,145 - risklive.server.app - INFO - Hourly task completed successfully
+2024-08-03 15:00:00,000 - risklive.server.app - INFO - Starting hourly task
+2024-08-03 15:00:05,906 - risklive.server.app - INFO - Starting news data processing
+2024-08-03 15:06:15,201 - risklive.server.app - INFO - News data processing completed successfully
+2024-08-03 15:06:15,201 - risklive.server.app - INFO - Hourly task completed successfully
+2024-08-03 16:00:00,000 - risklive.server.app - INFO - Starting hourly task
+2024-08-03 16:00:05,832 - risklive.server.app - INFO - Starting news data processing
+2024-08-03 16:05:26,476 - risklive.server.app - INFO - News data processing completed successfully
+2024-08-03 16:05:26,476 - risklive.server.app - INFO - Hourly task completed successfully
+2024-08-03 17:00:00,000 - risklive.server.app - INFO - Starting hourly task
+2024-08-03 17:00:05,672 - risklive.server.app - INFO - Starting news data processing
+2024-08-03 17:05:27,860 - risklive.server.app - INFO - News data processing completed successfully
+2024-08-03 17:05:27,860 - risklive.server.app - INFO - Hourly task completed successfully
+2024-08-03 18:00:00,000 - risklive.server.app - INFO - Starting hourly task
+2024-08-03 18:00:05,945 - risklive.server.app - INFO - Starting news data processing
+2024-08-03 18:06:25,237 - risklive.server.app - INFO - News data processing completed successfully
+2024-08-03 18:06:25,237 - risklive.server.app - INFO - Hourly task completed successfully
+2024-08-03 19:00:00,000 - risklive.server.app - INFO - Starting hourly task
+2024-08-03 19:00:05,761 - risklive.server.app - INFO - Starting news data processing
+2024-08-03 19:06:46,920 - risklive.server.app - INFO - News data processing completed successfully
+2024-08-03 19:06:46,920 - risklive.server.app - INFO - Hourly task completed successfully
+2024-08-03 20:00:00,000 - risklive.server.app - INFO - Starting hourly task
+2024-08-03 20:00:05,633 - risklive.server.app - INFO - Starting news data processing
+2024-08-03 20:06:21,523 - risklive.server.app - INFO - News data processing completed successfully
+2024-08-03 20:06:21,523 - risklive.server.app - INFO - Hourly task completed successfully
+2024-08-03 21:00:00,000 - risklive.server.app - INFO - Starting hourly task
+2024-08-03 21:00:05,300 - risklive.server.app - INFO - Starting news data processing
+2024-08-03 21:06:50,540 - risklive.server.app - INFO - News data processing completed successfully
+2024-08-03 21:06:50,540 - risklive.server.app - INFO - Hourly task completed successfully
+2024-08-03 22:00:00,000 - risklive.server.app - INFO - Starting hourly task
+2024-08-03 22:00:05,935 - risklive.server.app - INFO - Starting news data processing
+2024-08-03 22:05:54,179 - risklive.server.app - INFO - News data processing completed successfully
+2024-08-03 22:05:54,179 - risklive.server.app - INFO - Hourly task completed successfully
+2024-08-03 23:00:00,000 - risklive.server.app - INFO - Starting hourly task
+2024-08-03 23:00:05,722 - risklive.server.app - INFO - Starting news data processing
+2024-08-03 23:06:20,697 - risklive.server.app - INFO - News data processing completed successfully
+2024-08-03 23:06:20,698 - risklive.server.app - INFO - Hourly task completed successfully
+2024-08-04 00:00:00,000 - risklive.server.app - INFO - Starting hourly task
+2024-08-04 00:00:05,549 - risklive.server.app - INFO - Starting news data processing
+2024-08-04 00:06:26,862 - risklive.server.app - INFO - News data processing completed successfully
+2024-08-04 00:06:26,863 - risklive.server.app - INFO - Hourly task completed successfully
+2024-08-04 01:00:00,000 - risklive.server.app - INFO - Starting hourly task
+2024-08-04 01:00:05,777 - risklive.server.app - INFO - Starting news data processing
+2024-08-04 01:05:46,346 - risklive.server.app - INFO - News data processing completed successfully
+2024-08-04 01:05:46,346 - risklive.server.app - INFO - Hourly task completed successfully
+2024-08-04 02:00:00,000 - risklive.server.app - INFO - Starting hourly task
+2024-08-04 02:00:05,643 - risklive.server.app - INFO - Starting news data processing
+2024-08-04 02:05:44,840 - risklive.server.app - INFO - News data processing completed successfully
+2024-08-04 02:05:44,840 - risklive.server.app - INFO - Hourly task completed successfully
+2024-08-04 03:00:00,000 - risklive.server.app - INFO - Starting hourly task
+2024-08-04 03:00:05,628 - risklive.server.app - INFO - Starting news data processing
+2024-08-04 03:05:40,487 - risklive.server.app - INFO - News data processing completed successfully
+2024-08-04 03:05:40,487 - risklive.server.app - INFO - Hourly task completed successfully
+2024-08-04 04:00:00,000 - risklive.server.app - INFO - Starting hourly task
+2024-08-04 04:00:06,010 - risklive.server.app - INFO - Starting news data processing
+2024-08-04 04:06:38,549 - risklive.server.app - INFO - News data processing completed successfully
+2024-08-04 04:06:38,550 - risklive.server.app - INFO - Hourly task completed successfully
+2024-08-04 05:00:00,000 - risklive.server.app - INFO - Starting hourly task
+2024-08-04 05:00:05,918 - risklive.server.app - INFO - Starting news data processing
+2024-08-04 05:06:36,848 - risklive.server.app - INFO - News data processing completed successfully
+2024-08-04 05:06:36,849 - risklive.server.app - INFO - Hourly task completed successfully
+2024-08-04 06:00:00,000 - risklive.server.app - INFO - Starting hourly task
+2024-08-04 06:00:06,113 - risklive.server.app - INFO - Starting news data processing
+2024-08-04 06:06:53,904 - risklive.server.app - INFO - News data processing completed successfully
+2024-08-04 06:06:53,904 - risklive.server.app - INFO - Hourly task completed successfully
+2024-08-04 07:00:00,000 - risklive.server.app - INFO - Starting hourly task
+2024-08-04 07:00:05,514 - risklive.server.app - INFO - Starting news data processing
+2024-08-04 07:06:00,965 - risklive.server.app - INFO - News data processing completed successfully
+2024-08-04 07:06:00,965 - risklive.server.app - INFO - Hourly task completed successfully
+2024-08-04 08:00:00,000 - risklive.server.app - INFO - Starting daily task
+2024-08-04 08:00:12,715 - risklive.server.app - INFO - Starting news data processing
+2024-08-04 08:06:41,475 - risklive.server.app - INFO - News data processing completed successfully
+2024-08-04 08:06:41,475 - risklive.server.app - INFO - Daily task completed successfully
+2024-08-04 09:00:00,000 - risklive.server.app - INFO - Starting hourly task
+2024-08-04 09:00:05,924 - risklive.server.app - INFO - Starting news data processing
+2024-08-04 09:05:09,942 - risklive.server.app - INFO - News data processing completed successfully
+2024-08-04 09:05:09,943 - risklive.server.app - INFO - Hourly task completed successfully
+2024-08-04 10:00:00,000 - risklive.server.app - INFO - Starting hourly task
+2024-08-04 10:00:06,392 - risklive.server.app - INFO - Starting news data processing
+2024-08-04 10:05:36,808 - risklive.server.app - INFO - News data processing completed successfully
+2024-08-04 10:05:36,808 - risklive.server.app - INFO - Hourly task completed successfully
+2024-08-04 11:00:00,000 - risklive.server.app - INFO - Starting hourly task
+2024-08-04 11:00:05,754 - risklive.server.app - INFO - Starting news data processing
+2024-08-04 11:05:37,282 - risklive.server.app - INFO - News data processing completed successfully
+2024-08-04 11:05:37,282 - risklive.server.app - INFO - Hourly task completed successfully
+2024-08-04 12:00:00,000 - risklive.server.app - INFO - Starting hourly task
+2024-08-04 12:00:05,905 - risklive.server.app - INFO - Starting news data processing
+2024-08-04 12:05:28,862 - risklive.server.app - INFO - News data processing completed successfully
+2024-08-04 12:05:28,862 - risklive.server.app - INFO - Hourly task completed successfully
+2024-08-04 13:00:00,000 - risklive.server.app - INFO - Starting hourly task
+2024-08-04 13:00:05,559 - risklive.server.app - INFO - Starting news data processing
+2024-08-04 13:06:15,030 - risklive.server.app - INFO - News data processing completed successfully
+2024-08-04 13:06:15,030 - risklive.server.app - INFO - Hourly task completed successfully
+2024-08-04 14:00:00,000 - risklive.server.app - INFO - Starting hourly task
+2024-08-04 14:00:05,870 - risklive.server.app - INFO - Starting news data processing
+2024-08-04 14:05:56,423 - risklive.server.app - INFO - News data processing completed successfully
+2024-08-04 14:05:56,423 - risklive.server.app - INFO - Hourly task completed successfully
+2024-08-04 15:00:00,000 - risklive.server.app - INFO - Starting hourly task
+2024-08-04 15:00:05,942 - risklive.server.app - INFO - Starting news data processing
+2024-08-04 15:06:21,484 - risklive.server.app - INFO - News data processing completed successfully
+2024-08-04 15:06:21,484 - risklive.server.app - INFO - Hourly task completed successfully
+2024-08-04 16:00:00,000 - risklive.server.app - INFO - Starting hourly task
+2024-08-04 16:00:05,614 - risklive.server.app - INFO - Starting news data processing
+2024-08-04 16:06:04,450 - risklive.server.app - INFO - News data processing completed successfully
+2024-08-04 16:06:04,451 - risklive.server.app - INFO - Hourly task completed successfully
+2024-08-04 17:00:00,000 - risklive.server.app - INFO - Starting hourly task
+2024-08-04 17:00:05,535 - risklive.server.app - INFO - Starting news data processing
+2024-08-04 17:06:38,209 - risklive.server.app - INFO - News data processing completed successfully
+2024-08-04 17:06:38,209 - risklive.server.app - INFO - Hourly task completed successfully
+2024-08-04 18:00:00,000 - risklive.server.app - INFO - Starting hourly task
+2024-08-04 18:00:05,722 - risklive.server.app - INFO - Starting news data processing
+2024-08-04 18:05:40,083 - risklive.server.app - INFO - News data processing completed successfully
+2024-08-04 18:05:40,083 - risklive.server.app - INFO - Hourly task completed successfully
+2024-08-04 19:00:00,000 - risklive.server.app - INFO - Starting hourly task
+2024-08-04 19:00:05,878 - risklive.server.app - INFO - Starting news data processing
+2024-08-04 19:05:13,244 - risklive.server.app - INFO - News data processing completed successfully
+2024-08-04 19:05:13,245 - risklive.server.app - INFO - Hourly task completed successfully
+2024-08-04 20:00:00,000 - risklive.server.app - INFO - Starting hourly task
+2024-08-04 20:00:05,963 - risklive.server.app - INFO - Starting news data processing
+2024-08-04 20:05:07,874 - risklive.server.app - INFO - News data processing completed successfully
+2024-08-04 20:05:07,874 - risklive.server.app - INFO - Hourly task completed successfully
+2024-08-04 21:00:00,000 - risklive.server.app - INFO - Starting hourly task
+2024-08-04 21:00:06,151 - risklive.server.app - INFO - Starting news data processing
+2024-08-04 21:05:40,558 - risklive.server.app - INFO - News data processing completed successfully
+2024-08-04 21:05:40,558 - risklive.server.app - INFO - Hourly task completed successfully
+2024-08-04 22:00:00,000 - risklive.server.app - INFO - Starting hourly task
+2024-08-04 22:00:05,814 - risklive.server.app - INFO - Starting news data processing
+2024-08-04 22:05:37,044 - risklive.server.app - INFO - News data processing completed successfully
+2024-08-04 22:05:37,044 - risklive.server.app - INFO - Hourly task completed successfully
+2024-08-04 23:00:00,000 - risklive.server.app - INFO - Starting hourly task
+2024-08-04 23:00:06,045 - risklive.server.app - INFO - Starting news data processing
+2024-08-04 23:05:08,767 - risklive.server.app - INFO - News data processing completed successfully
+2024-08-04 23:05:08,767 - risklive.server.app - INFO - Hourly task completed successfully
+2024-08-05 00:00:00,000 - risklive.server.app - INFO - Starting hourly task
+2024-08-05 00:00:06,030 - risklive.server.app - INFO - Starting news data processing
+2024-08-05 00:05:58,175 - risklive.server.app - INFO - News data processing completed successfully
+2024-08-05 00:05:58,175 - risklive.server.app - INFO - Hourly task completed successfully
+2024-08-05 01:00:00,000 - risklive.server.app - INFO - Starting hourly task
+2024-08-05 01:00:05,742 - risklive.server.app - INFO - Starting news data processing
+2024-08-05 01:05:10,956 - risklive.server.app - INFO - News data processing completed successfully
+2024-08-05 01:05:10,956 - risklive.server.app - INFO - Hourly task completed successfully
+2024-08-05 02:00:00,000 - risklive.server.app - INFO - Starting hourly task
+2024-08-05 02:00:06,728 - risklive.server.app - INFO - Starting news data processing
+2024-08-05 02:05:10,436 - risklive.server.app - INFO - News data processing completed successfully
+2024-08-05 02:05:10,436 - risklive.server.app - INFO - Hourly task completed successfully
+2024-08-05 03:00:00,000 - risklive.server.app - INFO - Starting hourly task
+2024-08-05 03:00:05,966 - risklive.server.app - INFO - Starting news data processing
+2024-08-05 03:05:08,937 - risklive.server.app - INFO - News data processing completed successfully
+2024-08-05 03:05:08,938 - risklive.server.app - INFO - Hourly task completed successfully
+2024-08-05 04:00:00,000 - risklive.server.app - INFO - Starting hourly task
+2024-08-05 04:00:05,926 - risklive.server.app - INFO - Starting news data processing
+2024-08-05 04:05:53,248 - risklive.server.app - INFO - News data processing completed successfully
+2024-08-05 04:05:53,248 - risklive.server.app - INFO - Hourly task completed successfully
+2024-08-05 05:00:00,000 - risklive.server.app - INFO - Starting hourly task
+2024-08-05 05:00:05,903 - risklive.server.app - INFO - Starting news data processing
+2024-08-05 05:05:48,390 - risklive.server.app - INFO - News data processing completed successfully
+2024-08-05 05:05:48,390 - risklive.server.app - INFO - Hourly task completed successfully
+2024-08-05 06:00:00,000 - risklive.server.app - INFO - Starting hourly task
+2024-08-05 06:00:05,470 - risklive.server.app - INFO - Starting news data processing
+2024-08-05 06:06:37,297 - risklive.server.app - INFO - News data processing completed successfully
+2024-08-05 06:06:37,297 - risklive.server.app - INFO - Hourly task completed successfully
+2024-08-05 07:00:00,000 - risklive.server.app - INFO - Starting hourly task
+2024-08-05 07:00:05,771 - risklive.server.app - INFO - Starting news data processing
+2024-08-05 07:06:20,685 - risklive.server.app - INFO - News data processing completed successfully
+2024-08-05 07:06:20,685 - risklive.server.app - INFO - Hourly task completed successfully
+2024-08-05 08:00:00,000 - risklive.server.app - INFO - Starting daily task
+2024-08-05 08:00:12,106 - risklive.server.app - INFO - Starting news data processing
+2024-08-05 08:07:02,667 - risklive.server.app - INFO - News data processing completed successfully
+2024-08-05 08:07:02,667 - risklive.server.app - INFO - Daily task completed successfully
+2024-08-05 09:00:00,000 - risklive.server.app - INFO - Starting hourly task
+2024-08-05 09:00:05,834 - risklive.server.app - INFO - Starting news data processing
+2024-08-05 09:04:59,183 - risklive.server.app - INFO - News data processing completed successfully
+2024-08-05 09:04:59,183 - risklive.server.app - INFO - Hourly task completed successfully
+2024-08-05 10:00:00,000 - risklive.server.app - INFO - Starting hourly task
+2024-08-05 10:00:05,851 - risklive.server.app - INFO - Starting news data processing
+2024-08-05 10:07:02,759 - risklive.server.app - INFO - News data processing completed successfully
+2024-08-05 10:07:02,759 - risklive.server.app - INFO - Hourly task completed successfully
+2024-08-05 11:00:00,000 - risklive.server.app - INFO - Starting hourly task
+2024-08-05 11:00:06,155 - risklive.server.app - INFO - Starting news data processing
+2024-08-05 11:06:15,818 - risklive.server.app - INFO - News data processing completed successfully
+2024-08-05 11:06:15,819 - risklive.server.app - INFO - Hourly task completed successfully
+2024-08-05 12:00:00,000 - risklive.server.app - INFO - Starting hourly task
+2024-08-05 12:00:05,814 - risklive.server.app - INFO - Starting news data processing
+2024-08-05 12:07:28,541 - risklive.server.app - INFO - News data processing completed successfully
+2024-08-05 12:07:28,541 - risklive.server.app - INFO - Hourly task completed successfully
+2024-08-05 13:00:00,000 - risklive.server.app - INFO - Starting hourly task
+2024-08-05 13:00:06,179 - risklive.server.app - INFO - Starting news data processing
+2024-08-05 13:06:42,343 - risklive.server.app - INFO - News data processing completed successfully
+2024-08-05 13:06:42,343 - risklive.server.app - INFO - Hourly task completed successfully
+2024-08-05 14:00:00,000 - risklive.server.app - INFO - Starting hourly task
+2024-08-05 14:00:05,614 - risklive.server.app - INFO - Starting news data processing
+2024-08-05 14:06:11,797 - risklive.server.app - INFO - News data processing completed successfully
+2024-08-05 14:06:11,797 - risklive.server.app - INFO - Hourly task completed successfully
+2024-08-05 15:00:00,000 - risklive.server.app - INFO - Starting hourly task
+2024-08-05 15:00:06,261 - risklive.server.app - INFO - Starting news data processing
+2024-08-05 15:06:44,190 - risklive.server.app - INFO - News data processing completed successfully
+2024-08-05 15:06:44,190 - risklive.server.app - INFO - Hourly task completed successfully
+2024-08-05 16:00:00,000 - risklive.server.app - INFO - Starting hourly task
+2024-08-05 16:00:05,425 - risklive.server.app - INFO - Starting news data processing
+2024-08-05 16:06:13,785 - risklive.server.app - INFO - News data processing completed successfully
+2024-08-05 16:06:13,785 - risklive.server.app - INFO - Hourly task completed successfully
+2024-08-05 17:00:00,000 - risklive.server.app - INFO - Starting hourly task
+2024-08-05 17:00:05,740 - risklive.server.app - INFO - Starting news data processing
+2024-08-05 17:06:18,189 - risklive.server.app - INFO - News data processing completed successfully
+2024-08-05 17:06:18,189 - risklive.server.app - INFO - Hourly task completed successfully
+2024-08-05 18:00:00,000 - risklive.server.app - INFO - Starting hourly task
+2024-08-05 18:00:05,167 - risklive.server.app - INFO - Starting news data processing
+2024-08-05 18:05:53,157 - risklive.server.app - INFO - News data processing completed successfully
+2024-08-05 18:05:53,158 - risklive.server.app - INFO - Hourly task completed successfully
+2024-08-05 19:00:00,000 - risklive.server.app - INFO - Starting hourly task
+2024-08-05 19:00:05,633 - risklive.server.app - INFO - Starting news data processing
+2024-08-05 19:05:23,514 - risklive.server.app - INFO - News data processing completed successfully
+2024-08-05 19:05:23,515 - risklive.server.app - INFO - Hourly task completed successfully
+2024-08-05 20:00:00,000 - risklive.server.app - INFO - Starting hourly task
+2024-08-05 20:00:05,997 - risklive.server.app - INFO - Starting news data processing
+2024-08-05 20:06:00,154 - risklive.server.app - INFO - News data processing completed successfully
+2024-08-05 20:06:00,154 - risklive.server.app - INFO - Hourly task completed successfully
+2024-08-05 21:00:00,000 - risklive.server.app - INFO - Starting hourly task
+2024-08-05 21:00:05,540 - risklive.server.app - INFO - Starting news data processing
+2024-08-05 21:05:58,342 - risklive.server.app - INFO - News data processing completed successfully
+2024-08-05 21:05:58,342 - risklive.server.app - INFO - Hourly task completed successfully
+2024-08-05 22:00:00,000 - risklive.server.app - INFO - Starting hourly task
+2024-08-05 22:00:05,974 - risklive.server.app - INFO - Starting news data processing
+2024-08-05 22:06:12,136 - risklive.server.app - INFO - News data processing completed successfully
+2024-08-05 22:06:12,137 - risklive.server.app - INFO - Hourly task completed successfully
+2024-08-05 23:00:00,000 - risklive.server.app - INFO - Starting hourly task
+2024-08-05 23:00:06,140 - risklive.server.app - INFO - Starting news data processing
+2024-08-05 23:05:12,943 - risklive.server.app - INFO - News data processing completed successfully
+2024-08-05 23:05:12,943 - risklive.server.app - INFO - Hourly task completed successfully
+2024-08-06 00:00:00,000 - risklive.server.app - INFO - Starting hourly task
+2024-08-06 00:00:06,075 - risklive.server.app - INFO - Starting news data processing
+2024-08-06 00:05:52,820 - risklive.server.app - INFO - News data processing completed successfully
+2024-08-06 00:05:52,820 - risklive.server.app - INFO - Hourly task completed successfully
+2024-08-06 01:00:00,000 - risklive.server.app - INFO - Starting hourly task
+2024-08-06 01:00:05,887 - risklive.server.app - INFO - Starting news data processing
+2024-08-06 01:05:39,892 - risklive.server.app - INFO - News data processing completed successfully
+2024-08-06 01:05:39,892 - risklive.server.app - INFO - Hourly task completed successfully
+2024-08-06 02:00:00,000 - risklive.server.app - INFO - Starting hourly task
+2024-08-06 02:00:05,867 - risklive.server.app - INFO - Starting news data processing
+2024-08-06 02:05:54,725 - risklive.server.app - INFO - News data processing completed successfully
+2024-08-06 02:05:54,725 - risklive.server.app - INFO - Hourly task completed successfully
+2024-08-06 03:00:00,000 - risklive.server.app - INFO - Starting hourly task
+2024-08-06 03:00:06,193 - risklive.server.app - INFO - Starting news data processing
+2024-08-06 03:05:57,820 - risklive.server.app - INFO - News data processing completed successfully
+2024-08-06 03:05:57,820 - risklive.server.app - INFO - Hourly task completed successfully
+2024-08-06 04:00:00,000 - risklive.server.app - INFO - Starting hourly task
+2024-08-06 04:00:06,309 - risklive.server.app - INFO - Starting news data processing
+2024-08-06 04:06:20,842 - risklive.server.app - INFO - News data processing completed successfully
+2024-08-06 04:06:20,842 - risklive.server.app - INFO - Hourly task completed successfully
+2024-08-06 05:00:00,000 - risklive.server.app - INFO - Starting hourly task
+2024-08-06 05:00:05,925 - risklive.server.app - INFO - Starting news data processing
+2024-08-06 05:06:29,597 - risklive.server.app - INFO - News data processing completed successfully
+2024-08-06 05:06:29,597 - risklive.server.app - INFO - Hourly task completed successfully
+2024-08-06 06:00:00,000 - risklive.server.app - INFO - Starting hourly task
+2024-08-06 06:00:05,984 - risklive.server.app - INFO - Starting news data processing
+2024-08-06 06:07:09,426 - risklive.server.app - INFO - News data processing completed successfully
+2024-08-06 06:07:09,426 - risklive.server.app - INFO - Hourly task completed successfully
+2024-08-06 07:00:00,000 - risklive.server.app - INFO - Starting hourly task
+2024-08-06 07:00:05,920 - risklive.server.app - INFO - Starting news data processing
+2024-08-06 07:06:51,028 - risklive.server.app - INFO - News data processing completed successfully
+2024-08-06 07:06:51,028 - risklive.server.app - INFO - Hourly task completed successfully
+2024-08-06 08:00:00,000 - risklive.server.app - INFO - Starting daily task
+2024-08-06 08:00:12,986 - risklive.server.app - INFO - Starting news data processing
+2024-08-06 08:06:54,691 - risklive.server.app - INFO - News data processing completed successfully
+2024-08-06 08:06:54,691 - risklive.server.app - INFO - Daily task completed successfully
+2024-08-06 09:00:00,000 - risklive.server.app - INFO - Starting hourly task
+2024-08-06 09:00:05,585 - risklive.server.app - INFO - Starting news data processing
+2024-08-06 09:08:16,614 - risklive.server.app - INFO - News data processing completed successfully
+2024-08-06 09:08:16,614 - risklive.server.app - INFO - Hourly task completed successfully
+2024-08-06 10:00:00,000 - risklive.server.app - INFO - Starting hourly task
+2024-08-06 10:00:05,513 - risklive.server.app - INFO - Starting news data processing
+2024-08-06 10:06:16,465 - risklive.server.app - INFO - News data processing completed successfully
+2024-08-06 10:06:16,465 - risklive.server.app - INFO - Hourly task completed successfully
+2024-08-06 11:00:00,000 - risklive.server.app - INFO - Starting hourly task
+2024-08-06 11:00:06,767 - risklive.server.app - INFO - Starting news data processing
+2024-08-06 11:08:36,435 - risklive.server.app - INFO - News data processing completed successfully
+2024-08-06 11:08:36,531 - risklive.server.app - INFO - Hourly task completed successfully
+2024-08-06 12:00:00,000 - risklive.server.app - INFO - Starting hourly task
+2024-08-06 12:00:05,432 - risklive.server.app - INFO - Starting news data processing
+2024-08-06 12:06:24,169 - risklive.server.app - INFO - News data processing completed successfully
+2024-08-06 12:06:24,169 - risklive.server.app - INFO - Hourly task completed successfully
+2024-08-06 13:00:00,000 - risklive.server.app - INFO - Starting hourly task
+2024-08-06 13:00:05,474 - risklive.server.app - INFO - Starting news data processing
+2024-08-06 13:07:28,697 - risklive.server.app - INFO - News data processing completed successfully
+2024-08-06 13:07:28,697 - risklive.server.app - INFO - Hourly task completed successfully
+2024-08-06 14:00:00,000 - risklive.server.app - INFO - Starting hourly task
+2024-08-06 14:00:06,291 - risklive.server.app - INFO - Starting news data processing
+2024-08-06 14:07:20,043 - risklive.server.app - INFO - News data processing completed successfully
+2024-08-06 14:07:20,043 - risklive.server.app - INFO - Hourly task completed successfully
+2024-08-06 15:00:00,000 - risklive.server.app - INFO - Starting hourly task
+2024-08-06 15:00:06,253 - risklive.server.app - INFO - Starting news data processing
+2024-08-06 15:06:21,253 - risklive.server.app - INFO - News data processing completed successfully
+2024-08-06 15:06:21,253 - risklive.server.app - INFO - Hourly task completed successfully
+2024-08-06 16:00:00,000 - risklive.server.app - INFO - Starting hourly task
+2024-08-06 16:00:05,703 - risklive.server.app - INFO - Starting news data processing
+2024-08-06 16:06:16,287 - risklive.server.app - INFO - News data processing completed successfully
+2024-08-06 16:06:16,287 - risklive.server.app - INFO - Hourly task completed successfully
+2024-08-06 17:00:00,000 - risklive.server.app - INFO - Starting hourly task
+2024-08-06 17:00:04,981 - risklive.server.app - INFO - Starting news data processing
+2024-08-06 17:06:59,318 - risklive.server.app - INFO - News data processing completed successfully
+2024-08-06 17:06:59,318 - risklive.server.app - INFO - Hourly task completed successfully
+2024-08-06 18:00:00,000 - risklive.server.app - INFO - Starting hourly task
+2024-08-06 18:00:05,820 - risklive.server.app - INFO - Starting news data processing
+2024-08-06 18:06:28,622 - risklive.server.app - INFO - News data processing completed successfully
+2024-08-06 18:06:28,623 - risklive.server.app - INFO - Hourly task completed successfully
+2024-08-06 19:00:00,000 - risklive.server.app - INFO - Starting hourly task
+2024-08-06 19:00:05,978 - risklive.server.app - INFO - Starting news data processing
+2024-08-06 19:06:39,684 - risklive.server.app - INFO - News data processing completed successfully
+2024-08-06 19:06:39,684 - risklive.server.app - INFO - Hourly task completed successfully
+2024-08-06 20:00:00,000 - risklive.server.app - INFO - Starting hourly task
+2024-08-06 20:00:06,084 - risklive.server.app - INFO - Starting news data processing
+2024-08-06 20:05:50,884 - risklive.server.app - INFO - News data processing completed successfully
+2024-08-06 20:05:50,885 - risklive.server.app - INFO - Hourly task completed successfully
+2024-08-06 21:00:00,000 - risklive.server.app - INFO - Starting hourly task
+2024-08-06 21:00:06,567 - risklive.server.app - INFO - Starting news data processing
+2024-08-06 21:06:42,603 - risklive.server.app - INFO - News data processing completed successfully
+2024-08-06 21:06:42,603 - risklive.server.app - INFO - Hourly task completed successfully
+2024-08-06 22:00:00,000 - risklive.server.app - INFO - Starting hourly task
+2024-08-06 22:00:06,510 - risklive.server.app - INFO - Starting news data processing
+2024-08-06 22:06:13,643 - risklive.server.app - INFO - News data processing completed successfully
+2024-08-06 22:06:13,643 - risklive.server.app - INFO - Hourly task completed successfully
+2024-08-06 23:00:00,000 - risklive.server.app - INFO - Starting hourly task
+2024-08-06 23:00:06,369 - risklive.server.app - INFO - Starting news data processing
+2024-08-06 23:06:09,869 - risklive.server.app - INFO - News data processing completed successfully
+2024-08-06 23:06:09,869 - risklive.server.app - INFO - Hourly task completed successfully
+2024-08-07 00:00:00,000 - risklive.server.app - INFO - Starting hourly task
+2024-08-07 00:00:05,893 - risklive.server.app - INFO - Starting news data processing
+2024-08-07 00:06:18,667 - risklive.server.app - INFO - News data processing completed successfully
+2024-08-07 00:06:18,667 - risklive.server.app - INFO - Hourly task completed successfully
+2024-08-07 01:00:00,000 - risklive.server.app - INFO - Starting hourly task
+2024-08-07 01:00:05,744 - risklive.server.app - INFO - Starting news data processing
+2024-08-07 01:06:40,744 - risklive.server.app - INFO - News data processing completed successfully
+2024-08-07 01:06:40,744 - risklive.server.app - INFO - Hourly task completed successfully
+2024-08-07 02:00:00,000 - risklive.server.app - INFO - Starting hourly task
+2024-08-07 02:00:05,840 - risklive.server.app - INFO - Starting news data processing
+2024-08-07 02:05:26,559 - risklive.server.app - INFO - News data processing completed successfully
+2024-08-07 02:05:26,559 - risklive.server.app - INFO - Hourly task completed successfully
+2024-08-07 03:00:00,000 - risklive.server.app - INFO - Starting hourly task
+2024-08-07 03:00:05,805 - risklive.server.app - INFO - Starting news data processing
+2024-08-07 03:06:23,525 - risklive.server.app - INFO - News data processing completed successfully
+2024-08-07 03:06:23,525 - risklive.server.app - INFO - Hourly task completed successfully
+2024-08-07 04:00:00,000 - risklive.server.app - INFO - Starting hourly task
+2024-08-07 04:00:06,444 - risklive.server.app - INFO - Starting news data processing
+2024-08-07 04:06:00,610 - risklive.server.app - INFO - News data processing completed successfully
+2024-08-07 04:06:00,610 - risklive.server.app - INFO - Hourly task completed successfully
+2024-08-07 05:00:00,000 - risklive.server.app - INFO - Starting hourly task
+2024-08-07 05:00:06,478 - risklive.server.app - INFO - Starting news data processing
+2024-08-07 05:06:17,580 - risklive.server.app - INFO - News data processing completed successfully
+2024-08-07 05:06:17,580 - risklive.server.app - INFO - Hourly task completed successfully
+2024-08-07 06:00:00,000 - risklive.server.app - INFO - Starting hourly task
+2024-08-07 06:00:05,920 - risklive.server.app - INFO - Starting news data processing
+2024-08-07 06:08:26,869 - risklive.server.app - INFO - News data processing completed successfully
+2024-08-07 06:08:26,869 - risklive.server.app - INFO - Hourly task completed successfully
+2024-08-07 07:00:00,000 - risklive.server.app - INFO - Starting hourly task
+2024-08-07 07:00:05,967 - risklive.server.app - INFO - Starting news data processing
+2024-08-07 07:07:16,908 - risklive.server.app - INFO - News data processing completed successfully
+2024-08-07 07:07:16,908 - risklive.server.app - INFO - Hourly task completed successfully
+2024-08-07 08:00:00,000 - risklive.server.app - INFO - Starting daily task
+2024-08-07 08:00:12,876 - risklive.server.app - INFO - Starting news data processing
+2024-08-07 08:08:19,516 - risklive.server.app - INFO - News data processing completed successfully
+2024-08-07 08:08:19,517 - risklive.server.app - INFO - Daily task completed successfully
+2024-08-07 09:00:00,000 - risklive.server.app - INFO - Starting hourly task
+2024-08-07 09:00:06,193 - risklive.server.app - INFO - Starting news data processing
+2024-08-07 09:07:04,340 - risklive.server.app - INFO - News data processing completed successfully
+2024-08-07 09:07:04,340 - risklive.server.app - INFO - Hourly task completed successfully
+2024-08-07 10:00:00,000 - risklive.server.app - INFO - Starting hourly task
+2024-08-07 10:00:05,444 - risklive.server.app - INFO - Starting news data processing
+2024-08-07 10:07:32,757 - risklive.server.app - INFO - News data processing completed successfully
+2024-08-07 10:07:32,757 - risklive.server.app - INFO - Hourly task completed successfully
+2024-08-07 11:00:00,000 - risklive.server.app - INFO - Starting hourly task
+2024-08-07 11:00:06,120 - risklive.server.app - INFO - Starting news data processing
+2024-08-07 11:06:19,186 - risklive.server.app - INFO - News data processing completed successfully
+2024-08-07 11:06:19,186 - risklive.server.app - INFO - Hourly task completed successfully
+2024-08-07 12:00:00,000 - risklive.server.app - INFO - Starting hourly task
+2024-08-07 12:00:06,658 - risklive.server.app - INFO - Starting news data processing
+2024-08-07 12:06:58,447 - risklive.server.app - INFO - News data processing completed successfully
+2024-08-07 12:06:58,448 - risklive.server.app - INFO - Hourly task completed successfully
+2024-08-07 13:00:00,000 - risklive.server.app - INFO - Starting hourly task
+2024-08-07 13:00:06,445 - risklive.server.app - INFO - Starting news data processing
+2024-08-07 13:08:11,460 - risklive.server.app - INFO - News data processing completed successfully
+2024-08-07 13:08:11,461 - risklive.server.app - INFO - Hourly task completed successfully
+2024-08-07 14:00:00,000 - risklive.server.app - INFO - Starting hourly task
+2024-08-07 14:00:06,398 - risklive.server.app - INFO - Starting news data processing
+2024-08-07 14:08:09,339 - risklive.server.app - INFO - News data processing completed successfully
+2024-08-07 14:08:09,339 - risklive.server.app - INFO - Hourly task completed successfully
+2024-08-07 15:00:00,000 - risklive.server.app - INFO - Starting hourly task
+2024-08-07 15:00:05,590 - risklive.server.app - INFO - Starting news data processing
+2024-08-07 15:07:17,118 - risklive.server.app - INFO - News data processing completed successfully
+2024-08-07 15:07:17,119 - risklive.server.app - INFO - Hourly task completed successfully
+2024-08-07 16:00:00,000 - risklive.server.app - INFO - Starting hourly task
+2024-08-07 16:00:06,453 - risklive.server.app - INFO - Starting news data processing
+2024-08-07 16:07:33,622 - risklive.server.app - INFO - News data processing completed successfully
+2024-08-07 16:07:33,623 - risklive.server.app - INFO - Hourly task completed successfully
+2024-08-07 17:00:00,000 - risklive.server.app - INFO - Starting hourly task
+2024-08-07 17:00:06,058 - risklive.server.app - INFO - Starting news data processing
+2024-08-07 17:06:41,428 - risklive.server.app - INFO - News data processing completed successfully
+2024-08-07 17:06:41,428 - risklive.server.app - INFO - Hourly task completed successfully
+2024-08-07 18:00:00,000 - risklive.server.app - INFO - Starting hourly task
+2024-08-07 18:00:05,708 - risklive.server.app - INFO - Starting news data processing
+2024-08-07 18:07:12,354 - risklive.server.app - INFO - News data processing completed successfully
+2024-08-07 18:07:12,354 - risklive.server.app - INFO - Hourly task completed successfully
+2024-08-07 19:00:00,000 - risklive.server.app - INFO - Starting hourly task
+2024-08-07 19:00:06,197 - risklive.server.app - INFO - Starting news data processing
+2024-08-07 19:06:19,985 - risklive.server.app - INFO - News data processing completed successfully
+2024-08-07 19:06:19,985 - risklive.server.app - INFO - Hourly task completed successfully
+2024-08-07 20:00:00,000 - risklive.server.app - INFO - Starting hourly task
+2024-08-07 20:00:05,940 - risklive.server.app - INFO - Starting news data processing
+2024-08-07 20:06:04,769 - risklive.server.app - INFO - News data processing completed successfully
+2024-08-07 20:06:04,769 - risklive.server.app - INFO - Hourly task completed successfully
+2024-08-07 21:00:00,000 - risklive.server.app - INFO - Starting hourly task
+2024-08-07 21:00:06,035 - risklive.server.app - INFO - Starting news data processing
+2024-08-07 21:06:32,790 - risklive.server.app - INFO - News data processing completed successfully
+2024-08-07 21:06:32,791 - risklive.server.app - INFO - Hourly task completed successfully
+2024-08-07 22:00:00,000 - risklive.server.app - INFO - Starting hourly task
+2024-08-07 22:00:05,541 - risklive.server.app - INFO - Starting news data processing
+2024-08-07 22:06:18,345 - risklive.server.app - INFO - News data processing completed successfully
+2024-08-07 22:06:18,345 - risklive.server.app - INFO - Hourly task completed successfully
+2024-08-07 23:00:00,000 - risklive.server.app - INFO - Starting hourly task
+2024-08-07 23:00:06,370 - risklive.server.app - INFO - Starting news data processing
+2024-08-07 23:05:51,202 - risklive.server.app - INFO - News data processing completed successfully
+2024-08-07 23:05:51,202 - risklive.server.app - INFO - Hourly task completed successfully
+2024-08-08 00:00:00,000 - risklive.server.app - INFO - Starting hourly task
+2024-08-08 00:00:06,143 - risklive.server.app - INFO - Starting news data processing
+2024-08-08 00:06:43,672 - risklive.server.app - INFO - News data processing completed successfully
+2024-08-08 00:06:43,672 - risklive.server.app - INFO - Hourly task completed successfully
+2024-08-08 01:00:00,000 - risklive.server.app - INFO - Starting hourly task
+2024-08-08 01:00:05,655 - risklive.server.app - INFO - Starting news data processing
+2024-08-08 01:05:46,673 - risklive.server.app - INFO - News data processing completed successfully
+2024-08-08 01:05:46,673 - risklive.server.app - INFO - Hourly task completed successfully
+2024-08-08 02:00:00,000 - risklive.server.app - INFO - Starting hourly task
+2024-08-08 02:00:06,172 - risklive.server.app - INFO - Starting news data processing
+2024-08-08 02:05:52,015 - risklive.server.app - INFO - News data processing completed successfully
+2024-08-08 02:05:52,015 - risklive.server.app - INFO - Hourly task completed successfully
+2024-08-08 03:00:00,000 - risklive.server.app - INFO - Starting hourly task
+2024-08-08 03:00:05,412 - risklive.server.app - INFO - Starting news data processing
+2024-08-08 03:05:49,372 - risklive.server.app - INFO - News data processing completed successfully
+2024-08-08 03:05:49,372 - risklive.server.app - INFO - Hourly task completed successfully
+2024-08-08 04:00:00,000 - risklive.server.app - INFO - Starting hourly task
+2024-08-08 04:00:06,489 - risklive.server.app - INFO - Starting news data processing
+2024-08-08 04:06:30,451 - risklive.server.app - INFO - News data processing completed successfully
+2024-08-08 04:06:30,452 - risklive.server.app - INFO - Hourly task completed successfully
+2024-08-08 05:00:00,000 - risklive.server.app - INFO - Starting hourly task
+2024-08-08 05:00:05,630 - risklive.server.app - INFO - Starting news data processing
+2024-08-08 05:06:36,303 - risklive.server.app - INFO - News data processing completed successfully
+2024-08-08 05:06:36,304 - risklive.server.app - INFO - Hourly task completed successfully
+2024-08-08 06:00:00,000 - risklive.server.app - INFO - Starting hourly task
+2024-08-08 06:00:05,876 - risklive.server.app - INFO - Starting news data processing
+2024-08-08 06:07:55,465 - risklive.server.app - INFO - News data processing completed successfully
+2024-08-08 06:07:55,465 - risklive.server.app - INFO - Hourly task completed successfully
+2024-08-08 07:00:00,000 - risklive.server.app - INFO - Starting hourly task
+2024-08-08 07:00:06,171 - risklive.server.app - INFO - Starting news data processing
+2024-08-08 07:09:54,911 - risklive.server.app - INFO - News data processing completed successfully
+2024-08-08 07:09:54,912 - risklive.server.app - INFO - Hourly task completed successfully
+2024-08-08 08:00:00,000 - risklive.server.app - INFO - Starting daily task
+2024-08-08 08:00:11,882 - risklive.server.app - INFO - Starting news data processing
+2024-08-08 08:10:36,153 - risklive.server.app - INFO - News data processing completed successfully
+2024-08-08 08:10:36,153 - risklive.server.app - INFO - Daily task completed successfully
+2024-08-08 09:00:00,000 - risklive.server.app - INFO - Starting hourly task
+2024-08-08 09:00:05,697 - risklive.server.app - INFO - Starting news data processing
+2024-08-08 09:09:31,008 - risklive.server.app - INFO - News data processing completed successfully
+2024-08-08 09:09:31,008 - risklive.server.app - INFO - Hourly task completed successfully
+2024-08-08 10:00:00,000 - risklive.server.app - INFO - Starting hourly task
+2024-08-08 10:00:05,633 - risklive.server.app - INFO - Starting news data processing
+2024-08-08 10:08:51,051 - risklive.server.app - INFO - News data processing completed successfully
+2024-08-08 10:08:51,051 - risklive.server.app - INFO - Hourly task completed successfully
+2024-08-08 11:00:00,000 - risklive.server.app - INFO - Starting hourly task
+2024-08-08 11:00:05,552 - risklive.server.app - INFO - Starting news data processing
+2024-08-08 11:07:24,034 - risklive.server.app - INFO - News data processing completed successfully
+2024-08-08 11:07:24,034 - risklive.server.app - INFO - Hourly task completed successfully
+2024-08-08 12:00:00,000 - risklive.server.app - INFO - Starting hourly task
+2024-08-08 12:00:05,328 - risklive.server.app - INFO - Starting news data processing
+2024-08-08 12:07:27,085 - risklive.server.app - INFO - News data processing completed successfully
+2024-08-08 12:07:27,085 - risklive.server.app - INFO - Hourly task completed successfully
+2024-08-08 13:00:00,000 - risklive.server.app - INFO - Starting hourly task
+2024-08-08 13:00:06,226 - risklive.server.app - INFO - Starting news data processing
+2024-08-08 13:07:09,381 - risklive.server.app - INFO - News data processing completed successfully
+2024-08-08 13:07:09,381 - risklive.server.app - INFO - Hourly task completed successfully
+2024-08-08 14:00:00,000 - risklive.server.app - INFO - Starting hourly task
+2024-08-08 14:00:05,777 - risklive.server.app - INFO - Starting news data processing
+2024-08-08 14:10:03,457 - risklive.server.app - INFO - News data processing completed successfully
+2024-08-08 14:10:03,457 - risklive.server.app - INFO - Hourly task completed successfully
+2024-08-08 15:00:00,000 - risklive.server.app - INFO - Starting hourly task
+2024-08-08 15:00:06,503 - risklive.server.app - INFO - Starting news data processing
+2024-08-08 15:08:16,154 - risklive.server.app - INFO - News data processing completed successfully
+2024-08-08 15:08:16,154 - risklive.server.app - INFO - Hourly task completed successfully
+2024-08-08 16:00:00,000 - risklive.server.app - INFO - Starting hourly task
+2024-08-08 16:00:05,474 - risklive.server.app - INFO - Starting news data processing
+2024-08-08 16:07:37,314 - risklive.server.app - INFO - News data processing completed successfully
+2024-08-08 16:07:37,314 - risklive.server.app - INFO - Hourly task completed successfully
+2024-08-08 17:00:00,000 - risklive.server.app - INFO - Starting hourly task
+2024-08-08 17:00:06,167 - risklive.server.app - INFO - Starting news data processing
+2024-08-08 17:07:26,843 - risklive.server.app - INFO - News data processing completed successfully
+2024-08-08 17:07:26,844 - risklive.server.app - INFO - Hourly task completed successfully
+2024-08-08 18:00:00,000 - risklive.server.app - INFO - Starting hourly task
+2024-08-08 18:00:06,427 - risklive.server.app - INFO - Starting news data processing
+2024-08-08 18:07:44,231 - risklive.server.app - INFO - News data processing completed successfully
+2024-08-08 18:07:44,232 - risklive.server.app - INFO - Hourly task completed successfully
+2024-08-08 19:00:00,000 - risklive.server.app - INFO - Starting hourly task
+2024-08-08 19:00:06,324 - risklive.server.app - INFO - Starting news data processing
+2024-08-08 19:07:06,015 - risklive.server.app - INFO - News data processing completed successfully
+2024-08-08 19:07:06,015 - risklive.server.app - INFO - Hourly task completed successfully
+2024-08-08 20:00:00,000 - risklive.server.app - INFO - Starting hourly task
+2024-08-08 20:00:05,630 - risklive.server.app - INFO - Starting news data processing
+2024-08-08 20:06:57,826 - risklive.server.app - INFO - News data processing completed successfully
+2024-08-08 20:06:57,827 - risklive.server.app - INFO - Hourly task completed successfully
+2024-08-08 21:00:00,000 - risklive.server.app - INFO - Starting hourly task
+2024-08-08 21:00:06,075 - risklive.server.app - INFO - Starting news data processing
+2024-08-08 21:07:47,294 - risklive.server.app - INFO - News data processing completed successfully
+2024-08-08 21:07:47,294 - risklive.server.app - INFO - Hourly task completed successfully
+2024-08-08 22:00:00,000 - risklive.server.app - INFO - Starting hourly task
+2024-08-08 22:00:05,991 - risklive.server.app - INFO - Starting news data processing
+2024-08-08 22:07:06,193 - risklive.server.app - INFO - News data processing completed successfully
+2024-08-08 22:07:06,193 - risklive.server.app - INFO - Hourly task completed successfully
+2024-08-08 23:00:00,000 - risklive.server.app - INFO - Starting hourly task
+2024-08-08 23:00:05,882 - risklive.server.app - INFO - Starting news data processing
+2024-08-08 23:07:21,309 - risklive.server.app - INFO - News data processing completed successfully
+2024-08-08 23:07:21,309 - risklive.server.app - INFO - Hourly task completed successfully
+2024-08-09 00:00:00,000 - risklive.server.app - INFO - Starting hourly task
+2024-08-09 00:00:05,997 - risklive.server.app - INFO - Starting news data processing
+2024-08-09 00:07:05,349 - risklive.server.app - INFO - News data processing completed successfully
+2024-08-09 00:07:05,349 - risklive.server.app - INFO - Hourly task completed successfully
+2024-08-09 01:00:00,000 - risklive.server.app - INFO - Starting hourly task
+2024-08-09 01:00:05,856 - risklive.server.app - INFO - Starting news data processing
+2024-08-09 01:06:52,534 - risklive.server.app - INFO - News data processing completed successfully
+2024-08-09 01:06:52,534 - risklive.server.app - INFO - Hourly task completed successfully
+2024-08-09 02:00:00,000 - risklive.server.app - INFO - Starting hourly task
+2024-08-09 02:00:06,015 - risklive.server.app - INFO - Starting news data processing
+2024-08-09 02:06:31,481 - risklive.server.app - INFO - News data processing completed successfully
+2024-08-09 02:06:31,481 - risklive.server.app - INFO - Hourly task completed successfully
+2024-08-09 03:00:00,000 - risklive.server.app - INFO - Starting hourly task
+2024-08-09 03:00:05,958 - risklive.server.app - INFO - Starting news data processing
+2024-08-09 03:07:59,958 - risklive.server.app - INFO - News data processing completed successfully
+2024-08-09 03:07:59,959 - risklive.server.app - INFO - Hourly task completed successfully
+2024-08-09 04:00:00,000 - risklive.server.app - INFO - Starting hourly task
+2024-08-09 04:00:05,854 - risklive.server.app - INFO - Starting news data processing
+2024-08-09 04:07:17,553 - risklive.server.app - INFO - News data processing completed successfully
+2024-08-09 04:07:17,553 - risklive.server.app - INFO - Hourly task completed successfully
+2024-08-09 05:00:00,000 - risklive.server.app - INFO - Starting hourly task
+2024-08-09 05:00:06,455 - risklive.server.app - INFO - Starting news data processing
+2024-08-09 05:08:05,016 - risklive.server.app - INFO - News data processing completed successfully
+2024-08-09 05:08:05,016 - risklive.server.app - INFO - Hourly task completed successfully
+2024-08-09 06:00:00,000 - risklive.server.app - INFO - Starting hourly task
+2024-08-09 06:00:06,522 - risklive.server.app - INFO - Starting news data processing
+2024-08-09 06:08:28,817 - risklive.server.app - INFO - News data processing completed successfully
+2024-08-09 06:08:28,817 - risklive.server.app - INFO - Hourly task completed successfully
+2024-08-09 07:00:00,000 - risklive.server.app - INFO - Starting hourly task
+2024-08-09 07:00:05,623 - risklive.server.app - INFO - Starting news data processing
+2024-08-09 07:08:30,937 - risklive.server.app - INFO - News data processing completed successfully
+2024-08-09 07:08:30,937 - risklive.server.app - INFO - Hourly task completed successfully
+2024-08-09 08:00:00,000 - risklive.server.app - INFO - Starting daily task
+2024-08-09 08:00:13,520 - risklive.server.app - INFO - Starting news data processing
+2024-08-09 08:08:41,590 - risklive.server.app - INFO - News data processing completed successfully
+2024-08-09 08:08:41,590 - risklive.server.app - INFO - Daily task completed successfully
+2024-08-09 09:00:00,000 - risklive.server.app - INFO - Starting hourly task
+2024-08-09 09:00:06,163 - risklive.server.app - INFO - Starting news data processing
+2024-08-09 09:07:47,207 - risklive.server.app - INFO - News data processing completed successfully
+2024-08-09 09:07:47,207 - risklive.server.app - INFO - Hourly task completed successfully
+2024-08-09 10:00:00,000 - risklive.server.app - INFO - Starting hourly task
+2024-08-09 10:00:05,572 - risklive.server.app - INFO - Starting news data processing
+2024-08-09 10:08:18,834 - risklive.server.app - INFO - News data processing completed successfully
+2024-08-09 10:08:18,834 - risklive.server.app - INFO - Hourly task completed successfully
+2024-08-09 11:00:00,000 - risklive.server.app - INFO - Starting hourly task
+2024-08-09 11:00:06,588 - risklive.server.app - INFO - Starting news data processing
+2024-08-09 11:07:28,588 - risklive.server.app - INFO - News data processing completed successfully
+2024-08-09 11:07:28,588 - risklive.server.app - INFO - Hourly task completed successfully
+2024-08-09 12:00:00,000 - risklive.server.app - INFO - Starting hourly task
+2024-08-09 12:00:06,087 - risklive.server.app - INFO - Starting news data processing
+2024-08-09 12:08:11,221 - risklive.server.app - INFO - News data processing completed successfully
+2024-08-09 12:08:11,221 - risklive.server.app - INFO - Hourly task completed successfully
+2024-08-09 13:00:00,000 - risklive.server.app - INFO - Starting hourly task
+2024-08-09 13:00:05,356 - risklive.server.app - INFO - Starting news data processing
+2024-08-09 13:08:51,886 - risklive.server.app - INFO - News data processing completed successfully
+2024-08-09 13:08:51,887 - risklive.server.app - INFO - Hourly task completed successfully
+2024-08-09 14:00:00,000 - risklive.server.app - INFO - Starting hourly task
+2024-08-09 14:00:06,295 - risklive.server.app - INFO - Starting news data processing
+2024-08-09 14:07:20,218 - risklive.server.app - INFO - News data processing completed successfully
+2024-08-09 14:07:20,218 - risklive.server.app - INFO - Hourly task completed successfully
+2024-08-09 15:00:00,000 - risklive.server.app - INFO - Starting hourly task
+2024-08-09 15:00:05,908 - risklive.server.app - INFO - Starting news data processing
+2024-08-09 15:07:44,630 - risklive.server.app - INFO - News data processing completed successfully
+2024-08-09 15:07:44,630 - risklive.server.app - INFO - Hourly task completed successfully
+2024-08-09 16:00:00,000 - risklive.server.app - INFO - Starting hourly task
+2024-08-09 16:00:05,981 - risklive.server.app - INFO - Starting news data processing
+2024-08-09 16:07:24,478 - risklive.server.app - INFO - News data processing completed successfully
+2024-08-09 16:07:24,478 - risklive.server.app - INFO - Hourly task completed successfully
+2024-08-09 17:00:00,000 - risklive.server.app - INFO - Starting hourly task
+2024-08-09 17:00:05,826 - risklive.server.app - INFO - Starting news data processing
+2024-08-09 17:07:41,591 - risklive.server.app - INFO - News data processing completed successfully
+2024-08-09 17:07:41,591 - risklive.server.app - INFO - Hourly task completed successfully
+2024-08-09 18:00:00,000 - risklive.server.app - INFO - Starting hourly task
+2024-08-09 18:00:06,040 - risklive.server.app - INFO - Starting news data processing
+2024-08-09 18:08:04,295 - risklive.server.app - INFO - News data processing completed successfully
+2024-08-09 18:08:04,296 - risklive.server.app - INFO - Hourly task completed successfully
+2024-08-09 19:00:00,000 - risklive.server.app - INFO - Starting hourly task
+2024-08-09 19:00:05,684 - risklive.server.app - INFO - Starting news data processing
+2024-08-09 19:06:57,537 - risklive.server.app - INFO - News data processing completed successfully
+2024-08-09 19:06:57,537 - risklive.server.app - INFO - Hourly task completed successfully
+2024-08-09 20:00:00,000 - risklive.server.app - INFO - Starting hourly task
+2024-08-09 20:00:06,086 - risklive.server.app - INFO - Starting news data processing
+2024-08-09 20:07:40,446 - risklive.server.app - INFO - News data processing completed successfully
+2024-08-09 20:07:40,447 - risklive.server.app - INFO - Hourly task completed successfully
+2024-08-09 21:00:00,000 - risklive.server.app - INFO - Starting hourly task
+2024-08-09 21:00:06,049 - risklive.server.app - INFO - Starting news data processing
+2024-08-09 21:07:03,371 - risklive.server.app - INFO - News data processing completed successfully
+2024-08-09 21:07:03,371 - risklive.server.app - INFO - Hourly task completed successfully
+2024-08-09 22:00:00,000 - risklive.server.app - INFO - Starting hourly task
+2024-08-09 22:00:06,462 - risklive.server.app - INFO - Starting news data processing
+2024-08-09 22:07:18,244 - risklive.server.app - INFO - News data processing completed successfully
+2024-08-09 22:07:18,244 - risklive.server.app - INFO - Hourly task completed successfully
+2024-08-09 23:00:00,000 - risklive.server.app - INFO - Starting hourly task
+2024-08-09 23:00:05,528 - risklive.server.app - INFO - Starting news data processing
+2024-08-09 23:06:54,106 - risklive.server.app - INFO - News data processing completed successfully
+2024-08-09 23:06:54,106 - risklive.server.app - INFO - Hourly task completed successfully
+2024-08-10 00:00:00,000 - risklive.server.app - INFO - Starting hourly task
+2024-08-10 00:00:06,176 - risklive.server.app - INFO - Starting news data processing
+2024-08-10 00:07:16,299 - risklive.server.app - INFO - News data processing completed successfully
+2024-08-10 00:07:16,299 - risklive.server.app - INFO - Hourly task completed successfully
+2024-08-10 01:00:00,000 - risklive.server.app - INFO - Starting hourly task
+2024-08-10 01:00:05,872 - risklive.server.app - INFO - Starting news data processing
+2024-08-10 01:06:21,730 - risklive.server.app - INFO - News data processing completed successfully
+2024-08-10 01:06:21,730 - risklive.server.app - INFO - Hourly task completed successfully
+2024-08-10 02:00:00,000 - risklive.server.app - INFO - Starting hourly task
+2024-08-10 02:00:05,547 - risklive.server.app - INFO - Starting news data processing
+2024-08-10 02:07:21,618 - risklive.server.app - INFO - News data processing completed successfully
+2024-08-10 02:07:21,618 - risklive.server.app - INFO - Hourly task completed successfully
+2024-08-10 03:00:00,000 - risklive.server.app - INFO - Starting hourly task
+2024-08-10 03:00:06,507 - risklive.server.app - INFO - Starting news data processing
+2024-08-10 03:06:59,338 - risklive.server.app - INFO - News data processing completed successfully
+2024-08-10 03:06:59,338 - risklive.server.app - INFO - Hourly task completed successfully
+2024-08-10 04:00:00,000 - risklive.server.app - INFO - Starting hourly task
+2024-08-10 04:00:06,291 - risklive.server.app - INFO - Starting news data processing
+2024-08-10 04:07:15,077 - risklive.server.app - INFO - News data processing completed successfully
+2024-08-10 04:07:15,077 - risklive.server.app - INFO - Hourly task completed successfully
+2024-08-10 05:00:00,000 - risklive.server.app - INFO - Starting hourly task
+2024-08-10 05:00:06,224 - risklive.server.app - INFO - Starting news data processing
+2024-08-10 05:07:37,567 - risklive.server.app - INFO - News data processing completed successfully
+2024-08-10 05:07:37,568 - risklive.server.app - INFO - Hourly task completed successfully
+2024-08-10 06:00:00,000 - risklive.server.app - INFO - Starting hourly task
+2024-08-10 06:00:06,237 - risklive.server.app - INFO - Starting news data processing
+2024-08-10 06:07:42,169 - risklive.server.app - INFO - News data processing completed successfully
+2024-08-10 06:07:42,169 - risklive.server.app - INFO - Hourly task completed successfully
+2024-08-10 07:00:00,000 - risklive.server.app - INFO - Starting hourly task
+2024-08-10 07:00:05,888 - risklive.server.app - INFO - Starting news data processing
+2024-08-10 07:07:38,790 - risklive.server.app - INFO - News data processing completed successfully
+2024-08-10 07:07:38,791 - risklive.server.app - INFO - Hourly task completed successfully
+2024-08-10 08:00:00,000 - risklive.server.app - INFO - Starting daily task
+2024-08-10 08:00:12,683 - risklive.server.app - INFO - Starting news data processing
+2024-08-10 08:08:24,590 - risklive.server.app - INFO - News data processing completed successfully
+2024-08-10 08:08:24,590 - risklive.server.app - INFO - Daily task completed successfully
+2024-08-10 09:00:00,000 - risklive.server.app - INFO - Starting hourly task
+2024-08-10 09:00:06,157 - risklive.server.app - INFO - Starting news data processing
+2024-08-10 09:06:19,357 - risklive.server.app - INFO - News data processing completed successfully
+2024-08-10 09:06:19,357 - risklive.server.app - INFO - Hourly task completed successfully
+2024-08-10 10:00:00,000 - risklive.server.app - INFO - Starting hourly task
+2024-08-10 10:00:06,258 - risklive.server.app - INFO - Starting news data processing
+2024-08-10 10:07:05,815 - risklive.server.app - INFO - News data processing completed successfully
+2024-08-10 10:07:05,815 - risklive.server.app - INFO - Hourly task completed successfully
+2024-08-10 11:00:00,000 - risklive.server.app - INFO - Starting hourly task
+2024-08-10 11:00:06,411 - risklive.server.app - INFO - Starting news data processing
+2024-08-10 11:06:24,982 - risklive.server.app - INFO - News data processing completed successfully
+2024-08-10 11:06:24,983 - risklive.server.app - INFO - Hourly task completed successfully
+2024-08-10 12:00:00,000 - risklive.server.app - INFO - Starting hourly task
+2024-08-10 12:00:05,925 - risklive.server.app - INFO - Starting news data processing
+2024-08-10 12:07:19,921 - risklive.server.app - INFO - News data processing completed successfully
+2024-08-10 12:07:19,921 - risklive.server.app - INFO - Hourly task completed successfully
+2024-08-10 13:00:00,000 - risklive.server.app - INFO - Starting hourly task
+2024-08-10 13:00:05,759 - risklive.server.app - INFO - Starting news data processing
+2024-08-10 13:07:07,886 - risklive.server.app - INFO - News data processing completed successfully
+2024-08-10 13:07:07,886 - risklive.server.app - INFO - Hourly task completed successfully
+2024-08-10 14:00:00,000 - risklive.server.app - INFO - Starting hourly task
+2024-08-10 14:00:05,783 - risklive.server.app - INFO - Starting news data processing
+2024-08-10 14:06:33,841 - risklive.server.app - INFO - News data processing completed successfully
+2024-08-10 14:06:33,841 - risklive.server.app - INFO - Hourly task completed successfully
+2024-08-10 15:00:00,000 - risklive.server.app - INFO - Starting hourly task
+2024-08-10 15:00:05,849 - risklive.server.app - INFO - Starting news data processing
+2024-08-10 15:06:31,918 - risklive.server.app - INFO - News data processing completed successfully
+2024-08-10 15:06:31,918 - risklive.server.app - INFO - Hourly task completed successfully
+2024-08-10 16:00:00,000 - risklive.server.app - INFO - Starting hourly task
+2024-08-10 16:00:06,222 - risklive.server.app - INFO - Starting news data processing
+2024-08-10 16:06:52,671 - risklive.server.app - INFO - News data processing completed successfully
+2024-08-10 16:06:52,671 - risklive.server.app - INFO - Hourly task completed successfully
+2024-08-10 17:00:00,000 - risklive.server.app - INFO - Starting hourly task
+2024-08-10 17:00:05,785 - risklive.server.app - INFO - Starting news data processing
+2024-08-10 17:06:35,261 - risklive.server.app - INFO - News data processing completed successfully
+2024-08-10 17:06:35,261 - risklive.server.app - INFO - Hourly task completed successfully
+2024-08-10 18:00:00,000 - risklive.server.app - INFO - Starting hourly task
+2024-08-10 18:00:06,067 - risklive.server.app - INFO - Starting news data processing
+2024-08-10 18:07:18,726 - risklive.server.app - INFO - News data processing completed successfully
+2024-08-10 18:07:18,726 - risklive.server.app - INFO - Hourly task completed successfully
+2024-08-10 19:00:00,000 - risklive.server.app - INFO - Starting hourly task
+2024-08-10 19:00:05,937 - risklive.server.app - INFO - Starting news data processing
+2024-08-10 19:06:42,127 - risklive.server.app - INFO - News data processing completed successfully
+2024-08-10 19:06:42,128 - risklive.server.app - INFO - Hourly task completed successfully
+2024-08-10 20:00:00,000 - risklive.server.app - INFO - Starting hourly task
+2024-08-10 20:00:06,189 - risklive.server.app - INFO - Starting news data processing
+2024-08-10 20:06:20,287 - risklive.server.app - INFO - News data processing completed successfully
+2024-08-10 20:06:20,287 - risklive.server.app - INFO - Hourly task completed successfully
+2024-08-10 21:00:00,000 - risklive.server.app - INFO - Starting hourly task
+2024-08-10 21:00:05,999 - risklive.server.app - INFO - Starting news data processing
+2024-08-10 21:06:26,272 - risklive.server.app - INFO - News data processing completed successfully
+2024-08-10 21:06:26,272 - risklive.server.app - INFO - Hourly task completed successfully
+2024-08-10 22:00:00,000 - risklive.server.app - INFO - Starting hourly task
+2024-08-10 22:00:05,813 - risklive.server.app - INFO - Starting news data processing
+2024-08-10 22:06:46,867 - risklive.server.app - INFO - News data processing completed successfully
+2024-08-10 22:06:46,867 - risklive.server.app - INFO - Hourly task completed successfully
+2024-08-10 23:00:00,000 - risklive.server.app - INFO - Starting hourly task
+2024-08-10 23:00:06,520 - risklive.server.app - INFO - Starting news data processing
+2024-08-10 23:06:41,966 - risklive.server.app - INFO - News data processing completed successfully
+2024-08-10 23:06:41,967 - risklive.server.app - INFO - Hourly task completed successfully
+2024-08-11 00:00:00,000 - risklive.server.app - INFO - Starting hourly task
+2024-08-11 00:00:05,842 - risklive.server.app - INFO - Starting news data processing
+2024-08-11 00:05:58,739 - risklive.server.app - INFO - News data processing completed successfully
+2024-08-11 00:05:58,739 - risklive.server.app - INFO - Hourly task completed successfully
+2024-08-11 01:00:00,000 - risklive.server.app - INFO - Starting hourly task
+2024-08-11 01:00:06,471 - risklive.server.app - INFO - Starting news data processing
+2024-08-11 01:06:01,905 - risklive.server.app - INFO - News data processing completed successfully
+2024-08-11 01:06:01,905 - risklive.server.app - INFO - Hourly task completed successfully
+2024-08-11 02:00:00,000 - risklive.server.app - INFO - Starting hourly task
+2024-08-11 02:00:06,068 - risklive.server.app - INFO - Starting news data processing
+2024-08-11 02:05:50,578 - risklive.server.app - INFO - News data processing completed successfully
+2024-08-11 02:05:50,578 - risklive.server.app - INFO - Hourly task completed successfully
+2024-08-11 03:00:00,000 - risklive.server.app - INFO - Starting hourly task
+2024-08-11 03:00:05,735 - risklive.server.app - INFO - Starting news data processing
+2024-08-11 03:06:01,852 - risklive.server.app - INFO - News data processing completed successfully
+2024-08-11 03:06:01,852 - risklive.server.app - INFO - Hourly task completed successfully
+2024-08-11 04:00:00,000 - risklive.server.app - INFO - Starting hourly task
+2024-08-11 04:00:05,588 - risklive.server.app - INFO - Starting news data processing
+2024-08-11 04:05:56,566 - risklive.server.app - INFO - News data processing completed successfully
+2024-08-11 04:05:56,567 - risklive.server.app - INFO - Hourly task completed successfully
+2024-08-11 05:00:00,000 - risklive.server.app - INFO - Starting hourly task
+2024-08-11 05:00:06,121 - risklive.server.app - INFO - Starting news data processing
+2024-08-11 05:05:57,099 - risklive.server.app - INFO - News data processing completed successfully
+2024-08-11 05:05:57,099 - risklive.server.app - INFO - Hourly task completed successfully
+2024-08-11 06:00:00,000 - risklive.server.app - INFO - Starting hourly task
+2024-08-11 06:00:06,036 - risklive.server.app - INFO - Starting news data processing
+2024-08-11 06:06:39,072 - risklive.server.app - INFO - News data processing completed successfully
+2024-08-11 06:06:39,072 - risklive.server.app - INFO - Hourly task completed successfully
+2024-08-11 07:00:00,000 - risklive.server.app - INFO - Starting hourly task
+2024-08-11 07:00:05,935 - risklive.server.app - INFO - Starting news data processing
+2024-08-11 07:07:45,093 - risklive.server.app - INFO - News data processing completed successfully
+2024-08-11 07:07:45,094 - risklive.server.app - INFO - Hourly task completed successfully
+2024-08-11 08:00:00,000 - risklive.server.app - INFO - Starting daily task
+2024-08-11 08:00:11,998 - risklive.server.app - INFO - Starting news data processing
+2024-08-11 08:08:02,289 - risklive.server.app - INFO - News data processing completed successfully
+2024-08-11 08:08:02,289 - risklive.server.app - INFO - Daily task completed successfully
+2024-08-11 09:00:00,000 - risklive.server.app - INFO - Starting hourly task
+2024-08-11 09:00:05,956 - risklive.server.app - INFO - Starting news data processing
+2024-08-11 09:06:29,927 - risklive.server.app - INFO - News data processing completed successfully
+2024-08-11 09:06:29,928 - risklive.server.app - INFO - Hourly task completed successfully
+2024-08-11 10:00:00,000 - risklive.server.app - INFO - Starting hourly task
+2024-08-11 10:00:05,517 - risklive.server.app - INFO - Starting news data processing
+2024-08-11 10:06:43,540 - risklive.server.app - INFO - News data processing completed successfully
+2024-08-11 10:06:43,540 - risklive.server.app - INFO - Hourly task completed successfully
+2024-08-11 11:00:00,000 - risklive.server.app - INFO - Starting hourly task
+2024-08-11 11:00:05,643 - risklive.server.app - INFO - Starting news data processing
+2024-08-11 11:06:18,381 - risklive.server.app - INFO - News data processing completed successfully
+2024-08-11 11:06:18,382 - risklive.server.app - INFO - Hourly task completed successfully
+2024-08-11 12:00:00,000 - risklive.server.app - INFO - Starting hourly task
+2024-08-11 12:00:06,295 - risklive.server.app - INFO - Starting news data processing
+2024-08-11 12:06:24,451 - risklive.server.app - INFO - News data processing completed successfully
+2024-08-11 12:06:24,451 - risklive.server.app - INFO - Hourly task completed successfully
+2024-08-11 13:00:00,000 - risklive.server.app - INFO - Starting hourly task
+2024-08-11 13:00:05,411 - risklive.server.app - INFO - Starting news data processing
+2024-08-11 13:06:01,445 - risklive.server.app - INFO - News data processing completed successfully
+2024-08-11 13:06:01,445 - risklive.server.app - INFO - Hourly task completed successfully
+2024-08-11 14:00:00,000 - risklive.server.app - INFO - Starting hourly task
+2024-08-11 14:00:05,812 - risklive.server.app - INFO - Starting news data processing
+2024-08-11 14:06:29,471 - risklive.server.app - INFO - News data processing completed successfully
+2024-08-11 14:06:29,471 - risklive.server.app - INFO - Hourly task completed successfully
+2024-08-11 15:00:00,000 - risklive.server.app - INFO - Starting hourly task
+2024-08-11 15:00:05,873 - risklive.server.app - INFO - Starting news data processing
+2024-08-11 15:06:12,648 - risklive.server.app - INFO - News data processing completed successfully
+2024-08-11 15:06:12,649 - risklive.server.app - INFO - Hourly task completed successfully
+2024-08-11 16:00:00,000 - risklive.server.app - INFO - Starting hourly task
+2024-08-11 16:00:06,003 - risklive.server.app - INFO - Starting news data processing
+2024-08-11 16:07:04,057 - risklive.server.app - INFO - News data processing completed successfully
+2024-08-11 16:07:04,057 - risklive.server.app - INFO - Hourly task completed successfully
+2024-08-11 17:00:00,000 - risklive.server.app - INFO - Starting hourly task
+2024-08-11 17:00:06,193 - risklive.server.app - INFO - Starting news data processing
+2024-08-11 17:06:18,541 - risklive.server.app - INFO - News data processing completed successfully
+2024-08-11 17:06:18,541 - risklive.server.app - INFO - Hourly task completed successfully
+2024-08-11 18:00:00,000 - risklive.server.app - INFO - Starting hourly task
+2024-08-11 18:00:06,167 - risklive.server.app - INFO - Starting news data processing
+2024-08-11 18:06:12,303 - risklive.server.app - INFO - News data processing completed successfully
+2024-08-11 18:06:12,303 - risklive.server.app - INFO - Hourly task completed successfully
+2024-08-11 19:00:00,000 - risklive.server.app - INFO - Starting hourly task
+2024-08-11 19:00:05,670 - risklive.server.app - INFO - Starting news data processing
+2024-08-11 19:05:34,078 - risklive.server.app - INFO - News data processing completed successfully
+2024-08-11 19:05:34,079 - risklive.server.app - INFO - Hourly task completed successfully
+2024-08-11 20:00:00,000 - risklive.server.app - INFO - Starting hourly task
+2024-08-11 20:00:06,090 - risklive.server.app - INFO - Starting news data processing
+2024-08-11 20:06:48,038 - risklive.server.app - INFO - News data processing completed successfully
+2024-08-11 20:06:48,038 - risklive.server.app - INFO - Hourly task completed successfully
+2024-08-11 21:00:00,000 - risklive.server.app - INFO - Starting hourly task
+2024-08-11 21:00:05,548 - risklive.server.app - INFO - Starting news data processing
+2024-08-11 21:06:50,431 - risklive.server.app - INFO - News data processing completed successfully
+2024-08-11 21:06:50,432 - risklive.server.app - INFO - Hourly task completed successfully
+2024-08-11 22:00:00,000 - risklive.server.app - INFO - Starting hourly task
+2024-08-11 22:00:06,187 - risklive.server.app - INFO - Starting news data processing
+2024-08-11 22:07:18,347 - risklive.server.app - INFO - News data processing completed successfully
+2024-08-11 22:07:18,347 - risklive.server.app - INFO - Hourly task completed successfully
+2024-08-11 23:00:00,000 - risklive.server.app - INFO - Starting hourly task
+2024-08-11 23:00:06,179 - risklive.server.app - INFO - Starting news data processing
+2024-08-11 23:06:34,292 - risklive.server.app - INFO - News data processing completed successfully
+2024-08-11 23:06:34,292 - risklive.server.app - INFO - Hourly task completed successfully
+2024-08-12 00:00:00,000 - risklive.server.app - INFO - Starting hourly task
+2024-08-12 00:00:05,848 - risklive.server.app - INFO - Starting news data processing
+2024-08-12 00:07:22,814 - risklive.server.app - INFO - News data processing completed successfully
+2024-08-12 00:07:22,815 - risklive.server.app - INFO - Hourly task completed successfully
+2024-08-12 01:00:00,000 - risklive.server.app - INFO - Starting hourly task
+2024-08-12 01:00:06,151 - risklive.server.app - INFO - Starting news data processing
+2024-08-12 01:06:25,212 - risklive.server.app - INFO - News data processing completed successfully
+2024-08-12 01:06:25,212 - risklive.server.app - INFO - Hourly task completed successfully
+2024-08-12 02:00:00,000 - risklive.server.app - INFO - Starting hourly task
+2024-08-12 02:00:05,760 - risklive.server.app - INFO - Starting news data processing
+2024-08-12 02:06:30,133 - risklive.server.app - INFO - News data processing completed successfully
+2024-08-12 02:06:30,133 - risklive.server.app - INFO - Hourly task completed successfully
+2024-08-12 03:00:00,000 - risklive.server.app - INFO - Starting hourly task
+2024-08-12 03:00:05,648 - risklive.server.app - INFO - Starting news data processing
+2024-08-12 03:06:09,073 - risklive.server.app - INFO - News data processing completed successfully
+2024-08-12 03:06:09,073 - risklive.server.app - INFO - Hourly task completed successfully
+2024-08-12 04:00:00,000 - risklive.server.app - INFO - Starting hourly task
+2024-08-12 04:00:06,250 - risklive.server.app - INFO - Starting news data processing
+2024-08-12 04:06:54,336 - risklive.server.app - INFO - News data processing completed successfully
+2024-08-12 04:06:54,336 - risklive.server.app - INFO - Hourly task completed successfully
+2024-08-12 05:00:00,000 - risklive.server.app - INFO - Starting hourly task
+2024-08-12 05:00:06,132 - risklive.server.app - INFO - Starting news data processing
+2024-08-12 05:07:16,005 - risklive.server.app - INFO - News data processing completed successfully
+2024-08-12 05:07:16,005 - risklive.server.app - INFO - Hourly task completed successfully
+2024-08-12 06:00:00,000 - risklive.server.app - INFO - Starting hourly task
+2024-08-12 06:00:06,096 - risklive.server.app - INFO - Starting news data processing
+2024-08-12 06:07:28,782 - risklive.server.app - INFO - News data processing completed successfully
+2024-08-12 06:07:28,782 - risklive.server.app - INFO - Hourly task completed successfully
+2024-08-12 07:00:00,000 - risklive.server.app - INFO - Starting hourly task
+2024-08-12 07:00:05,950 - risklive.server.app - INFO - Starting news data processing
+2024-08-12 07:07:53,835 - risklive.server.app - INFO - News data processing completed successfully
+2024-08-12 07:07:53,835 - risklive.server.app - INFO - Hourly task completed successfully
+2024-08-12 08:00:00,000 - risklive.server.app - INFO - Starting daily task
+2024-08-12 08:00:12,169 - risklive.server.app - INFO - Starting news data processing
+2024-08-12 08:07:37,924 - risklive.server.app - INFO - News data processing completed successfully
+2024-08-12 08:07:37,924 - risklive.server.app - INFO - Daily task completed successfully
+2024-08-12 09:00:00,000 - risklive.server.app - INFO - Starting hourly task
+2024-08-12 09:00:06,104 - risklive.server.app - INFO - Starting news data processing
+2024-08-12 09:06:43,131 - risklive.server.app - INFO - News data processing completed successfully
+2024-08-12 09:06:43,131 - risklive.server.app - INFO - Hourly task completed successfully
+2024-08-12 10:00:00,000 - risklive.server.app - INFO - Starting hourly task
+2024-08-12 10:00:05,746 - risklive.server.app - INFO - Starting news data processing
+2024-08-12 10:06:32,235 - risklive.server.app - INFO - News data processing completed successfully
+2024-08-12 10:06:32,235 - risklive.server.app - INFO - Hourly task completed successfully
+2024-08-12 11:00:00,000 - risklive.server.app - INFO - Starting hourly task
+2024-08-12 11:00:06,585 - risklive.server.app - INFO - Starting news data processing
+2024-08-12 11:07:41,370 - risklive.server.app - INFO - News data processing completed successfully
+2024-08-12 11:07:41,370 - risklive.server.app - INFO - Hourly task completed successfully
+2024-08-12 12:00:00,000 - risklive.server.app - INFO - Starting hourly task
+2024-08-12 12:00:05,634 - risklive.server.app - INFO - Starting news data processing
+2024-08-12 12:06:49,668 - risklive.server.app - INFO - News data processing completed successfully
+2024-08-12 12:06:49,668 - risklive.server.app - INFO - Hourly task completed successfully
+2024-08-12 13:00:00,000 - risklive.server.app - INFO - Starting hourly task
+2024-08-12 13:00:06,218 - risklive.server.app - INFO - Starting news data processing
+2024-08-12 13:07:51,530 - risklive.server.app - INFO - News data processing completed successfully
+2024-08-12 13:07:51,531 - risklive.server.app - INFO - Hourly task completed successfully
+2024-08-12 14:00:00,000 - risklive.server.app - INFO - Starting hourly task
+2024-08-12 14:00:06,400 - risklive.server.app - INFO - Starting news data processing
+2024-08-12 14:08:19,864 - risklive.server.app - INFO - News data processing completed successfully
+2024-08-12 14:08:19,865 - risklive.server.app - INFO - Hourly task completed successfully
+2024-08-12 15:00:00,000 - risklive.server.app - INFO - Starting hourly task
+2024-08-12 15:00:06,445 - risklive.server.app - INFO - Starting news data processing
+2024-08-12 15:07:35,382 - risklive.server.app - INFO - News data processing completed successfully
+2024-08-12 15:07:35,382 - risklive.server.app - INFO - Hourly task completed successfully
+2024-08-12 16:00:00,000 - risklive.server.app - INFO - Starting hourly task
+2024-08-12 16:00:05,977 - risklive.server.app - INFO - Starting news data processing
+2024-08-12 16:07:23,025 - risklive.server.app - INFO - News data processing completed successfully
+2024-08-12 16:07:23,025 - risklive.server.app - INFO - Hourly task completed successfully
+2024-08-12 17:00:00,000 - risklive.server.app - INFO - Starting hourly task
+2024-08-12 17:00:05,850 - risklive.server.app - INFO - Starting news data processing
+2024-08-12 17:07:21,230 - risklive.server.app - INFO - News data processing completed successfully
+2024-08-12 17:07:21,230 - risklive.server.app - INFO - Hourly task completed successfully
+2024-08-12 18:00:00,000 - risklive.server.app - INFO - Starting hourly task
+2024-08-12 18:00:05,829 - risklive.server.app - INFO - Starting news data processing
+2024-08-12 18:07:33,632 - risklive.server.app - INFO - News data processing completed successfully
+2024-08-12 18:07:33,632 - risklive.server.app - INFO - Hourly task completed successfully
+2024-08-12 19:00:00,000 - risklive.server.app - INFO - Starting hourly task
+2024-08-12 19:00:06,067 - risklive.server.app - INFO - Starting news data processing
+2024-08-12 19:07:17,712 - risklive.server.app - INFO - News data processing completed successfully
+2024-08-12 19:07:17,712 - risklive.server.app - INFO - Hourly task completed successfully
+2024-08-12 20:00:00,000 - risklive.server.app - INFO - Starting hourly task
+2024-08-12 20:00:06,159 - risklive.server.app - INFO - Starting news data processing
+2024-08-12 20:07:31,720 - risklive.server.app - INFO - News data processing completed successfully
+2024-08-12 20:07:31,721 - risklive.server.app - INFO - Hourly task completed successfully
+2024-08-12 21:00:00,000 - risklive.server.app - INFO - Starting hourly task
+2024-08-12 21:00:06,044 - risklive.server.app - INFO - Starting news data processing
+2024-08-12 21:07:20,175 - risklive.server.app - INFO - News data processing completed successfully
+2024-08-12 21:07:20,175 - risklive.server.app - INFO - Hourly task completed successfully
+2024-08-12 22:00:00,000 - risklive.server.app - INFO - Starting hourly task
+2024-08-12 22:00:06,271 - risklive.server.app - INFO - Starting news data processing
+2024-08-12 22:06:28,868 - risklive.server.app - INFO - News data processing completed successfully
+2024-08-12 22:06:28,869 - risklive.server.app - INFO - Hourly task completed successfully
+2024-08-12 23:00:00,000 - risklive.server.app - INFO - Starting hourly task
+2024-08-12 23:00:06,210 - risklive.server.app - INFO - Starting news data processing
+2024-08-12 23:06:31,526 - risklive.server.app - INFO - News data processing completed successfully
+2024-08-12 23:06:31,526 - risklive.server.app - INFO - Hourly task completed successfully
+2024-08-13 00:00:00,000 - risklive.server.app - INFO - Starting hourly task
+2024-08-13 00:00:06,001 - risklive.server.app - INFO - Starting news data processing
+2024-08-13 00:06:42,466 - risklive.server.app - INFO - News data processing completed successfully
+2024-08-13 00:06:42,466 - risklive.server.app - INFO - Hourly task completed successfully
+2024-08-13 01:00:00,000 - risklive.server.app - INFO - Starting hourly task
+2024-08-13 01:00:05,699 - risklive.server.app - INFO - Starting news data processing
+2024-08-13 01:06:34,123 - risklive.server.app - INFO - News data processing completed successfully
+2024-08-13 01:06:34,123 - risklive.server.app - INFO - Hourly task completed successfully
+2024-08-13 02:00:00,000 - risklive.server.app - INFO - Starting hourly task
+2024-08-13 02:00:05,676 - risklive.server.app - INFO - Starting news data processing
+2024-08-13 02:07:02,582 - risklive.server.app - INFO - News data processing completed successfully
+2024-08-13 02:07:02,582 - risklive.server.app - INFO - Hourly task completed successfully
+2024-08-13 03:00:00,000 - risklive.server.app - INFO - Starting hourly task
+2024-08-13 03:00:06,227 - risklive.server.app - INFO - Starting news data processing
+2024-08-13 03:06:09,441 - risklive.server.app - INFO - News data processing completed successfully
+2024-08-13 03:06:09,441 - risklive.server.app - INFO - Hourly task completed successfully
+2024-08-13 04:00:00,000 - risklive.server.app - INFO - Starting hourly task
+2024-08-13 04:00:06,378 - risklive.server.app - INFO - Starting news data processing
+2024-08-13 04:06:34,956 - risklive.server.app - INFO - News data processing completed successfully
+2024-08-13 04:06:34,956 - risklive.server.app - INFO - Hourly task completed successfully
+2024-08-13 05:00:00,000 - risklive.server.app - INFO - Starting hourly task
+2024-08-13 05:00:05,956 - risklive.server.app - INFO - Starting news data processing
+2024-08-13 05:07:45,355 - risklive.server.app - INFO - News data processing completed successfully
+2024-08-13 05:07:45,355 - risklive.server.app - INFO - Hourly task completed successfully
+2024-08-13 06:00:00,000 - risklive.server.app - INFO - Starting hourly task
+2024-08-13 06:00:05,626 - risklive.server.app - INFO - Starting news data processing
+2024-08-13 06:07:34,767 - risklive.server.app - INFO - News data processing completed successfully
+2024-08-13 06:07:34,767 - risklive.server.app - INFO - Hourly task completed successfully
+2024-08-13 07:00:00,000 - risklive.server.app - INFO - Starting hourly task
+2024-08-13 07:00:05,710 - risklive.server.app - INFO - Starting news data processing
+2024-08-13 07:07:22,434 - risklive.server.app - INFO - News data processing completed successfully
+2024-08-13 07:07:22,435 - risklive.server.app - INFO - Hourly task completed successfully
+2024-08-13 08:00:00,000 - risklive.server.app - INFO - Starting daily task
+2024-08-13 08:00:12,723 - risklive.server.app - INFO - Starting news data processing
+2024-08-13 08:08:23,458 - risklive.server.app - INFO - News data processing completed successfully
+2024-08-13 08:08:23,458 - risklive.server.app - INFO - Daily task completed successfully
+2024-08-13 09:00:00,000 - risklive.server.app - INFO - Starting hourly task
+2024-08-13 09:00:06,417 - risklive.server.app - INFO - Starting news data processing
+2024-08-13 09:06:42,291 - risklive.server.app - INFO - News data processing completed successfully
+2024-08-13 09:06:42,291 - risklive.server.app - INFO - Hourly task completed successfully
+2024-08-13 10:00:00,000 - risklive.server.app - INFO - Starting hourly task
+2024-08-13 10:00:05,671 - risklive.server.app - INFO - Starting news data processing
+2024-08-13 10:07:37,624 - risklive.server.app - INFO - News data processing completed successfully
+2024-08-13 10:07:37,624 - risklive.server.app - INFO - Hourly task completed successfully
+2024-08-13 10:37:41,274 - risklive.server.app - INFO - Application stopped
+2024-08-13 10:37:49,637 - risklive.server.app - INFO - Starting the application
+2024-08-13 10:37:49,637 - risklive.server.app - INFO - Starting scheduler
+2024-08-13 10:37:49,642 - risklive.server.app - INFO - Scheduler started successfully
+2024-08-13 11:00:00,000 - risklive.server.app - INFO - Starting hourly task
+2024-08-13 11:00:06,199 - risklive.server.app - INFO - Starting news data processing
+2024-08-13 11:07:10,679 - risklive.server.app - INFO - News data processing completed successfully
+2024-08-13 11:07:10,680 - risklive.server.app - INFO - Hourly task completed successfully
+2024-08-13 12:00:00,000 - risklive.server.app - INFO - Starting hourly task
+2024-08-13 12:00:05,969 - risklive.server.app - INFO - Starting news data processing
+2024-08-13 12:07:59,202 - risklive.server.app - INFO - News data processing completed successfully
+2024-08-13 12:07:59,202 - risklive.server.app - INFO - Hourly task completed successfully
+2024-08-13 13:00:00,000 - risklive.server.app - INFO - Starting hourly task
+2024-08-13 13:00:06,190 - risklive.server.app - INFO - Starting news data processing
+2024-08-13 13:08:05,904 - risklive.server.app - INFO - News data processing completed successfully
+2024-08-13 13:08:05,904 - risklive.server.app - INFO - Hourly task completed successfully
+2024-08-13 14:00:00,000 - risklive.server.app - INFO - Starting hourly task
+2024-08-13 14:00:05,938 - risklive.server.app - INFO - Starting news data processing
+2024-08-13 14:07:52,749 - risklive.server.app - INFO - News data processing completed successfully
+2024-08-13 14:07:52,749 - risklive.server.app - INFO - Hourly task completed successfully
+2024-08-13 15:00:00,000 - risklive.server.app - INFO - Starting hourly task
+2024-08-13 15:00:06,073 - risklive.server.app - INFO - Starting news data processing
+2024-08-13 15:07:57,175 - risklive.server.app - INFO - News data processing completed successfully
+2024-08-13 15:07:57,175 - risklive.server.app - INFO - Hourly task completed successfully
+2024-08-13 16:00:00,000 - risklive.server.app - INFO - Starting hourly task
+2024-08-13 16:00:05,895 - risklive.server.app - INFO - Starting news data processing
+2024-08-13 16:07:21,998 - risklive.server.app - INFO - News data processing completed successfully
+2024-08-13 16:07:21,998 - risklive.server.app - INFO - Hourly task completed successfully
+2024-08-13 17:00:00,000 - risklive.server.app - INFO - Starting hourly task
+2024-08-13 17:00:05,751 - risklive.server.app - INFO - Starting news data processing
+2024-08-13 17:07:18,208 - risklive.server.app - INFO - News data processing completed successfully
+2024-08-13 17:07:18,208 - risklive.server.app - INFO - Hourly task completed successfully
+2024-08-13 18:00:00,000 - risklive.server.app - INFO - Starting hourly task
+2024-08-13 18:00:06,315 - risklive.server.app - INFO - Starting news data processing
+2024-08-13 18:07:13,475 - risklive.server.app - INFO - News data processing completed successfully
+2024-08-13 18:07:13,475 - risklive.server.app - INFO - Hourly task completed successfully
+2024-08-13 19:00:00,000 - risklive.server.app - INFO - Starting hourly task
+2024-08-13 19:00:05,912 - risklive.server.app - INFO - Starting news data processing
+2024-08-13 19:06:36,549 - risklive.server.app - INFO - News data processing completed successfully
+2024-08-13 19:06:36,550 - risklive.server.app - INFO - Hourly task completed successfully
+2024-08-13 20:00:00,000 - risklive.server.app - INFO - Starting hourly task
+2024-08-13 20:00:05,814 - risklive.server.app - INFO - Starting news data processing
+2024-08-13 20:06:59,555 - risklive.server.app - INFO - News data processing completed successfully
+2024-08-13 20:06:59,555 - risklive.server.app - INFO - Hourly task completed successfully
+2024-08-13 21:00:00,000 - risklive.server.app - INFO - Starting hourly task
+2024-08-13 21:00:05,774 - risklive.server.app - INFO - Starting news data processing
+2024-08-13 21:07:21,514 - risklive.server.app - INFO - News data processing completed successfully
+2024-08-13 21:07:21,514 - risklive.server.app - INFO - Hourly task completed successfully
+2024-08-13 22:00:00,000 - risklive.server.app - INFO - Starting hourly task
+2024-08-13 22:00:05,891 - risklive.server.app - INFO - Starting news data processing
+2024-08-13 22:07:44,774 - risklive.server.app - INFO - News data processing completed successfully
+2024-08-13 22:07:44,774 - risklive.server.app - INFO - Hourly task completed successfully
+2024-08-13 23:00:00,000 - risklive.server.app - INFO - Starting hourly task
+2024-08-13 23:00:06,230 - risklive.server.app - INFO - Starting news data processing
+2024-08-13 23:06:41,535 - risklive.server.app - INFO - News data processing completed successfully
+2024-08-13 23:06:41,535 - risklive.server.app - INFO - Hourly task completed successfully
+2024-08-14 00:00:00,000 - risklive.server.app - INFO - Starting hourly task
+2024-08-14 00:00:06,138 - risklive.server.app - INFO - Starting news data processing
+2024-08-14 00:07:24,313 - risklive.server.app - INFO - News data processing completed successfully
+2024-08-14 00:07:24,314 - risklive.server.app - INFO - Hourly task completed successfully
+2024-08-14 01:00:00,000 - risklive.server.app - INFO - Starting hourly task
+2024-08-14 01:00:05,608 - risklive.server.app - INFO - Starting news data processing
+2024-08-14 01:07:01,358 - risklive.server.app - INFO - News data processing completed successfully
+2024-08-14 01:07:01,359 - risklive.server.app - INFO - Hourly task completed successfully
+2024-08-14 02:00:00,000 - risklive.server.app - INFO - Starting hourly task
+2024-08-14 02:00:06,337 - risklive.server.app - INFO - Starting news data processing
+2024-08-14 02:06:44,868 - risklive.server.app - INFO - News data processing completed successfully
+2024-08-14 02:06:44,868 - risklive.server.app - INFO - Hourly task completed successfully
+2024-08-14 03:00:00,000 - risklive.server.app - INFO - Starting hourly task
+2024-08-14 03:00:06,054 - risklive.server.app - INFO - Starting news data processing
+2024-08-14 03:06:37,942 - risklive.server.app - INFO - News data processing completed successfully
+2024-08-14 03:06:37,942 - risklive.server.app - INFO - Hourly task completed successfully
+2024-08-14 04:00:00,000 - risklive.server.app - INFO - Starting hourly task
+2024-08-14 04:00:05,494 - risklive.server.app - INFO - Starting news data processing
+2024-08-14 04:07:44,031 - risklive.server.app - INFO - News data processing completed successfully
+2024-08-14 04:07:44,032 - risklive.server.app - INFO - Hourly task completed successfully
+2024-08-14 05:00:00,000 - risklive.server.app - INFO - Starting hourly task
+2024-08-14 05:00:05,821 - risklive.server.app - INFO - Starting news data processing
+2024-08-14 05:07:11,921 - risklive.server.app - INFO - News data processing completed successfully
+2024-08-14 05:07:11,922 - risklive.server.app - INFO - Hourly task completed successfully
+2024-08-14 06:00:00,000 - risklive.server.app - INFO - Starting hourly task
+2024-08-14 06:00:06,206 - risklive.server.app - INFO - Starting news data processing
+2024-08-14 06:07:26,619 - risklive.server.app - INFO - News data processing completed successfully
+2024-08-14 06:07:26,619 - risklive.server.app - INFO - Hourly task completed successfully
+2024-08-14 07:00:00,000 - risklive.server.app - INFO - Starting hourly task
+2024-08-14 07:00:05,770 - risklive.server.app - INFO - Starting news data processing
+2024-08-14 07:07:56,662 - risklive.server.app - INFO - News data processing completed successfully
+2024-08-14 07:07:56,662 - risklive.server.app - INFO - Hourly task completed successfully
+2024-08-14 08:00:00,000 - risklive.server.app - INFO - Starting daily task
+2024-08-14 08:00:12,780 - risklive.server.app - INFO - Starting news data processing
+2024-08-14 08:09:37,260 - risklive.server.app - INFO - News data processing completed successfully
+2024-08-14 08:09:37,260 - risklive.server.app - INFO - Daily task completed successfully
+2024-08-14 09:00:00,000 - risklive.server.app - INFO - Starting hourly task
+2024-08-14 09:00:05,866 - risklive.server.app - INFO - Starting news data processing
+2024-08-14 09:07:32,280 - risklive.server.app - INFO - News data processing completed successfully
+2024-08-14 09:07:32,280 - risklive.server.app - INFO - Hourly task completed successfully
+2024-08-14 10:00:00,000 - risklive.server.app - INFO - Starting hourly task
+2024-08-14 10:00:05,828 - risklive.server.app - INFO - Starting news data processing
+2024-08-14 10:06:51,222 - risklive.server.app - INFO - News data processing completed successfully
+2024-08-14 10:06:51,222 - risklive.server.app - INFO - Hourly task completed successfully
+2024-08-14 11:00:00,000 - risklive.server.app - INFO - Starting hourly task
+2024-08-14 11:00:05,878 - risklive.server.app - INFO - Starting news data processing
+2024-08-14 11:08:58,756 - risklive.server.app - INFO - News data processing completed successfully
+2024-08-14 11:08:58,756 - risklive.server.app - INFO - Hourly task completed successfully
+2024-08-14 12:00:00,000 - risklive.server.app - INFO - Starting hourly task
+2024-08-14 12:00:05,914 - risklive.server.app - INFO - Starting news data processing
+2024-08-14 12:08:18,959 - risklive.server.app - INFO - News data processing completed successfully
+2024-08-14 12:08:18,959 - risklive.server.app - INFO - Hourly task completed successfully
+2024-08-14 13:00:00,000 - risklive.server.app - INFO - Starting hourly task
+2024-08-14 13:00:06,940 - risklive.server.app - INFO - Starting news data processing
+2024-08-14 13:07:32,756 - risklive.server.app - INFO - News data processing completed successfully
+2024-08-14 13:07:32,757 - risklive.server.app - INFO - Hourly task completed successfully
+2024-08-14 14:00:00,000 - risklive.server.app - INFO - Starting hourly task
+2024-08-14 14:00:05,345 - risklive.server.app - INFO - Starting news data processing
+2024-08-14 14:08:00,877 - risklive.server.app - INFO - News data processing completed successfully
+2024-08-14 14:08:00,877 - risklive.server.app - INFO - Hourly task completed successfully
+2024-08-14 15:00:00,000 - risklive.server.app - INFO - Starting hourly task
+2024-08-14 15:00:06,141 - risklive.server.app - INFO - Starting news data processing
+2024-08-14 15:08:04,428 - risklive.server.app - INFO - News data processing completed successfully
+2024-08-14 15:08:04,428 - risklive.server.app - INFO - Hourly task completed successfully
+2024-08-14 16:00:00,000 - risklive.server.app - INFO - Starting hourly task
+2024-08-14 16:00:05,530 - risklive.server.app - INFO - Starting news data processing
+2024-08-14 16:07:53,400 - risklive.server.app - INFO - News data processing completed successfully
+2024-08-14 16:07:53,400 - risklive.server.app - INFO - Hourly task completed successfully
+2024-08-14 17:00:00,000 - risklive.server.app - INFO - Starting hourly task
+2024-08-14 17:00:05,425 - risklive.server.app - INFO - Starting news data processing
+2024-08-14 17:07:40,867 - risklive.server.app - INFO - News data processing completed successfully
+2024-08-14 17:07:40,867 - risklive.server.app - INFO - Hourly task completed successfully
+2024-08-14 18:00:00,000 - risklive.server.app - INFO - Starting hourly task
+2024-08-14 18:00:05,727 - risklive.server.app - INFO - Starting news data processing
+2024-08-14 18:07:54,401 - risklive.server.app - INFO - News data processing completed successfully
+2024-08-14 18:07:54,401 - risklive.server.app - INFO - Hourly task completed successfully
+2024-08-14 19:00:00,000 - risklive.server.app - INFO - Starting hourly task
+2024-08-14 19:00:06,186 - risklive.server.app - INFO - Starting news data processing
+2024-08-14 19:06:58,376 - risklive.server.app - INFO - News data processing completed successfully
+2024-08-14 19:06:58,377 - risklive.server.app - INFO - Hourly task completed successfully
+2024-08-14 20:00:00,000 - risklive.server.app - INFO - Starting hourly task
+2024-08-14 20:00:05,332 - risklive.server.app - INFO - Starting news data processing
+2024-08-14 20:08:24,048 - risklive.server.app - INFO - News data processing completed successfully
+2024-08-14 20:08:24,048 - risklive.server.app - INFO - Hourly task completed successfully
+2024-08-14 21:00:00,000 - risklive.server.app - INFO - Starting hourly task
+2024-08-14 21:00:05,854 - risklive.server.app - INFO - Starting news data processing
+2024-08-14 21:07:09,596 - risklive.server.app - INFO - News data processing completed successfully
+2024-08-14 21:07:09,596 - risklive.server.app - INFO - Hourly task completed successfully
+2024-08-14 22:00:00,000 - risklive.server.app - INFO - Starting hourly task
+2024-08-14 22:00:05,507 - risklive.server.app - INFO - Starting news data processing
+2024-08-14 22:08:10,883 - risklive.server.app - INFO - News data processing completed successfully
+2024-08-14 22:08:10,883 - risklive.server.app - INFO - Hourly task completed successfully
+2024-08-14 23:00:00,000 - risklive.server.app - INFO - Starting hourly task
+2024-08-14 23:00:05,724 - risklive.server.app - INFO - Starting news data processing
+2024-08-14 23:07:01,889 - risklive.server.app - INFO - News data processing completed successfully
+2024-08-14 23:07:01,889 - risklive.server.app - INFO - Hourly task completed successfully
+2024-08-15 00:00:00,000 - risklive.server.app - INFO - Starting hourly task
+2024-08-15 00:00:05,516 - risklive.server.app - INFO - Starting news data processing
+2024-08-15 00:07:25,126 - risklive.server.app - INFO - News data processing completed successfully
+2024-08-15 00:07:25,126 - risklive.server.app - INFO - Hourly task completed successfully
+2024-08-15 01:00:00,000 - risklive.server.app - INFO - Starting hourly task
+2024-08-15 01:00:06,404 - risklive.server.app - INFO - Starting news data processing
+2024-08-15 01:07:35,056 - risklive.server.app - INFO - News data processing completed successfully
+2024-08-15 01:07:35,056 - risklive.server.app - INFO - Hourly task completed successfully
+2024-08-15 02:00:00,000 - risklive.server.app - INFO - Starting hourly task
+2024-08-15 02:00:05,574 - risklive.server.app - INFO - Starting news data processing
+2024-08-15 02:07:36,690 - risklive.server.app - INFO - News data processing completed successfully
+2024-08-15 02:07:36,690 - risklive.server.app - INFO - Hourly task completed successfully
+2024-08-15 03:00:00,000 - risklive.server.app - INFO - Starting hourly task
+2024-08-15 03:00:04,911 - risklive.server.app - INFO - Starting news data processing
+2024-08-15 03:07:36,452 - risklive.server.app - INFO - News data processing completed successfully
+2024-08-15 03:07:36,453 - risklive.server.app - INFO - Hourly task completed successfully
+2024-08-15 04:00:00,000 - risklive.server.app - INFO - Starting hourly task
+2024-08-15 04:00:05,999 - risklive.server.app - INFO - Starting news data processing
+2024-08-15 04:07:19,468 - risklive.server.app - INFO - News data processing completed successfully
+2024-08-15 04:07:19,468 - risklive.server.app - INFO - Hourly task completed successfully
+2024-08-15 05:00:00,000 - risklive.server.app - INFO - Starting hourly task
+2024-08-15 05:00:05,637 - risklive.server.app - INFO - Starting news data processing
+2024-08-15 05:07:57,957 - risklive.server.app - INFO - News data processing completed successfully
+2024-08-15 05:07:57,957 - risklive.server.app - INFO - Hourly task completed successfully
+2024-08-15 06:00:00,000 - risklive.server.app - INFO - Starting hourly task
+2024-08-15 06:00:05,411 - risklive.server.app - INFO - Starting news data processing
+2024-08-15 06:07:39,538 - risklive.server.app - INFO - News data processing completed successfully
+2024-08-15 06:07:39,538 - risklive.server.app - INFO - Hourly task completed successfully
+2024-08-15 07:00:00,000 - risklive.server.app - INFO - Starting hourly task
+2024-08-15 07:00:05,520 - risklive.server.app - INFO - Starting news data processing
+2024-08-15 07:08:20,160 - risklive.server.app - INFO - News data processing completed successfully
+2024-08-15 07:08:20,160 - risklive.server.app - INFO - Hourly task completed successfully
+2024-08-15 08:00:00,000 - risklive.server.app - INFO - Starting daily task
+2024-08-15 08:00:12,974 - risklive.server.app - INFO - Starting news data processing
+2024-08-15 08:09:16,854 - risklive.server.app - INFO - News data processing completed successfully
+2024-08-15 08:09:16,854 - risklive.server.app - INFO - Daily task completed successfully
