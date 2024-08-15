@@ -1,2 +1,0 @@
-[console_scripts]
-risklive = risklive.server.app:main
