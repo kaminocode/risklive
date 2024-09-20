@@ -4,7 +4,6 @@ from datetime import datetime
 from ..data_extraction import aggregate_regular_news, aggregate_trending_news
 from ..data_processing import process_df
 from ..topic_modeling import compute_topic_modeling
-
 import logging
 from ..config import SAVE_DIR
 

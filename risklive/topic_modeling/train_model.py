@@ -9,7 +9,7 @@ from bertopic import BERTopic
 from ..config import SAVE_DIR
 from sentence_transformers import SentenceTransformer
 from sklearn.feature_extraction.text import CountVectorizer
-from .utils import get_visualize_hierarchy, get_3d_time_plot, create_treemap
+from .utils import get_visualize_hierarchy, get_3d_time_plot, create_three_treemaps
 
 logger = logging.getLogger(__name__)
 
@@ -88,8 +88,8 @@ def save_and_visualize(topic_model, docs, df, embedding_model = "BAAI/bge-large-
     
     try:
         df['topic'] = topic_model.topics_
-        num_topics = max(len(topic_model.get_topics()), 16)
-        fig1 = topic_model.visualize_barchart(topics=[i for i in range(0, num_topics-1)]).to_json()
+        num_topics = min(len(topic_model.get_topics()), 16)
+        fig1 = topic_model.visualize_barchart(topics=[i for i in range(0, num_topics)]).to_json()
         with open(os.path.join(images_dir, "barchart.json"), "w") as f:
             f.write(fig1)
         logging.debug("Barchart visualization saved.")
@@ -127,7 +127,7 @@ def save_and_visualize(topic_model, docs, df, embedding_model = "BAAI/bge-large-
         
         logging.debug("3D time plot visualization saved.")
         
-        fig7 = create_treemap(df)
+        fig7 = create_three_treemaps(df)
         with open(os.path.join(images_dir, "treemap.pkl"), 'wb') as f:
             pickle.dump(fig7, f)
             

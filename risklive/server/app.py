@@ -5,34 +5,9 @@ from .data_maintenance import clean_old_data
 from ..config import CLEANUP_DAYS_TO_KEEP
 import logging
 import os
-from logging.handlers import RotatingFileHandler
+from ..utils.logging_config import setup_logging
 
-def setup_logging():
-    log_dir = 'logs'
-    if not os.path.exists(log_dir):
-        os.makedirs(log_dir)
-    
-    log_file = os.path.join(log_dir, 'app.log')
-    
-    logger = logging.getLogger(__name__)
-    logger.setLevel(logging.DEBUG)
-
-    c_handler = logging.StreamHandler()  
-    f_handler = RotatingFileHandler(log_file, maxBytes=10*1024*1024, backupCount=5)  
-    c_handler.setLevel(logging.INFO)
-    f_handler.setLevel(logging.DEBUG)
-
-    log_format = logging.Formatter('%(asctime)s - %(name)s - %(levelname)s - %(message)s')
-    c_handler.setFormatter(log_format)
-    f_handler.setFormatter(log_format)
-
-    logger.addHandler(c_handler)
-    logger.addHandler(f_handler)    
-    return logger
-
-logger = setup_logging()
-logger = logging.getLogger(__name__)
-
+logger = setup_logging(__name__)
 
 app = Flask(__name__)
 
@@ -49,6 +24,7 @@ def hourly_task():
     logger.info("Starting hourly task")
     try:
         save_regular_news()
+        clean_old_data()
         process_news_data()
         logger.info("Hourly task completed successfully")
     except Exception as e:
@@ -59,6 +35,7 @@ def daily_task():
     try:
         save_trending_news()
         save_regular_news()
+        clean_old_data()
         process_news_data()
         logger.info("Daily task completed successfully")
     except Exception as e:
@@ -82,6 +59,7 @@ def home():
 def trigger_regular():
     logger.info("Manual trigger for regular news initiated")
     save_regular_news()
+    clean_old_data()
     process_news_data()
     logger.info("Manual regular news processing completed")
     return jsonify({"status": "Regular news aggregation and processing triggered"})
@@ -91,6 +69,7 @@ def trigger_trending():
     logger.info("Manual trigger for trending news initiated")
     save_trending_news()
     save_regular_news()
+    clean_old_data()
     process_news_data()
     logger.info("Manual trending news processing completed")
     return jsonify({"status": "Trending news aggregation and processing triggered"})

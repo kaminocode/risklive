@@ -1,4 +1,6 @@
 import json
+import webbrowser
+
 import numpy as np
 import pandas as pd
 from typing import Callable, List, Union
@@ -10,7 +12,7 @@ from sklearn.metrics.pairwise import cosine_similarity
 import plotly.graph_objects as go
 import plotly.figure_factory as ff
 import plotly.express as px
-
+from plotly.subplots import make_subplots
 from bertopic._utils import validate_distance_matrix
 
 def get_visualize_hierarchy(topic_model,
@@ -367,22 +369,70 @@ def get_3d_time_plot(topics_over_time):
                     margin=dict(l=65, r=50, b=65, t=90))
     return fig
 
-def create_treemap(data):
+def map_nuclear(row):
+    if row['NewsCategory'] == "nuclear industry":
+        return "nuclear"
+    else:
+        return row['NewsCategory']
+
+
+def create_hyperlink(url):
+    return f'<a href="{url}" style="cursor: pointer" target="_blank" rel="noopener noreferrer">🔗</a>'
+
+
+def create_three_treemaps(data):
     data = data[data.topic!=-1]
-    fig = px.treemap(
-        data,
-        path=['AlertFlag', 'NewsCategory', 'topic', 'RelevantKeywords'],
-        color='AlertFlag',
-        color_discrete_map={'Red': 'red', 'Yellow': 'yellow', 'Green': 'green'},
-        title='News Articles Treemap'  # We'll override this with a custom title
-    )
+    data['NewsCategory'] = data.apply(map_nuclear, axis=1)
+    data['URL'] = data['URL'].apply(create_hyperlink)
+    # Ensure data is a DataFrame
+    if not isinstance(data, pd.DataFrame):
+        data = pd.DataFrame(data)
     
-    fig.update_traces(
-        hovertemplate='<b>%{label}</b><br>Count: %{value}<extra></extra>'
-    )
+    # Create separate dataframes for each alert level
+    alert_levels = ['Red', 'Yellow', 'Green']
+    dataframes = {level: data[data['AlertFlag'] == level] for level in alert_levels}
     
+    # Create a FigureWidget with 1 row and 3 columns
+    fig = go.FigureWidget(make_subplots(rows=1, cols=3, 
+                        column_widths=[0.5, 0.30, 0.20], 
+                        specs=[[{'type': 'treemap'}, {'type': 'treemap'}, {'type': 'treemap'}]],
+                        subplot_titles=("High Risk", "Medium Risk", "Low Risk"),
+                        horizontal_spacing=0.01))
+    
+    # Create and add each treemap to the subplot
+    for i, (level, df) in enumerate(dataframes.items(), start=1):
+        treemap = px.treemap(
+            df,
+            path=['AlertFlag', 'NewsCategory', 'topic', 'RelevantKeywords', 'URL', 'Title'],
+            color='AlertFlag',
+            color_discrete_map={'Red': 'red', 'Yellow': 'yellow', 'Green': 'green'},
+            custom_data=['URL']
+        )
+        
+        treemap.update_traces(
+            hovertemplate='<span style="font-size: 20px;"><b>%{label}</b><br>Count: %{value}<br>',
+            marker=dict(cornerradius=5),
+            textfont=dict(size=15)
+        )
+        
+        # Add the treemap to the main figure
+        for trace in treemap.data:
+            fig.add_trace(trace, row=1, col=i)
+
+    def on_click(trace, points, state):
+        if points.point_inds:
+            ind = points.point_inds[0]
+            url = trace.customdata[ind][0]
+            if url and url != 'nan':  # Check if URL is not empty or NaN
+                webbrowser.open_new_tab(url)
+
+    for trace in fig.data:
+        trace.on_click(on_click)
+    
+    # Update the layout of the main figure
     fig.update_layout(
-        margin=dict(t=80, l=25, r=25, b=25),  # Increased top margin for the title
+        height=600,
+        margin=dict(t=80, l=25, r=25, b=25),
         title={
             'text': '<b>News Article Risk Assessment</b><br><sup>Categorized by Alert Level, News Category, Topic, and Keywords</sup>',
             'y': 0.95,
@@ -391,19 +441,11 @@ def create_treemap(data):
             'yanchor': 'top',
             'font': {'size': 24, 'color': 'black'}
         },
-        annotations=[
-            dict(
-                text='Red: High Risk | Yellow: Medium Risk | Green: Low Risk',
-                showarrow=False,
-                xref='paper',
-                yref='paper',
-                x=0.5,
-                y=1.02,
-                xanchor='center',
-                yanchor='bottom',
-                font=dict(size=12)
-            )
-        ]
+        clickmode='event+select'
     )
+    
+    # Update subplot titles
+    for annotation in fig.layout.annotations:
+        annotation.font.update(size=14)
     
     return fig

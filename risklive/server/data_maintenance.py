@@ -4,8 +4,9 @@ from datetime import datetime, timedelta
 import logging
 import pytz
 from ..config import SAVE_DIR
+from ..utils.logging_config import setup_logging
 
-logger = logging.getLogger(__name__)
+logger = setup_logging(__name__)
 
 def clean_old_data(days_to_keep=3):
     try:
@@ -18,6 +19,7 @@ def clean_old_data(days_to_keep=3):
         total_removed = 0
         for filename in os.listdir(csv_dir):
             if filename.endswith('.csv'):
+                logger.info(f"Cleaning up {filename}")
                 file_path = os.path.join(csv_dir, filename)
                 backup_filename = f"{os.path.splitext(filename)[0]}.csv"
                 backup_file_path = os.path.join(backup_dir, backup_filename)
@@ -29,12 +31,14 @@ def clean_old_data(days_to_keep=3):
                 
                 df_new = df[df['Timestamp'] >= cutoff_date]
                 df_to_backup = df[df['Timestamp'] < cutoff_date]
+                curr_removed = len(df_to_backup)    
                 total_removed += len(df_to_backup)
                 df_new.to_csv(file_path, index=False)
                 if os.path.exists(backup_file_path):
                     backup_df = pd.read_csv(backup_file_path)
                     df_to_backup = pd.concat([backup_df, df_to_backup]).drop_duplicates()
                 df_to_backup.to_csv(backup_file_path, index=False)
+                logger.info(f"Cleanup completed for {filename}. Records removed: {curr_removed}")
                     
         logger.info(f"Cleanup completed. Total records removed: {total_removed}")
         return total_removed

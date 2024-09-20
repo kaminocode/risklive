@@ -2,7 +2,7 @@ import os
 import requests
 import pandas as pd
 from datetime import datetime
-from ..config import BING_API_KEY, CATEGORIES, QUERIES
+from risklive.config import BING_API_KEY, CATEGORIES, QUERIES
 import logging
 logger = logging.getLogger(__name__)
 

@@ -2,11 +2,12 @@ import os
 import yaml
 from dotenv import load_dotenv
 from pathlib import Path
-ROOT_DIR = Path(__file__).resolve().parent.parent.parent
+ROOT_DIR = Path(__file__).resolve().parent.parent
 
 def load_config(file_path=None):
     if not file_path:
         file_path = ROOT_DIR / 'config' / 'config.yml'
+        
     with open(file_path, 'r') as file:
         config = yaml.safe_load(file)
     return config
