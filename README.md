@@ -43,6 +43,53 @@ risklive/
 - `config/`: Configuration files
 - `.env`: Environment variables (not version controlled)
 
+## Installation
+
+You can install RiskLive using either `pip` with the `requirements.txt` file or by using `setup.py`. Choose the method that best suits your needs.
+
+### Method 1: Using requirements.txt
+
+1. Clone the repository:
+   ```
+   git clone https://github.com/yourusername/risklive.git
+   cd risklive
+   ```
+
+2. Create and activate a virtual environment (optional but recommended):
+   ```
+   python -m venv venv
+   source venv/bin/activate  # On Windows, use `venv\Scripts\activate`
+   ```
+
+3. Install the required packages:
+   ```
+   pip install -r requirements.txt
+   ```
+
+### Method 2: Using setup.py
+
+1. Clone the repository:
+   ```
+   git clone https://github.com/yourusername/risklive.git
+   cd risklive
+   ```
+
+2. Create and activate a virtual environment (optional but recommended):
+   ```
+   python -m venv venv
+   source venv/bin/activate  # On Windows, use `venv\Scripts\activate`
+   ```
+
+3. Install the package:
+   ```
+   pip install .
+   ```
+
+   Or, for development mode:
+   ```
+   pip install -e .
+   ```
+
 ## Configuration
 
 - `config/config.yml`: Main configuration file
