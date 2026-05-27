@@ -1,0 +1,17 @@
+{
+	auto_https off
+}
+
+:8888 {
+	encode gzip zstd
+
+	@ops path /ops /ops/* /api/ops /api/ops/*
+	basic_auth @ops bcrypt {
+		{$OPS_USER:opsadmin} $2a$14$siC0hN4BjhbndwQDjTUm0uV2g6IiBx6SUCV7UHWn8GjoXE0CVp2gi
+	}
+
+	@app path /trigger /trigger/* /health /healthz
+	reverse_proxy @app 127.0.0.1:5001
+
+	reverse_proxy 127.0.0.1:3000
+}

@@ -1,3 +1,4 @@
+"""© 2025 University of Aberdeen. All rights reserved"""
 import os
 import pickle
 import logging
@@ -9,7 +10,7 @@ from bertopic import BERTopic
 from ..config import SAVE_DIR
 from sentence_transformers import SentenceTransformer
 from sklearn.feature_extraction.text import CountVectorizer
-from .utils import get_visualize_hierarchy, get_3d_time_plot, create_three_treemaps
+from .utils import get_visualize_hierarchy, get_3d_time_plot, create_two_treemaps
 
 logger = logging.getLogger(__name__)
 
@@ -87,9 +88,19 @@ def save_and_visualize(topic_model, docs, df, embedding_model = "BAAI/bge-large-
     os.makedirs(model_dir, exist_ok=True)
     
     try:
-        df['topic'] = topic_model.topics_
-        num_topics = min(len(topic_model.get_topics()), 16)
-        fig1 = topic_model.visualize_barchart(topics=[i for i in range(0, num_topics)]).to_json()
+        df["topic"] = topic_model.topics_
+
+        # Get valid topic IDs (exclude -1 if you do not want the outlier topic)
+        all_topics = [t for t in topic_model.get_topics().keys() if t != -1]
+        all_topics = sorted(all_topics)
+
+        # Limit to at most 16 topics
+        selected_topics = all_topics[:16]
+        fig1 = topic_model.visualize_barchart(topics=selected_topics).to_json()
+
+        # df['topic'] = topic_model.topics_
+        # num_topics = min(len(topic_model.get_topics()), 16)
+        # fig1 = topic_model.visualize_barchart(topics=[i for i in range(0, num_topics)]).to_json()
         with open(os.path.join(images_dir, "barchart.json"), "w") as f:
             f.write(fig1)
         logging.debug("Barchart visualization saved.")
@@ -121,13 +132,13 @@ def save_and_visualize(topic_model, docs, df, embedding_model = "BAAI/bge-large-
             
         logging.debug("Hierarchy visualization saved.")
         
-        fig6 = get_3d_time_plot(topics_over_time)
-        with open(os.path.join(images_dir, "3d_time_plot.pkl"), 'wb') as f:
-            pickle.dump(fig6, f)
+        # fig6 = get_3d_time_plot(topics_over_time)
+        # with open(os.path.join(images_dir, "3d_time_plot.pkl"), 'wb') as f:
+        #     pickle.dump(fig6, f)
+        #
+        # logging.debug("3D time plot visualization saved.")
         
-        logging.debug("3D time plot visualization saved.")
-        
-        fig7 = create_three_treemaps(df)
+        fig7 = create_two_treemaps(df)
         with open(os.path.join(images_dir, "treemap.pkl"), 'wb') as f:
             pickle.dump(fig7, f)
             
@@ -155,5 +166,5 @@ def compute_topic_modeling(df, embedding_model_name="BAAI/bge-large-en-v1.5", co
         train_topic_model(topic_model, docs, embeddings)
         save_and_visualize(topic_model, docs, df, embedding_model=embedding_model_name)
     except Exception as e:
-        logging.error(f"Error during topic modeling: {e}")
+        logging.exception(f"Error during topic modeling: {e}")
         raise

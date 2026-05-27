@@ -1,27 +1,28 @@
+"""© 2025 University of Aberdeen. All rights reserved"""
 import os
 import pandas as pd
 from datetime import datetime
-from ..data_extraction import aggregate_regular_news, aggregate_trending_news
+from ..data_extraction import aggregate_regular_news
 from ..data_processing import process_df
-from ..topic_modeling import compute_topic_modeling
+from ..topic_modeling import compute_topic_modeling, get_report
 import logging
 from ..config import SAVE_DIR
 
 def save_trending_news():
     try:
         logging.info("Starting aggregation of trending news data")
-        _ = aggregate_trending_news(save_folder=SAVE_DIR["CSV_DATA_DIR"])
+        # _ = aggregate_trending_news(save_folder=SAVE_DIR["CSV_DATA_DIR"])
         logging.info("Trending news data aggregation completed successfully")
     except Exception as e:
         logging.error(f"Error during aggregation of trending news data: {e}")
 
-def save_regular_news():
+def save_regular_news(hours=1):
     try:
         logging.info("Starting aggregation of regular news data")
-        _ = aggregate_regular_news(save_folder=SAVE_DIR["CSV_DATA_DIR"])
+        _ = aggregate_regular_news(hours=hours,save_folder=SAVE_DIR["CSV_DATA_DIR"])
         logging.info("Regular news data aggregation completed successfully")
     except Exception as e:
-        logging.error(f"Error during aggregation of regular news data: {e}")
+        logging.exception(f"Error during aggregation of regular news data: {e}")
         
 def llm_info_extraction():
     try:
@@ -40,3 +41,11 @@ def compute_save_topic_model():
         logging.info("Topic modeling completed successfully")
     except Exception as e:
         logging.error(f"Error during topic modeling: {e}")
+
+def generate_report():
+    try:
+        logging.info("Starting generation of report")
+        _ = get_report()
+        logging.info("Report generation completed successfully")
+    except Exception as e:
+        logging.error(f"Error during report generation: {e}")

@@ -1,6 +1,7 @@
-from flask import Flask, jsonify
+"""© 2025 University of Aberdeen. All rights reserved"""
+from flask import Flask, jsonify, request
 from apscheduler.schedulers.background import BackgroundScheduler
-from .tasks import save_trending_news, save_regular_news, llm_info_extraction, compute_save_topic_model
+from .tasks import save_trending_news, save_regular_news, llm_info_extraction, compute_save_topic_model, generate_report
 from .data_maintenance import clean_old_data
 from ..config import CLEANUP_DAYS_TO_KEEP
 import logging
@@ -44,9 +45,10 @@ def daily_task():
 def start_scheduler():
     logger.info("Starting scheduler")
     scheduler = BackgroundScheduler()
-    scheduler.add_job(hourly_task, 'cron', hour='0-7,9-23')    
-    scheduler.add_job(daily_task, 'cron', hour=8)
-    scheduler.add_job(clean_old_data, 'cron', hour=7, minute=30, args=[CLEANUP_DAYS_TO_KEEP])
+    # scheduler.add_job(hourly_task, 'cron', hour='0-7,9-23')
+    scheduler.add_job(daily_task, 'cron', hour=7)
+    scheduler.add_job(generate_report, 'cron', hour=7, minute=30)
+    scheduler.add_job(clean_old_data, 'cron', hour=6, minute=30, args=[CLEANUP_DAYS_TO_KEEP])
     scheduler.start()
     logger.info("Scheduler started successfully")
 
@@ -55,14 +57,26 @@ def home():
     logger.info("Home route accessed")
     return jsonify({"status": "Server is running"})
 
-@app.route('/trigger/regular')
+# @app.route('/trigger/regular')
+# def trigger_regular():
+#     logger.info("Manual trigger for regular news initiated")
+#     save_regular_news()
+#     clean_old_data()
+#     process_news_data()
+#     logger.info("Manual regular news processing completed")
+#     return jsonify({"status": "Regular news aggregation and processing triggered"})
+
+@app.route("/trigger/regular")
 def trigger_regular():
-    logger.info("Manual trigger for regular news initiated")
-    save_regular_news()
+    hours = request.args.get("hours", default=1, type=int)  # one argument
+
+    logger.info("Manual trigger for regular news initiated (hours=%s)", hours)
+
+    save_regular_news(hours=hours)  # update function to accept it
     clean_old_data()
     process_news_data()
-    logger.info("Manual regular news processing completed")
-    return jsonify({"status": "Regular news aggregation and processing triggered"})
+
+    return jsonify({"status": "triggered", "hours": hours})
 
 @app.route('/trigger/trending')
 def trigger_trending():
@@ -85,10 +99,21 @@ def trigger_cleanup():
         logger.error(f"Error during manual data cleanup: {str(e)}", exc_info=True)
         return jsonify({"status": "Error during data cleanup", "error": str(e)}), 500
 
+@app.route('/trigger/generate_report')
+def trigger_generate_report():
+    logger.info("Manual trigger for report generation initiated")
+    generate_report()
+    logger.info("Manual report generation completed")
+    return jsonify({"status": "Report generation triggered"})
+
+@app.route('/health')
+def health():
+    return {'status': 'healthy'}, 200
+
 def main():
     logger.info("Starting the application")
     start_scheduler()
-    app.run(host='0.0.0.0', port=5000)
+    app.run(host='0.0.0.0', port=5001)
     logger.info("Application stopped")
 
 if __name__ == '__main__':
